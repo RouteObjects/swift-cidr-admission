@@ -5,10 +5,11 @@
 external allow/deny CIDR configuration into a compiled `IPAdmissionPolicy` that
 can be evaluated against `AnyIPAddress` values.
 
-It is application-level admission control. Use firewall rules, cloud security
-groups, load balancer ACLs, `pf`, `iptables`, or `nftables` first. Use this
-package for service-owned policy, defense in depth, local deployments, or
-auditable last checks inside a Swift server process.
+> [!IMPORTANT]
+> `CIDRAdmission` is application-level admission control. Use firewall rules, cloud security
+> groups, load balancer ACLs, `pf`, `iptables`, or `nftables` first. Use this
+> package for service-owned policy, [defense-in-depth](https://csrc.nist.gov/glossary/term/defense_in_depth), local deployments, or
+> auditable last checks inside a Swift server process.
 
 ## Package Dependency
 
