@@ -1,12 +1,15 @@
 //===----------------------------------------------------------------------===//
 //
-// This source file adapts SwiftNIO's NIOTCPEchoServer sample.
+// This source file is part of the swift-cidr-admission project.
+// Portions of this source file adapt SwiftNIO's NIOTCPEchoServer sample.
 //
+// Copyright (c) 2026 Craig A. Munro
 // Copyright (c) 2025 Apple Inc. and the SwiftNIO project authors
-// Licensed under Apache License v2.0
 //
-// See LICENSE.txt for license information
-// See CONTRIBUTORS.txt for the list of SwiftNIO project authors
+// Licensed under the Apache License, Version 2.0.
+// See the LICENSE file for details.
+//
+// See SwiftNIO's LICENSE.txt and CONTRIBUTORS.txt for upstream attribution.
 //
 // SPDX-License-Identifier: Apache-2.0
 //
