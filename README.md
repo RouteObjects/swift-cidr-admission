@@ -21,7 +21,7 @@ auditable last checks inside a Swift server process.
 ```
 
 `CIDRAdmission` depends only on `swift-cidr`. For SwiftNIO `SocketAddress`
-conversion, also import `CIDRNIO` from `swift-cidr-nio`.
+conversion, also import `CIDRNIO` from `swift-cidr`.
 
 ## Configuration
 
@@ -83,3 +83,7 @@ resulting address.
 
 - [Vapor](Documentation/Vapor.md)
 - [Hummingbird](Documentation/Hummingbird.md)
+
+## Executable Example
+
+- [NIOTCPEchoAdmissionServer](Documentation/NIOTCPEchoAdmissionServer.md)

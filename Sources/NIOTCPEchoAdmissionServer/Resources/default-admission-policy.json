@@ -1,0 +1,5 @@
+{
+  "defaultAction": "deny",
+  "allow": ["127.0.0.1/32"],
+  "deny": []
+}
