@@ -88,3 +88,18 @@ resulting address.
 ## Executable Example
 
 - [NIOTCPEchoAdmissionServer](Documentation/NIOTCPEchoAdmissionServer.md)
+
+## Benchmarking
+
+Benchmark tooling lives in the separate [Benchmarks](Benchmarks/README.md)
+package so `CIDRAdmission` users do not resolve benchmark-only dependencies.
+
+```bash
+./scripts/benchmarks.sh build
+./scripts/benchmarks.sh list
+./scripts/benchmarks.sh run --filter '^policy\.lookup\..*\.500$' --no-progress --time-units nanoseconds
+```
+
+The benchmark matrix measures the current allow/deny array scan behavior across
+policy sizes from `0` to `500` entries. Use those results as evidence before
+spending implementation time on a trie or another indexed lookup structure.
