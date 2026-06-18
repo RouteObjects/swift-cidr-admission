@@ -1,7 +1,7 @@
 # CIDRAdmission
 
 `CIDRAdmission` is a framework-neutral admission-policy package for
-[`swift-cidr`](../Example%20Framework/Packages/swift-cidr/README.md). It turns
+[`swift-cidr`](https://github.com/RouteObjects/swift-cidr). It turns
 external allow/deny CIDR configuration into a compiled `IPAdmissionPolicy` that
 can be evaluated against `AnyIPAddress` values.
 
@@ -14,10 +14,12 @@ can be evaluated against `AnyIPAddress` values.
 ## Package Dependency
 
 ```swift
-.package(path: "../swift-cidr-admission")
+.package(url: "https://github.com/RouteObjects/swift-cidr.git", from: "0.1.1"),
+.package(url: "https://github.com/RouteObjects/swift-cidr-admission.git", from: "0.1.0")
 ```
 
 ```swift
+.product(name: "CIDR", package: "swift-cidr"),
 .product(name: "CIDRAdmission", package: "swift-cidr-admission")
 ```
 
@@ -38,6 +40,10 @@ lists.
 ```
 
 `deny` rules win over overlapping `allow` rules.
+
+`0.0.0.0/0` means all IPv4 addresses, and `::/0` means all IPv6 addresses. To
+allow both address families, include both networks. Deny rules still win, so an
+allow-all policy can still carve out rejected ranges.
 
 ## Usage
 
@@ -93,7 +99,7 @@ resulting address.
 
 ## Executable Example
 
-- [NIOTCPEchoAdmissionServer](Documentation/NIOTCPEchoAdmissionServer.md)
+- [NIOTCPEchoAdmissionServer](Examples/NIOTCPEchoAdmissionServer/README.md)
 
 ## Benchmarking
 

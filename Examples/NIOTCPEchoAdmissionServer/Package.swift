@@ -16,29 +16,27 @@
 import PackageDescription
 
 let package = Package(
-    name: "swift-cidr-admission",
+    name: "swift-cidr-admission-nio-echo-example",
     platforms: [
-        .iOS(.v18),
         .macOS(.v15),
     ],
-    products: [
-        .library(name: "CIDRAdmission", targets: ["CIDRAdmission"]),
-    ],
     dependencies: [
+        .package(name: "swift-cidr-admission", path: "../.."),
         .package(url: "https://github.com/RouteObjects/swift-cidr.git", from: "0.1.1"),
+        .package(url: "https://github.com/apple/swift-nio.git", from: "2.100.0"),
     ],
     targets: [
-        .target(
-            name: "CIDRAdmission",
+        .executableTarget(
+            name: "NIOTCPEchoAdmissionServer",
             dependencies: [
+                .product(name: "CIDRAdmission", package: "swift-cidr-admission"),
                 .product(name: "CIDR", package: "swift-cidr"),
-            ]
-        ),
-        .testTarget(
-            name: "CIDRAdmissionTests",
-            dependencies: [
-                .product(name: "CIDR", package: "swift-cidr"),
-                "CIDRAdmission",
+                .product(name: "CIDRNIO", package: "swift-cidr"),
+                .product(name: "NIOCore", package: "swift-nio"),
+                .product(name: "NIOPosix", package: "swift-nio"),
+            ],
+            resources: [
+                .process("Resources"),
             ]
         ),
     ]

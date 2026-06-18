@@ -11,7 +11,7 @@ to its default `127.0.0.1` address.
 ## Run
 
 ```bash
-swift run NIOTCPEchoAdmissionServer
+swift run --package-path Examples/NIOTCPEchoAdmissionServer NIOTCPEchoAdmissionServer
 ```
 
 In another terminal:
@@ -45,7 +45,7 @@ cat >/tmp/ip-admission.json <<'JSON'
 }
 JSON
 
-swift run NIOTCPEchoAdmissionServer --policy /tmp/ip-admission.json
+swift run --package-path Examples/NIOTCPEchoAdmissionServer NIOTCPEchoAdmissionServer --policy /tmp/ip-admission.json
 ```
 
 The policy evaluates the immediate peer address from SwiftNIO's
@@ -68,7 +68,7 @@ cat >/tmp/deny-all-admission.json <<'JSON'
 }
 JSON
 
-swift run NIOTCPEchoAdmissionServer --policy /tmp/deny-all-admission.json
+swift run --package-path Examples/NIOTCPEchoAdmissionServer NIOTCPEchoAdmissionServer --policy /tmp/deny-all-admission.json
 ```
 
 In another terminal:

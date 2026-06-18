@@ -159,7 +159,7 @@ private struct ServerOptions: Sendable {
     var shouldPrintHelp = false
 
     static let usage = """
-        Usage: swift run NIOTCPEchoAdmissionServer [--host 127.0.0.1] [--port 8765] [--policy path]
+        Usage: swift run --package-path Examples/NIOTCPEchoAdmissionServer NIOTCPEchoAdmissionServer [--host 127.0.0.1] [--port 8765] [--policy path]
 
         Options:
           --host <host>      Bind address. Defaults to 127.0.0.1.

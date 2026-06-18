@@ -104,6 +104,45 @@ struct IPAdmissionPolicyTests {
         #expect(!policy.allows(address))
     }
 
+    @Test("IPv4 allow-all permits only IPv4 addresses")
+    func ipv4AllowAllIsFamilySpecific() throws {
+        let policy = IPAdmissionPolicy(
+            allow: [try #require(AnyIPNetwork("0.0.0.0/0"))]
+        )
+
+        #expect(policy.allows(try #require(AnyIPAddress("192.0.2.10"))))
+        #expect(!policy.allows(try #require(AnyIPAddress("2001:db8::1"))))
+    }
+
+    @Test("IPv6 allow-all permits only IPv6 addresses")
+    func ipv6AllowAllIsFamilySpecific() throws {
+        let policy = IPAdmissionPolicy(
+            allow: [try #require(AnyIPNetwork("::/0"))]
+        )
+
+        #expect(policy.allows(try #require(AnyIPAddress("2001:db8::1"))))
+        #expect(!policy.allows(try #require(AnyIPAddress("192.0.2.10"))))
+    }
+
+    @Test("Deny rules win over allow-all networks")
+    func denyWinsOverAllowAll() throws {
+        let policy = IPAdmissionPolicy(
+            allow: [
+                try #require(AnyIPNetwork("0.0.0.0/0")),
+                try #require(AnyIPNetwork("::/0")),
+            ],
+            deny: [
+                try #require(AnyIPNetwork("203.0.113.0/24")),
+                try #require(AnyIPNetwork("2001:db8:ffff::/48")),
+            ]
+        )
+
+        #expect(!policy.allows(try #require(AnyIPAddress("203.0.113.10"))))
+        #expect(!policy.allows(try #require(AnyIPAddress("2001:db8:ffff::1"))))
+        #expect(policy.allows(try #require(AnyIPAddress("198.51.100.10"))))
+        #expect(policy.allows(try #require(AnyIPAddress("2001:db8::1"))))
+    }
+
     @Test("Exact host networks match IPv4 and IPv6 addresses")
     func exactHostNetworksMatch() throws {
         let policy = IPAdmissionPolicy(
