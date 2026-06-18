@@ -50,6 +50,18 @@ Compile benchmarks measure configuration-to-policy construction:
 - `policy.compile.<family>.allowOnly.<size>`
 - `policy.compile.<family>.combined.<size>`
 
+## Results
+
+These results were measured on an Apple M1 Max running macOS 26.5.1 with Darwin
+`25.5.0 Darwin Kernel Version 25.5.0: Mon Apr 27 20:38:56 PDT 2026; root:xnu-12377.121.6~2/RELEASE_ARM64_T6000 arm64`.
+
+![IPAdmissionPolicy lookup p50 time by policy size](Results/lookup-time-p50.png)
+
+Lookup is exactly the expected linear array-scan shape, but the absolute cost is
+very small. At 500 entries, worst-case one-list scans are about `795 ns` for
+IPv4 and `955 ns` for IPv6. The combined deny-miss plus allow-last case is about
+`1.6 us` for IPv4 and `1.9 us` for IPv6.
+
 ## Reading Results
 
 `IPAdmissionPolicy` checks deny rules before allow rules. For an allow decision

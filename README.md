@@ -46,10 +46,16 @@ import CIDR
 import CIDRAdmission
 import Foundation
 
+enum ExampleError: Error {
+    case invalidAddress
+}
+
 let configURL = URL(fileURLWithPath: "/etc/my-service/ip-admission.json")
 let policy = try IPAdmissionPolicy(contentsOf: configURL)
 
-let address = AnyIPAddress("10.0.5.12")!
+guard let address = AnyIPAddress("10.0.5.12") else {
+    throw ExampleError.invalidAddress
+}
 
 if policy.allows(address) {
     // Continue with the request or connection.
