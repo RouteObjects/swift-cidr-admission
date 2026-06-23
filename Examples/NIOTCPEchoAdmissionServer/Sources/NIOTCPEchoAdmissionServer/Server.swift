@@ -38,6 +38,7 @@ struct Server {
             return
         }
 
+        // Integration point 1: Load the admission policy once at startup.
         let policy = try options.loadPolicy()
         let server = Server(
             host: options.host,
@@ -63,6 +64,7 @@ struct Server {
     func run() async throws {
         let channel = try await ServerBootstrap(group: eventLoopGroup)
             .serverChannelOption(.socketOption(.so_reuseaddr), value: 1)
+            // Integration point 2: Run admission in the accepted-channel initializer.
             .bind(host: host, port: port) { channel in
                 configureAcceptedChannel(channel)
             }
@@ -86,6 +88,7 @@ struct Server {
     private func configureAcceptedChannel(
         _ channel: Channel
     ) -> EventLoopFuture<NIOAsyncChannel<String, String>> {
+        // Integration point 3: Read the immediate peer before installing application handlers.
         guard let remoteAddress = channel.remoteAddress else {
             return close(
                 channel,
@@ -95,11 +98,12 @@ struct Server {
         }
 
         do {
+            // Integration point 4: Convert SwiftNIO's SocketAddress to swift-cidr's IP type.
             let address = try AnyIPAddress(socketAddress: remoteAddress)
             let decision = policy.decision(for: address)
 
             guard decision.isAllowed else {
-                // CHANGE: Admission runs once for the accepted peer before the byte-oriented handlers are installed.
+                // Integration point 5: Reject denied peers before the byte pipeline is installed.
                 return close(channel, rejecting: "\(address)", decision: decision.logDescription)
             }
 
@@ -112,6 +116,7 @@ struct Server {
             )
         }
 
+        // Integration point 6: Install the echo pipeline only after admission allows the peer.
         return channel.eventLoop.makeCompletedFuture {
             try channel.pipeline.syncOperations.addHandler(ByteToMessageHandler(NewlineDelimiterCoder()))
             try channel.pipeline.syncOperations.addHandler(MessageToByteHandler(NewlineDelimiterCoder()))
@@ -218,7 +223,7 @@ private struct ServerOptions: Sendable {
             throw ServerError.defaultPolicyResourceMissing
         }
 
-        // CHANGE: Keep the default policy in data so users can replace it with the same JSON shape.
+        // Keep the default policy in data so users can replace it with the same JSON shape.
         return try IPAdmissionPolicy(contentsOf: defaultPolicyURL)
     }
 }

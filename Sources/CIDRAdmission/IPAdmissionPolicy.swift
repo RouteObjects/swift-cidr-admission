@@ -161,7 +161,7 @@ public struct IPAdmissionPolicy: Sendable, Hashable {
 
     /// Compiles external configuration into typed CIDR networks.
     public init(configuration: IPAdmissionPolicyConfiguration) throws {
-        // CHANGE: parse policy text once at configuration load so admission checks only do typed containment.
+        // parse policy text once at configuration load so admission checks only do typed containment.
         self.init(
             allow: try Self.parse(configuration.allow, ruleSet: .allow),
             deny: try Self.parse(configuration.deny, ruleSet: .deny),
@@ -188,7 +188,7 @@ public struct IPAdmissionPolicy: Sendable, Hashable {
     /// Evaluates an address and returns the admission action plus reason.
     public func decision(for address: AnyIPAddress) -> AdmissionDecision {
         if let network = deny.first(where: { $0.contains(address) }) {
-            // CHANGE: deny rules win on overlap so admission policy fails closed.
+            // deny rules win on overlap so admission policy fails closed.
             return .deny(reason: .matched(ruleSet: .deny, network: network))
         }
 

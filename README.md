@@ -1,4 +1,7 @@
-# CIDRAdmission
+<h1 align="left">
+  <img src="Documentation/Assets/swift-cidr-admission.png" alt="swift-cidr-admission icon" width="75" height="75" valign="middle">
+  &nbsp;CIDRAdmission
+</h1>
 
 `CIDRAdmission` is a framework-neutral admission-policy package for
 [`swift-cidr`](https://github.com/RouteObjects/swift-cidr). It turns
@@ -97,9 +100,18 @@ resulting address.
 - [Vapor](Documentation/Vapor.md)
 - [Hummingbird](Documentation/Hummingbird.md)
 
-## Executable Example
+## Runnable SwiftNIO Example
 
-- [NIOTCPEchoAdmissionServer](Examples/NIOTCPEchoAdmissionServer/README.md)
+A runnable SwiftNIO echo server example lives in
+[Examples/NIOTCPEchoAdmissionServer](Examples/NIOTCPEchoAdmissionServer/README.md).
+It is nested so SwiftNIO stays out of the root package dependency graph while
+still giving users an immediate way to try connection admission locally.
+
+From the repository root:
+
+```bash
+swift run --package-path Examples/NIOTCPEchoAdmissionServer NIOTCPEchoAdmissionServer
+```
 
 ## Benchmarking
 

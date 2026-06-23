@@ -4,6 +4,9 @@
 SwiftNIO's echo server. It demonstrates connection-admission logic at the
 accepted-channel boundary before the echo pipeline is installed.
 
+The server source includes numbered `Integration point` comments that show the
+admission flow step by step for readers learning how to adapt the pattern.
+
 The bundled policy defaults to `defaultAction: "deny"` and allows only
 `127.0.0.1/32`, so local `nc` experiments work immediately when the server binds
 to its default `127.0.0.1` address.
