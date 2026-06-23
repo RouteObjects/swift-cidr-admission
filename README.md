@@ -125,5 +125,6 @@ package so `CIDRAdmission` users do not resolve benchmark-only dependencies.
 ```
 
 The benchmark matrix measures the current allow/deny array scan behavior across
-policy sizes from `0` to `500` entries. Use those results as evidence before
-spending implementation time on a trie or another indexed lookup structure.
+policy sizes from `0` to `500` entries. If real-world policies or user feedback
+show that lookup cost needs improvement, `CIDRAdmission` can move to a trie or
+another indexed lookup structure.
