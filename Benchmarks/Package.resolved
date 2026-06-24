@@ -1,13 +1,13 @@
 {
-  "originHash" : "e4f4bff84f21043db79fa8a379050372da5dba9015e0e289e41de488f6fbd802",
+  "originHash" : "1f3d0ec7b370db52ed470295dc795a0edc10067effae197f226752b0a31f3e84",
   "pins" : [
     {
       "identity" : "benchmark",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ordo-one/benchmark",
       "state" : {
-        "revision" : "595d8db7d9d612ecf256ebf659c20aeec338c5ca",
-        "version" : "1.34.1"
+        "revision" : "4b9ef5663e9c270419351a20392bf77b007f37f6",
+        "version" : "1.35.0"
       }
     },
     {
@@ -20,12 +20,12 @@
       }
     },
     {
-      "identity" : "package-jemalloc",
+      "identity" : "malloc-interposer",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ordo-one/package-jemalloc.git",
+      "location" : "https://github.com/ordo-one/malloc-interposer.git",
       "state" : {
-        "revision" : "e8a5db026963f5bfeac842d9d3f2cc8cde323b49",
-        "version" : "1.0.0"
+        "revision" : "8ce418ba70e494577fdc046be8c8ddb5216f16e5",
+        "version" : "1.3.1"
       }
     },
     {
