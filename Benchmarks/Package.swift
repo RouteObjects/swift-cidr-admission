@@ -25,7 +25,10 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "swift-cidr-admission", path: ".."),
-        .package(url: "https://github.com/RouteObjects/swift-cidr.git", from: "0.1.1"),
+        .package(
+            url: "https://github.com/RouteObjects/swift-cidr.git",
+            .upToNextMinor(from: "0.5.0")
+        ),
         .package(url: "https://github.com/ordo-one/benchmark", from: "1.35.0"),
     ],
     targets: [
@@ -38,8 +41,8 @@ let package = Package(
             ],
             path: "CIDRAdmissionBenchmarkTarget",
             plugins: [
-                .plugin(name: "BenchmarkPlugin", package: "benchmark"),
+                .plugin(name: "BenchmarkPlugin", package: "benchmark")
             ]
-        ),
+        )
     ]
 )

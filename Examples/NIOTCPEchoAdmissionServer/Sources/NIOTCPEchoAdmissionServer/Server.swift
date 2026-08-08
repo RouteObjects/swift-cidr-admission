@@ -38,7 +38,7 @@ struct Server {
             return
         }
 
-        // Integration point 1: Load the admission policy once at startup.
+        // Integration point 1: Load synchronously once at startup, before accepted-channel work.
         let policy = try options.loadPolicy()
         let server = Server(
             host: options.host,
@@ -216,10 +216,12 @@ private struct ServerOptions: Sendable {
             return try IPAdmissionPolicy(contentsOf: policyURL)
         }
 
-        guard let defaultPolicyURL = Bundle.module.url(
-            forResource: "default-admission-policy",
-            withExtension: "json"
-        ) else {
+        guard
+            let defaultPolicyURL = Bundle.module.url(
+                forResource: "default-admission-policy",
+                withExtension: "json"
+            )
+        else {
             throw ServerError.defaultPolicyResourceMissing
         }
 
@@ -265,11 +267,12 @@ private struct AdmissionRejected: Error, CustomStringConvertible {
     }
 }
 
-private extension AdmissionDecision {
-    var logDescription: String {
+extension AdmissionDecision {
+    fileprivate var logDescription: String {
         switch reason {
-        case .matched(let ruleSet, let network):
-            return "\(action) via \(ruleSet) rule \(network)"
+        case .matched(let ruleSet, let rule):
+            // CHANGE: Preserve whether the source diagnostic matched an address, network, or range.
+            return "\(action) via \(ruleSet) rule \(rule)"
         case .defaultAction:
             return "\(action) via default action"
         }

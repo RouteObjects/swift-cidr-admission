@@ -1,6 +1,15 @@
 {
-  "originHash" : "c503d1b48fa8c997373273b3499c60265347206109926180611943c42212d81c",
+  "originHash" : "e3e332667562262408e0b13e842b2d5fc2775ab608a4e1b91cd4b43415143b79",
   "pins" : [
+    {
+      "identity" : "swift-asn1",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-asn1.git",
+      "state" : {
+        "revision" : "a9a5efd40eaf558a2bcd48d64b1d1646be686008",
+        "version" : "1.7.1"
+      }
+    },
     {
       "identity" : "swift-atomics",
       "kind" : "remoteSourceControl",
@@ -15,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/RouteObjects/swift-cidr.git",
       "state" : {
-        "revision" : "1a9ba1b95b9462516cb65f43165c3049b21721d4",
-        "version" : "0.1.1"
+        "revision" : "fd5116cef64544dc1f2bab9e93de4e1a7bb57dbb",
+        "version" : "0.5.0"
       }
     },
     {
@@ -26,6 +35,15 @@
       "state" : {
         "revision" : "a0cb0954ecb21e4e31b0070e6ed5674e8556685a",
         "version" : "1.6.0"
+      }
+    },
+    {
+      "identity" : "swift-crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-crypto.git",
+      "state" : {
+        "revision" : "47d3869a7291f085c1fb9fb1e6d3b97a793f45c6",
+        "version" : "4.5.1"
       }
     },
     {

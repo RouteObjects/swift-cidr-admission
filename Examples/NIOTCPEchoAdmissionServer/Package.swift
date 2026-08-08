@@ -24,7 +24,10 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "swift-cidr-admission", path: "../.."),
-        .package(url: "https://github.com/RouteObjects/swift-cidr.git", from: "0.1.1"),
+        .package(
+            url: "https://github.com/RouteObjects/swift-cidr.git",
+            .upToNextMinor(from: "0.5.0")
+        ),
         .package(url: "https://github.com/apple/swift-nio.git", from: "2.100.0"),
     ],
     targets: [
@@ -38,8 +41,8 @@ let package = Package(
                 .product(name: "NIOPosix", package: "swift-nio"),
             ],
             resources: [
-                .process("Resources"),
+                .process("Resources")
             ]
-        ),
+        )
     ]
 )

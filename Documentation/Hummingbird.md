@@ -8,6 +8,7 @@ resolver into the middleware.
 ```swift
 import CIDRAdmission
 import CIDRNIO
+import Foundation
 import Hummingbird
 import NIOCore
 
@@ -32,6 +33,38 @@ struct IPAdmissionMiddleware<Context>: RouterMiddleware {
     }
 }
 ```
+
+Build the immutable policy before starting the application or event-loop group:
+
+```swift
+let files = IPAdmissionPolicyFileConfiguration(
+    checksumPolicy: .required,
+    defaultAction: .deny,
+    allowFile: URL(fileURLWithPath: "/etc/my-service/allow.txt"),
+    denyFile: URL(fileURLWithPath: "/etc/my-service/deny.txt")
+)
+let policy = try IPAdmissionPolicy(fileConfiguration: files)
+```
+
+The two inputs are independent, role-neutral RouteObjects IP List Text v1
+files. `.required` requires an exact detached `<list-path>.sha256` checksum for
+each configured list. `.verifyIfPresent` accepts a missing detached checksum
+file for development, but never accepts a present malformed or mismatched
+checksum file.
+SHA-256 supplies integrity, not producer authentication or file provenance.
+
+Loading is synchronous: it reads, verifies, parses, and indexes both roles
+before returning one immutable policy. Do that work at startup, not from
+`handle(_:context:next:)` or another event-loop-bound path. This file-backed
+list API accepts only local files and has no acquisition, watching, or hot
+reload behavior. The legacy single-JSON initializer retains Foundation
+URL-loading behavior for source compatibility; pass it a local file URL when
+an offline load is required, and never pass it an untrusted or request-derived
+URL.
+
+`allows(_:)` takes the indexed Boolean path. Use `decision(for:)` when detailed
+logging needs the first matching source `AdmissionRule` and its allow/deny
+role.
 
 Use this for immediate-peer admission, such as allowing only known ingress
 proxies, sidecars, load balancers, VPN ranges, or management networks.

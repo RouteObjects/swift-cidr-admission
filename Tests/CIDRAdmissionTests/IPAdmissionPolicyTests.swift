@@ -11,10 +11,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-import Foundation
-import Testing
 import CIDR
 import CIDRAdmission
+import Foundation
+import Testing
 
 @Suite("IP Admission Policy Tests")
 struct IPAdmissionPolicyTests {
@@ -69,7 +69,13 @@ struct IPAdmissionPolicyTests {
             return
         }
 
-        #expect(reason == .matched(ruleSet: .deny, network: try #require(AnyIPNetwork("10.0.5.13/32"))))
+        #expect(
+            reason
+                == .matched(
+                    ruleSet: .deny,
+                    rule: .network(try #require(AnyIPNetwork("10.0.5.13/32")))
+                )
+        )
     }
 
     @Test("Default deny rejects unmatched address")
@@ -160,13 +166,15 @@ struct IPAdmissionPolicyTests {
 
     @Test("JSON data decodes and compiles policy")
     func jsonDataConfiguration() throws {
-        let json = """
-        {
-          "defaultAction": "deny",
-          "allow": ["10.0.0.0/8", "2001:db8::/32"],
-          "deny": ["10.0.5.13/32"]
-        }
-        """.data(using: .utf8)!
+        let json = try #require(
+            """
+            {
+              "defaultAction": "deny",
+              "allow": ["10.0.0.0/8", "2001:db8::/32"],
+              "deny": ["10.0.5.13/32"]
+            }
+            """.data(using: .utf8)
+        )
 
         let policy = try IPAdmissionPolicy(jsonData: json)
 
@@ -179,11 +187,11 @@ struct IPAdmissionPolicyTests {
     @Test("JSON file URL decodes and compiles policy")
     func jsonFileConfiguration() throws {
         let json = """
-        {
-          "defaultAction": "allow",
-          "deny": ["203.0.113.0/24"]
-        }
-        """
+            {
+              "defaultAction": "allow",
+              "deny": ["203.0.113.0/24"]
+            }
+            """
         let url = URL(fileURLWithPath: NSTemporaryDirectory())
             .appendingPathComponent("cidr-admission-policy-\(UUID().uuidString).json")
         try json.write(to: url, atomically: true, encoding: .utf8)
@@ -208,5 +216,64 @@ struct IPAdmissionPolicyTests {
         } catch let error as IPAdmissionPolicyConfigurationError {
             #expect(error == .invalidNetwork(ruleSet: .deny, index: 0, value: "not-a-network"))
         }
+    }
+
+    @Test("Representation-aware rules preserve first-match diagnostics")
+    func representationAwareRulesPreserveSourceOrder() throws {
+        let firstDeny = try #require(AdmissionRule("192.0.2.0/24"))
+        let laterDeny = try #require(AdmissionRule("192.0.2.10"))
+        let policy = IPAdmissionPolicy(
+            allowRules: [try #require(AdmissionRule("192.0.2.1...192.0.2.20"))],
+            denyRules: [firstDeny, laterDeny]
+        )
+        let address = try #require(AnyIPAddress("192.0.2.10"))
+
+        #expect(!policy.allows(address))
+        #expect(
+            policy.decision(for: address)
+                == .deny(reason: .matched(ruleSet: .deny, rule: firstDeny))
+        )
+    }
+
+    @Test("Indexed allows agrees with detailed decisions across rule kinds")
+    func indexedAndDetailedDecisionsAgree() throws {
+        let policy = IPAdmissionPolicy(
+            allowRules: [
+                try #require(AdmissionRule("192.0.2.1")),
+                try #require(AdmissionRule("192.0.2.2...192.0.2.7")),
+                try #require(AdmissionRule("192.0.2.8/29")),
+                try #require(AdmissionRule("2001:db8::/126")),
+            ],
+            denyRules: [
+                try #require(AdmissionRule("192.0.2.5")),
+                try #require(AdmissionRule("2001:db8::2...2001:db8::3")),
+            ],
+            defaultAction: .deny
+        )
+        let samples = try [
+            "192.0.2.0",
+            "192.0.2.1",
+            "192.0.2.4",
+            "192.0.2.5",
+            "192.0.2.15",
+            "192.0.2.16",
+            "2001:db8::",
+            "2001:db8::2",
+            "2001:db8::4",
+        ].map { try #require(AnyIPAddress($0)) }
+
+        for address in samples {
+            #expect(policy.allows(address) == policy.decision(for: address).isAllowed)
+        }
+    }
+
+    @Test("Legacy network initializer projects networks into source rules")
+    func legacyInitializerRemainsAvailable() throws {
+        let allow = try #require(AnyIPNetwork("192.0.2.0/24"))
+        let deny = try #require(AnyIPNetwork("192.0.2.13/32"))
+        let policy = IPAdmissionPolicy(allow: [allow], deny: [deny])
+
+        #expect(policy.allow == [.network(allow)])
+        #expect(policy.deny == [.network(deny)])
     }
 }

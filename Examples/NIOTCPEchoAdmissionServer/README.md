@@ -51,6 +51,49 @@ JSON
 swift run --package-path Examples/NIOTCPEchoAdmissionServer NIOTCPEchoAdmissionServer --policy /tmp/ip-admission.json
 ```
 
+The example's small `--policy` option intentionally retains the legacy
+single-JSON path. An application using the file-policy API can replace the
+startup load with two independent, role-neutral RouteObjects IP List Text v1
+files:
+
+```swift
+let files = IPAdmissionPolicyFileConfiguration(
+    checksumPolicy: .required,
+    defaultAction: .deny,
+    allowFile: URL(fileURLWithPath: "/etc/my-service/allow.txt"),
+    denyFile: URL(fileURLWithPath: "/etc/my-service/deny.txt")
+)
+let policy = try IPAdmissionPolicy(fileConfiguration: files)
+```
+
+`.required` expects an exact detached `allow.txt.sha256` or `deny.txt.sha256`
+beside each configured list. `.verifyIfPresent` is useful for development when
+a detached checksum file may be absent, but any checksum file that exists must
+be valid and match the exact list bytes. SHA-256 provides integrity, not
+authenticity or provenance.
+
+This initializer performs synchronous file I/O, verification, parsing, and
+index construction. Keep it at startup, as this example does, and not in an
+accepted-channel initializer or on an event loop. `CIDRAdmission` does not
+download lists, watch files, or hot reload policy.
+
+To prepare the two files offline, run
+[`cidrmerge`](https://github.com/RouteObjects/cidrmerge) independently for the
+allow and deny roles:
+
+```bash
+cidrmerge --input-format searchbot --raw --representation ranges \
+  --checksum --output allow.txt saved-crawler-prefixes.json
+
+cidrmerge --input-format text --raw --representation ranges \
+  --checksum --output deny.txt blocked-prefixes.txt
+```
+
+The list bytes do not encode their role; the typed admission configuration does.
+At runtime, `allows(_:)` uses private exact-coverage indexes. The example calls
+`decision(for:)` so logs retain the first matching source `AdmissionRule`,
+including whether it was an address, network, or range.
+
 The policy evaluates the immediate peer address from SwiftNIO's
 `Channel.remoteAddress`. If the service is behind a proxy, load balancer, or
 ingress, the immediate peer is usually that infrastructure component. Client

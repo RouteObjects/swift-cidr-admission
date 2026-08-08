@@ -3,7 +3,8 @@
 This directory contains runnable examples for `swift-cidr-admission`.
 
 The root `CIDRAdmission` package is intentionally framework-neutral and depends
-only on `swift-cidr`. Examples that require additional frameworks live here as
+only on `swift-cidr` for IP/CIDR behavior and Swift Crypto for detached SHA-256
+verification. Examples that require additional frameworks live here as
 separate Swift packages so those dependencies do not become part of the root
 package dependency graph.
 

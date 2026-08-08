@@ -22,16 +22,25 @@ let package = Package(
         .macOS(.v15),
     ],
     products: [
-        .library(name: "CIDRAdmission", targets: ["CIDRAdmission"]),
+        .library(name: "CIDRAdmission", targets: ["CIDRAdmission"])
     ],
     dependencies: [
-        .package(url: "https://github.com/RouteObjects/swift-cidr.git", from: "0.1.1"),
+        .package(
+            url: "https://github.com/RouteObjects/swift-cidr.git",
+            .upToNextMinor(from: "0.5.0")
+        ),
+        .package(
+            url: "https://github.com/apple/swift-crypto.git",
+            .upToNextMajor(from: "4.5.1")
+        ),
     ],
     targets: [
         .target(
             name: "CIDRAdmission",
             dependencies: [
                 .product(name: "CIDR", package: "swift-cidr"),
+                // File-backed policy verifies exact deployed bytes before parsing them.
+                .product(name: "Crypto", package: "swift-crypto"),
             ]
         ),
         .testTarget(
