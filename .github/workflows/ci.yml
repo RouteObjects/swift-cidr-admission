@@ -46,6 +46,9 @@ jobs:
         run: swift build --package-path Examples/NIOTCPEchoAdmissionServer
 
       - name: Build benchmark target
+        # CHANGE: This is a compile check, so avoid Swift <= 6.2's optional jemalloc system dependency.
+        env:
+          BENCHMARK_DISABLE_JEMALLOC: "1"
         run: swift build --package-path Benchmarks -c release --target CIDRAdmissionBenchmarkTarget
 
       - name: Build CIDRAdmission for the iOS 18 simulator
@@ -82,4 +85,7 @@ jobs:
         run: swift build --package-path Examples/NIOTCPEchoAdmissionServer
 
       - name: Build benchmark target
+        # CHANGE: Swift 6.1 selects Benchmark's compatibility manifest, where jemalloc is optional.
+        env:
+          BENCHMARK_DISABLE_JEMALLOC: "1"
         run: swift build --package-path Benchmarks -c release --target CIDRAdmissionBenchmarkTarget
