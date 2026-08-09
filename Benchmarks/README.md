@@ -53,11 +53,11 @@ Compile benchmarks measure configuration-to-policy construction:
 - `policy.compile.<family>.allowOnly.<size>`
 - `policy.compile.<family>.combined.<size>`
 
-Gate 7 also measures file-backed policy construction at 500, 1,000, and
-10,000 rules. Range and CIDR artifacts cover the same independently generated
-network sets. `verifyIfPresent` uses no checksum file; `required` reads and
-verifies an exact detached SHA-256 checksum before parsing, so their difference
-shows the integrity-check overhead within the complete load path:
+The 0.2.0 matrix also measures file-backed policy construction at 500, 1,000,
+and 10,000 rules. Range and CIDR artifacts cover the same independently
+generated network sets. `verifyIfPresent` uses no checksum file; `required`
+reads and verifies an exact detached SHA-256 checksum before parsing, so their
+difference shows the integrity-check overhead within the complete load path:
 
 - `policy.load.<family>.<representation>.verifyIfPresent.<size>`
 - `policy.load.<family>.<representation>.required.<size>`
@@ -70,13 +70,13 @@ M1 Max running macOS 26.5.1 with Darwin
 
 ![IPAdmissionPolicy lookup p50 time by policy size](Results/lookup-time-p50.png)
 
-Those numbers describe the released 0.1 implementation, not the current indexed
+Those numbers describe the released 0.1 implementation, not the 0.2 indexed
 path. At 500 entries, that historical worst-case one-list scan was about
 `795 ns` for IPv4 and `955 ns` for IPv6; the combined deny-miss plus allow-last
 case was about `1.6 us` for IPv4 and `1.9 us` for IPv6. Do not infer current
 performance from the baseline chart.
 
-## Gate 7 Candidate Snapshot
+## 0.2.0 Snapshot
 
 The following p99 measurements were recorded on 2026-08-08 on an Apple M1 Max
 running macOS 26.6 and Swift 6.3.3. They are dated observations, not CI

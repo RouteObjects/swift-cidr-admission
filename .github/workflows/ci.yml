@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - "*.*.*"
   pull_request:
   workflow_dispatch:
 
@@ -17,14 +19,15 @@ concurrency:
 jobs:
   macos:
     name: macOS and iOS
-    # CHANGE: Exercise Swift Crypto's Apple implementation and the declared iOS floor on demand.
-    if: github.event_name == 'workflow_dispatch'
+    # CHANGE: Exercise Swift Crypto's Apple implementation and the declared iOS floor on demand
+    # and for every release tag, while keeping ordinary pull-request CI economical.
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
     runs-on: macos-15
     timeout-minutes: 20
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Toolchain versions
         run: |
@@ -49,12 +52,12 @@ jobs:
           swift build
           swift test
 
-      - name: Checkout cidrmerge Gate 7 candidate
-        uses: actions/checkout@v4
+      - name: Checkout cidrmerge 0.2.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: RouteObjects/cidrmerge
-          # CHANGE: Pin the reviewed producer commit until cidrmerge 0.2.0 is tagged.
-          ref: f4b22b7089ea7a51abbfdfc6eefecb95f008ae3c
+          # CHANGE: Pin the signed 0.2.0 release commit for immutable acceptance.
+          ref: 117b87b25ded47d5cc74e10e165c1bba8a94458f
           path: cidrmerge-pipeline
 
       - name: Run cidrmerge pipeline acceptance
@@ -91,7 +94,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Show Swift version
         run: swift --version
@@ -115,12 +118,12 @@ jobs:
       - name: Test root package
         run: swift test
 
-      - name: Checkout cidrmerge Gate 7 candidate
-        uses: actions/checkout@v4
+      - name: Checkout cidrmerge 0.2.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: RouteObjects/cidrmerge
-          # CHANGE: Pin the reviewed producer commit until cidrmerge 0.2.0 is tagged.
-          ref: f4b22b7089ea7a51abbfdfc6eefecb95f008ae3c
+          # CHANGE: Pin the signed 0.2.0 release commit for immutable acceptance.
+          ref: 117b87b25ded47d5cc74e10e165c1bba8a94458f
           path: cidrmerge-pipeline
 
       - name: Run cidrmerge pipeline acceptance

@@ -1,0 +1,209 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Semantic version to dry-run, without a leading v
+        required: true
+        default: 0.2.0
+        type: string
+  push:
+    tags:
+      - "*.*.*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: swift-cidr-admission-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  metadata:
+    name: Validate release metadata
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Validate version and signed release tag
+        id: version
+        env:
+          DISPATCH_VERSION: ${{ inputs.version }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
+            version="${GITHUB_REF_NAME}"
+          else
+            version="${DISPATCH_VERSION}"
+          fi
+
+          if [[ ! "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            printf 'Invalid release version: %s\n' "${version}" >&2
+            exit 1
+          fi
+
+          notes="Documentation/ReleaseNotes/${version}.md"
+          test -s "${notes}"
+          test "$(sed -n '1p' "${notes}")" = "# swift-cidr-admission ${version}"
+
+          if [[ "${GITHUB_EVENT_NAME}" == "push" ]]; then
+            tag_object="$(git rev-parse "${GITHUB_REF}^{tag}")" || {
+              printf 'Release tag must be annotated and signed: %s\n' "${version}" >&2
+              exit 1
+            }
+            verified="$(
+              gh api "repos/${GITHUB_REPOSITORY}/git/tags/${tag_object}" \
+                --jq '.verification.verified'
+            )"
+            if [[ "${verified}" != "true" ]]; then
+              printf 'GitHub did not verify the signature on tag %s.\n' "${version}" >&2
+              exit 1
+            fi
+
+            git fetch --no-tags origin main
+            tagged_commit="$(git rev-list -n 1 "${GITHUB_REF}")"
+            git merge-base --is-ancestor "${tagged_commit}" origin/main || {
+              printf 'Release tag %s is not reachable from origin/main.\n' "${version}" >&2
+              exit 1
+            }
+          fi
+
+          printf 'version=%s\n' "${version}" >>"${GITHUB_OUTPUT}"
+
+  release-gate:
+    name: Swift 6.1 release gate
+    needs: metadata
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    container:
+      image: swift:6.1.3-noble
+    defaults:
+      run:
+        working-directory: admission
+
+    steps:
+      - name: Checkout swift-cidr-admission
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: admission
+
+      - name: Checkout cidrmerge 0.2.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: RouteObjects/cidrmerge
+          # CHANGE: Pin the signed 0.2.0 release commit so the release gate does not
+          # depend on resolving an external mutable reference.
+          ref: 117b87b25ded47d5cc74e10e165c1bba8a94458f
+          path: cidrmerge
+
+      - name: Show Swift version
+        run: swift --version
+
+      - name: Run complete release gate
+        env:
+          CIDRMERGE_PACKAGE: ${{ github.workspace }}/cidrmerge
+          VERSION: ${{ needs.metadata.outputs.version }}
+          # CHANGE: Trust only the two exact hosted checkouts for Git inspection inside the
+          # container; avoid a persistent or wildcard safe.directory configuration.
+          GIT_CONFIG_COUNT: "2"
+          GIT_CONFIG_KEY_0: safe.directory
+          GIT_CONFIG_VALUE_0: ${{ github.workspace }}/admission
+          GIT_CONFIG_KEY_1: safe.directory
+          GIT_CONFIG_VALUE_1: ${{ github.workspace }}/cidrmerge
+        run: ./scripts/check-release.sh "${VERSION}"
+
+  draft-release:
+    name: Create draft GitHub Release
+    if: github.event_name == 'push'
+    needs: [metadata, release-gate]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout release notes
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Create or refresh draft Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.metadata.outputs.version }}
+        run: |
+          set -euo pipefail
+          notes="Documentation/ReleaseNotes/${VERSION}.md"
+          title="swift-cidr-admission ${VERSION}"
+
+          if gh release view "${VERSION}" --repo "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
+            is_draft="$(
+              gh release view "${VERSION}" \
+                --repo "${GITHUB_REPOSITORY}" \
+                --json isDraft \
+                --jq '.isDraft'
+            )"
+            if [[ "${is_draft}" != "true" ]]; then
+              printf 'Refusing to modify published release %s.\n' "${VERSION}" >&2
+              exit 1
+            fi
+            gh release edit "${VERSION}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --draft \
+              --latest \
+              --prerelease=false \
+              --title "${title}" \
+              --notes-file "${notes}"
+          else
+            gh release create "${VERSION}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --draft \
+              --latest \
+              --verify-tag \
+              --title "${title}" \
+              --notes-file "${notes}"
+          fi
+
+          test "$(
+            gh release view "${VERSION}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --json isDraft \
+              --jq '.isDraft'
+          )" = true
+          test "$(
+            gh release view "${VERSION}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --json isPrerelease \
+              --jq '.isPrerelease'
+          )" = false
+          test "$(
+            gh release view "${VERSION}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --json assets \
+              --jq '.assets | length'
+          )" -eq 0
+          test "$(
+            gh release view "${VERSION}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --json name \
+              --jq '.name'
+          )" = "${title}"
+
+          # CHANGE: GitHub may normalize Markdown line endings and the terminal newline. Compare
+          # normalized text while preserving all other reviewed Release-note content.
+          expected_notes_text="$(tr -d '\r' <"${notes}")"
+          actual_notes_text="$(
+            gh release view "${VERSION}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --json body \
+              --jq '.body' | tr -d '\r'
+          )"
+          test "${actual_notes_text}" = "${expected_notes_text}"

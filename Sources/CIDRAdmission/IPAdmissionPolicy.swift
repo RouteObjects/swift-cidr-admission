@@ -208,7 +208,7 @@ public struct IPAdmissionPolicy: Sendable, Hashable {
     /// Loads, decodes, and compiles JSON using Foundation URL-loading behavior.
     ///
     /// Do not pass an untrusted or user-controlled URL. Use ``init(fileConfiguration:)`` for the
-    /// local-only, integrity-verified list-file path.
+    /// local-only list-file path with an explicit checksum policy.
     public init(
         contentsOf url: URL,
         decoder: JSONDecoder = JSONDecoder()
@@ -216,11 +216,12 @@ public struct IPAdmissionPolicy: Sendable, Hashable {
         try self.init(configuration: IPAdmissionPolicyConfiguration.json(contentsOf: url, decoder: decoder))
     }
 
-    /// Synchronously loads, verifies, parses, and compiles separate allow and deny list files.
+    /// Synchronously loads, validates checksums, parses, and compiles separate allow and deny files.
     ///
     /// Construct file-backed policies away from server event loops. Each configured file is read
-    /// once; its exact bytes are verified before the same in-memory buffer is parsed. Both roles
-    /// must succeed before this initializer returns a policy.
+    /// once. When a checksum is required or present, its digest is matched against the exact bytes
+    /// before the same in-memory buffer is parsed. Both roles must succeed before this initializer
+    /// returns a policy.
     public init(fileConfiguration: IPAdmissionPolicyFileConfiguration) throws {
         let allowRules = try IPAdmissionPolicyRoleLoader.live.load(
             file: fileConfiguration.allowFile,
@@ -233,7 +234,7 @@ public struct IPAdmissionPolicy: Sendable, Hashable {
             checksumPolicy: fileConfiguration.checksumPolicy
         )
 
-        // Keep both roles temporary until every read, verification, and parse has passed;
+        // Keep both roles temporary until every read, required checksum validation, and parse passes;
         // a failure in the second role cannot expose a partially compiled policy.
         self.init(
             allowRules: allowRules,

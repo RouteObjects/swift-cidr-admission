@@ -20,8 +20,9 @@ The public-only Swift executable checks IPv4/IPv6 boundaries, deny-first
 decisions, omitted and explicit-empty roles, source-rule representation, and
 fixed-seed agreement between indexed `allows(_:)` and detailed
 `decision(for:)`. The shell layer also proves deterministic bytes, equivalent
-exact coverage, checksum failure classifications, atomic two-role failure, and
-that cidrmerge JSON is not the IP List Text v1 admission interchange.
+exact coverage, checksum failure classifications, fail-atomic two-role
+construction, and that cidrmerge JSON is not the IP List Text v1 admission
+interchange.
 
 All files are generated under a temporary directory. The acceptance path does
 not download vendor data or assign allow/deny roles inside `cidrmerge`.

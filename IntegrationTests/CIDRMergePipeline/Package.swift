@@ -28,7 +28,8 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(path: "../.."),
+        // Keep the local package identity stable in renamed release and CI checkouts.
+        .package(name: "swift-cidr-admission", path: "../.."),
         .package(
             url: "https://github.com/RouteObjects/swift-cidr.git",
             .upToNextMinor(from: "0.5.0")

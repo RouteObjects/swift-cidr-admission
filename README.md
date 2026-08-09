@@ -36,6 +36,38 @@ evaluated against `AnyIPAddress` values.
 detached SHA-256 verification. For SwiftNIO `SocketAddress` conversion, also
 import `CIDRNIO` from `swift-cidr`.
 
+## Migrating from 0.1
+
+`0.2.0` intentionally makes source-breaking changes where policy rules are
+exposed or matched:
+
+- `IPAdmissionPolicy.allow` and `.deny` change from `[AnyIPNetwork]` to
+  `[AdmissionRule]` so they can preserve address, network, and range inputs.
+- `AdmissionDecisionReason.matched(ruleSet:network:)` changes to
+  `.matched(ruleSet:rule:)`.
+
+The legacy `IPAdmissionPolicy(allow:deny:defaultAction:)` initializer still
+accepts `[AnyIPNetwork]`, and the JSON wire shape remains the same CIDR-only
+`defaultAction` / `allow` / `deny` document. Code that only constructs policies
+through those interfaces may not need source changes; code that reads the
+public rule arrays or pattern-matches detailed decisions must migrate.
+
+The 0.2 package also requires `swift-cidr` 0.5.x and adds Swift Crypto 4.x for
+detached SHA-256 validation. Consumers pinned to older `swift-cidr` releases
+must update their dependency requirements during migration.
+
+If a 0.1 consumer is not ready to migrate, keep its dependency pinned as:
+
+```swift
+.package(
+    url: "https://github.com/RouteObjects/swift-cidr-admission.git",
+    .upToNextMinor(from: "0.1.0")
+)
+```
+
+For a pre-1.0 package, that requirement excludes `0.2.0`. Change the lower
+bound to `0.2.0` only after reviewing the source migration above.
+
 ## Legacy JSON Configuration
 
 Policy is intended to come from deployment configuration, not hardcoded source
@@ -95,6 +127,28 @@ let fileConfiguration = IPAdmissionPolicyFileConfiguration(
 let policy = try IPAdmissionPolicy(fileConfiguration: fileConfiguration)
 ```
 
+The role assignment makes an explicit allowlist or blocklist equally small:
+
+```swift
+let allowlist = IPAdmissionPolicyFileConfiguration(
+    checksumPolicy: .required,
+    defaultAction: .deny,
+    allowFile: URL(fileURLWithPath: "/etc/my-service/allow.txt"),
+    denyFile: nil
+)
+
+let blocklist = IPAdmissionPolicyFileConfiguration(
+    checksumPolicy: .required,
+    defaultAction: .allow,
+    allowFile: nil,
+    denyFile: URL(fileURLWithPath: "/etc/my-service/deny.txt")
+)
+```
+
+An allowlist denies anything not explicitly allowed. A blocklist allows
+anything not explicitly denied. A policy may also configure both files; deny
+rules always take precedence.
+
 - `.required` requires a valid detached `<list-path>.sha256` file for every
   configured list. This is the production recommendation.
 - `.verifyIfPresent` permits a missing detached checksum file, but a present
@@ -107,15 +161,19 @@ Each detached checksum contains exactly one line:
 <64 lowercase hexadecimal SHA-256 digits><two spaces><list basename><LF>
 ```
 
-Admission hashes the exact deployed list bytes before parsing those same bytes;
-line endings and a final line feed therefore matter. Both roles are verified,
+When a checksum is required or present, Admission hashes the exact deployed
+list bytes before parsing those same bytes; line endings and a final line feed
+therefore matter. Both roles are read, conditionally checksum-validated,
 parsed, and compiled into temporary state, and no policy is returned unless
-both succeed. Each path is opened once, verified as a regular file, and read
+both succeed. Each path is opened once, checked as a regular file, and read
 through that same pinned descriptor; a symbolic link is accepted only when its
-opened target is regular. Detached checksum verification detects corruption or
-unexpected edits by detecting a mismatch. It does not authenticate the
-producer, prove file provenance, or bind the allow and deny files into one
-deployment generation.
+opened target is regular.
+
+A matching digest shows that the loaded bytes agree with the supplied checksum.
+It can detect accidental corruption or an uncoordinated edit only when the
+checksum itself arrives through a trusted channel. It does not detect a
+coordinated replacement of both files, authenticate the producer, prove file
+provenance, or bind the allow and deny files into one deployment generation.
 
 File loading is synchronous. Construct the policy during application startup
 or otherwise away from server event loops, then share the immutable policy with
@@ -124,6 +182,22 @@ URLs only and does not fetch, watch, or hot reload lists. The legacy JSON
 `contentsOf:` initializer retains Foundation URL-loading behavior for source
 compatibility; never pass it an untrusted or user-controlled URL, and use a
 local file URL when an offline load is required.
+
+### Security maturity and trust boundary
+
+The 0.2 release delivers maturity levels 1 through 4: separate allow/deny
+files, representation-aware auditable rules with private exact-coverage
+indexes, detached checksum verification, descriptor-pinned local reads, and
+all-or-nothing policy construction. Level 5 producer authenticity and Level 6
+runtime audit metrics/logging are deferred.
+
+A matching SHA-256 digest shows that the loaded bytes agree with the supplied
+checksum; the checksum still needs a trusted distribution channel. It does not
+detect coordinated replacement, authenticate who produced the files, or bind
+the allow and deny files to one deployment generation. Feed fetching, signature
+or provenance verification, deployment orchestration, file watching/hot reload,
+and audit metrics remain outside `CIDRAdmission` 0.2. Applications must
+establish those trust and lifecycle controls around policy construction.
 
 ### Offline cidrmerge pipeline
 
@@ -227,5 +301,5 @@ package so `CIDRAdmission` users do not resolve benchmark-only dependencies.
 
 The benchmark matrix covers policy sizes from `0` to `10,000` source rules.
 The checked-in chart records the 0.1 linear-scan baseline; the benchmark
-package README separately records the dated Gate 7 candidate measurements for
+package README separately records the dated 0.2.0 measurements for
 indexed lookup, detailed decisions, file loading, and checksum verification.

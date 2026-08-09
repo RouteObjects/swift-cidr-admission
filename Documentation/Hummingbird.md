@@ -51,13 +51,15 @@ files. `.required` requires an exact detached `<list-path>.sha256` checksum for
 each configured list. `.verifyIfPresent` accepts a missing detached checksum
 file for development, but never accepts a present malformed or mismatched
 checksum file.
-SHA-256 supplies integrity, not producer authentication or file provenance.
+A matching SHA-256 digest shows agreement with the supplied checksum; the
+checksum still requires trusted distribution and does not authenticate the
+producer or prove file provenance.
 
-Loading is synchronous: it reads, verifies, parses, and indexes both roles
-before returning one immutable policy. Do that work at startup, not from
-`handle(_:context:next:)` or another event-loop-bound path. This file-backed
-list API accepts only local files and has no acquisition, watching, or hot
-reload behavior. The legacy single-JSON initializer retains Foundation
+Loading is synchronous: it reads, validates any required or present checksum,
+parses, and indexes both roles before returning one immutable policy. Do that
+work at startup, not from `handle(_:context:next:)` or another event-loop-bound
+path. This file-backed list API accepts only local files and has no acquisition,
+watching, or hot reload behavior. The legacy single-JSON initializer retains Foundation
 URL-loading behavior for source compatibility; pass it a local file URL when
 an offline load is required, and never pass it an untrusted or request-derived
 URL.

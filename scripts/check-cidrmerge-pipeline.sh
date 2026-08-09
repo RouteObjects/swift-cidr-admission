@@ -36,7 +36,7 @@ repository_revision() {
     local repository
     local revision
     local status
-    # CHANGE: Canonicalize and trust only the repository inspected across container ownership.
+    # Canonicalize and trust only the repository inspected across container ownership.
     repository="$(CDPATH= cd -- "$1" && pwd -P)" || return 1
     revision="$(git -c safe.directory="${repository}" -C "${repository}" rev-parse HEAD)" || return 1
     status="$(git -c safe.directory="${repository}" -C "${repository}" \
@@ -71,8 +71,8 @@ deny_source="${temporary_directory}/deny-source.txt"
 
 # Exercise the producer's initial BOM, CRLF, comments, address, network, range,
 # overlap, adjacency, normalization, and mixed-family input handling in one seam fixture.
-printf '%b' '\357\273\277# Gate 7 allow fixture\r\n192.0.2.1\r\n192.0.2.2...192.0.2.6\r\n192.0.2.7/32\r\n192.0.2.4/31 # contained overlap\r\n192.0.2.250\r\n198.51.100.190/26\r\n198.51.100.160...198.51.100.191\r\n2001:db8::1\r\n2001:db8::2...2001:db8::6\r\n2001:db8::7/128\r\n2001:db8::4/126\r\n2001:db8:1::2/126\r\n2001:db8:abcd::42\r\n' >"${allow_source}"
-printf '%b' '\357\273\277# Gate 7 deny fixture\r\n192.0.2.3\r\n192.0.2.4...192.0.2.5\r\n192.0.2.6/32\r\n192.0.2.4/31 # contained overlap\r\n203.0.113.65/30\r\n203.0.113.250\r\n2001:db8::3\r\n2001:db8::4...2001:db8::5\r\n2001:db8::6/128\r\n2001:db8::4/127\r\n2001:db8:eeee::42\r\n2001:db8:ffff::1/127\r\n' >"${deny_source}"
+printf '%b' '\357\273\277# 0.2.0 allow fixture\r\n192.0.2.1\r\n192.0.2.2...192.0.2.6\r\n192.0.2.7/32\r\n192.0.2.4/31 # contained overlap\r\n192.0.2.250\r\n198.51.100.190/26\r\n198.51.100.160...198.51.100.191\r\n2001:db8::1\r\n2001:db8::2...2001:db8::6\r\n2001:db8::7/128\r\n2001:db8::4/126\r\n2001:db8:1::2/126\r\n2001:db8:abcd::42\r\n' >"${allow_source}"
+printf '%b' '\357\273\277# 0.2.0 deny fixture\r\n192.0.2.3\r\n192.0.2.4...192.0.2.5\r\n192.0.2.6/32\r\n192.0.2.4/31 # contained overlap\r\n203.0.113.65/30\r\n203.0.113.250\r\n2001:db8::3\r\n2001:db8::4...2001:db8::5\r\n2001:db8::6/128\r\n2001:db8::4/127\r\n2001:db8:eeee::42\r\n2001:db8:ffff::1/127\r\n' >"${deny_source}"
 
 for representation in ranges cidr; do
     mkdir -p "${temporary_directory}/${representation}" "${temporary_directory}/repeat-${representation}"
@@ -222,7 +222,7 @@ mkdir -p "${atomic_directory}"
 "${cidrmerge_binary}" --raw --representation ranges --checksum \
     --output "${atomic_directory}/deny.txt" "${deny_source}"
 expected_deny_digest="$(cut -c 1-64 <"${atomic_directory}/deny.txt.sha256")"
-# CHANGE: The mutation is also invalid IP List Text, proving checksum verification wins before parsing.
+# The mutation is also invalid IP List Text, proving checksum verification wins before parsing.
 printf 'not-an-ip-rule\n' >>"${atomic_directory}/deny.txt"
 actual_deny_digest="$(sha256_file "${atomic_directory}/deny.txt")"
 "${acceptance_binary}" expect-failure checksum-digest-mismatch deny \
@@ -252,4 +252,4 @@ printf 'artifact SHA-256: ranges allow=%s deny=%s; cidr allow=%s deny=%s\n' \
     "$(cut -c 1-64 <"${deny_ranges}.sha256")" \
     "$(cut -c 1-64 <"${allow_cidr}.sha256")" \
     "$(cut -c 1-64 <"${deny_cidr}.sha256")"
-printf 'Gate 7 cidrmerge/admission pipeline acceptance passed.\n'
+printf 'cidrmerge/admission 0.2.0 pipeline acceptance passed.\n'

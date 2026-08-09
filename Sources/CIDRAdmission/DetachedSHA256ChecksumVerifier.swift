@@ -219,7 +219,7 @@ private struct POSIXFileAccessError: Error, Sendable, LocalizedError {
     }
 }
 
-/// Loads one optional allow or deny role, verifying the exact source bytes before parsing them.
+/// Loads one optional allow or deny role, validating any required or present checksum before parsing.
 struct IPAdmissionPolicyRoleLoader: Sendable {
     static let live = Self(fileAccess: .live)
 
@@ -248,8 +248,8 @@ struct IPAdmissionPolicyRoleLoader: Sendable {
             ruleSet: ruleSet,
             policy: checksumPolicy
         ) {
-            // Integrity is established over the single buffered source read before any
-            // source token is parsed or made available to policy construction.
+            // CMatch the supplied digest against the single buffered source read before
+            // parsing, without implying that an unkeyed digest authenticates the source.
             try DetachedSHA256ChecksumVerifier.verify(
                 sourceData: sourceData,
                 sourcePath: sourcePath,

@@ -69,13 +69,14 @@ let policy = try IPAdmissionPolicy(fileConfiguration: files)
 `.required` expects an exact detached `allow.txt.sha256` or `deny.txt.sha256`
 beside each configured list. `.verifyIfPresent` is useful for development when
 a detached checksum file may be absent, but any checksum file that exists must
-be valid and match the exact list bytes. SHA-256 provides integrity, not
-authenticity or provenance.
+be valid and match the exact list bytes. A matching SHA-256 digest shows
+agreement with the supplied checksum; it does not authenticate the producer or
+prove provenance, and the checksum still needs trusted distribution.
 
-This initializer performs synchronous file I/O, verification, parsing, and
-index construction. Keep it at startup, as this example does, and not in an
-accepted-channel initializer or on an event loop. `CIDRAdmission` does not
-download lists, watch files, or hot reload policy.
+This initializer performs synchronous file I/O, validation of any required or
+present checksum, parsing, and index construction. Keep it at startup, as this
+example does, and not in an accepted-channel initializer or on an event loop.
+`CIDRAdmission` does not download lists, watch files, or hot reload policy.
 
 To prepare the two files offline, run
 [`cidrmerge`](https://github.com/RouteObjects/cidrmerge) independently for the

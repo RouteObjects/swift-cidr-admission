@@ -27,7 +27,7 @@ private struct PolicyFamilyFixture {
 }
 
 private let policySizes = [0, 1, 10, 50, 100, 250, 500, 1_000, 10_000]
-private let gate7PolicySizes = [500, 1_000, 10_000]
+private let filePolicySizes = [500, 1_000, 10_000]
 private let maximumPolicySize = policySizes.max() ?? 0
 
 @MainActor
@@ -233,10 +233,10 @@ let benchmarks = {
         registerCompileBenchmarks(for: fixture)
     }
 
-    // CHANGE: File-backed measurements use stable generated artifacts so Gate 7 can compare
+    // CHANGE: File-backed measurements use stable artifacts to compare
     // parsing/index construction with and without required checksum verification.
     let fileFixtureStore = try! FilePolicyBenchmarkFixtureStore(
-        sizes: gate7PolicySizes
+        sizes: filePolicySizes
     )
     for fixture in fileFixtureStore.fixtures {
         Benchmark(

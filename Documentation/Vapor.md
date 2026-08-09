@@ -50,11 +50,12 @@ Use `.verifyIfPresent` only when development should permit a missing detached
 checksum file; any checksum file that is present must still be valid and match
 the exact list bytes.
 
-The file initializer performs synchronous file I/O, checksum verification,
-parsing, and index construction. Call it once during application startup, not
-from `respond(to:chainingTo:)` or another event-loop-bound request path. This
-file-backed list API accepts only local files and does not download, watch, or
-hot reload them. The legacy single-JSON `IPAdmissionPolicy(contentsOf:)`
+The file initializer performs synchronous file I/O, validation of any required
+or present checksum, parsing, and index construction. Call it once during
+application startup, not from `respond(to:chainingTo:)` or another
+event-loop-bound request path. This file-backed list API accepts only local
+files and does not download, watch, or hot reload them. The legacy single-JSON
+`IPAdmissionPolicy(contentsOf:)`
 initializer retains Foundation URL-loading behavior for source compatibility;
 never pass it an untrusted or request-derived URL, and use a local file URL when
 an offline load is required.
