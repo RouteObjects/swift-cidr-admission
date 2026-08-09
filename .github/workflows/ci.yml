@@ -35,9 +35,9 @@ jobs:
         run: |
           swift package resolve
           swift package --package-path IntegrationTests/CIDRMergePipeline resolve
-          git diff --exit-code -- \
-            Package.resolved \
-            IntegrationTests/CIDRMergePipeline/Package.resolved
+          # CHANGE: Verify independently so Git cannot pair distinct lock files as a rename.
+          git diff --exit-code -- Package.resolved
+          git diff --exit-code -- IntegrationTests/CIDRMergePipeline/Package.resolved
 
       - name: Build and test root package
         run: |
@@ -95,9 +95,9 @@ jobs:
         run: |
           swift package resolve
           swift package --package-path IntegrationTests/CIDRMergePipeline resolve
-          git diff --exit-code -- \
-            Package.resolved \
-            IntegrationTests/CIDRMergePipeline/Package.resolved
+          # CHANGE: Verify independently so Git cannot pair distinct lock files as a rename.
+          git diff --exit-code -- Package.resolved
+          git diff --exit-code -- IntegrationTests/CIDRMergePipeline/Package.resolved
 
       - name: Build root package
         run: swift build
