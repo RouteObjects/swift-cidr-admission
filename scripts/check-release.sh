@@ -137,9 +137,19 @@ swift test -c release
 
 CIDRMERGE_PACKAGE="${CIDRMERGE_PACKAGE}" "${SCRIPT_DIR}/check-cidrmerge-pipeline.sh"
 swift build --package-path Examples/NIOTCPEchoAdmissionServer
+
+# CHANGE: Benchmark 1.35 exposes different dependency manifests to Swift 6.1 and 6.3.
+# Build a tracked snapshot so Swift 6.1 can normalize its nested lock without changing
+# the canonical Swift 6.3 lock in the reviewed release checkout.
+benchmark_package_root="${release_temporary_directory}/benchmark-package"
+mkdir -p "${benchmark_package_root}"
+git archive --format=tar HEAD | tar -xf - -C "${benchmark_package_root}"
 BENCHMARK_DISABLE_MALLOC_INTERPOSER=1 \
     BENCHMARK_DISABLE_JEMALLOC=1 \
-    swift build --package-path Benchmarks -c release --target CIDRAdmissionBenchmarkTarget
+    swift build \
+        --package-path "${benchmark_package_root}/Benchmarks" \
+        -c release \
+        --target CIDRAdmissionBenchmarkTarget
 
 symbol_graph_directory="${release_temporary_directory}/symbol-graphs"
 mkdir -p "${symbol_graph_directory}"
@@ -202,7 +212,10 @@ Linux)
 esac
 
 git diff --check
-[[ -z "$(git status --short)" ]] ||
+final_status="$(git status --short)"
+if [[ -n "${final_status}" ]]; then
+    printf '%s\n' "${final_status}" >&2
     fail "Release checks changed the working tree."
+fi
 
 printf 'swift-cidr-admission %s release checks passed.\n' "${VERSION}"
