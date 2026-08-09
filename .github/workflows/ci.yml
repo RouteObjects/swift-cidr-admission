@@ -31,23 +31,39 @@ jobs:
           swift --version
           xcodebuild -version
 
-      - name: Resolve dependencies
-        run: swift package resolve
-
-      - name: Verify locked resolution
-        run: git diff --exit-code -- Package.resolved
+      - name: Resolve and verify root and pipeline locks
+        run: |
+          swift package resolve
+          swift package --package-path IntegrationTests/CIDRMergePipeline resolve
+          git diff --exit-code -- \
+            Package.resolved \
+            IntegrationTests/CIDRMergePipeline/Package.resolved
 
       - name: Build and test root package
         run: |
           swift build
           swift test
 
+      - name: Checkout cidrmerge Gate 7 candidate
+        uses: actions/checkout@v4
+        with:
+          repository: RouteObjects/cidrmerge
+          # CHANGE: Pin the reviewed producer commit until cidrmerge 0.2.0 is tagged.
+          ref: f4b22b7089ea7a51abbfdfc6eefecb95f008ae3c
+          path: cidrmerge-pipeline
+
+      - name: Run cidrmerge pipeline acceptance
+        env:
+          CIDRMERGE_PACKAGE: ${{ github.workspace }}/cidrmerge-pipeline
+        run: ./scripts/check-cidrmerge-pipeline.sh
+
       - name: Build SwiftNIO echo example
         run: swift build --package-path Examples/NIOTCPEchoAdmissionServer
 
       - name: Build benchmark target
-        # CHANGE: This is a compile check, so avoid Swift <= 6.2's optional jemalloc system dependency.
+        # CHANGE: This is a compile check, so skip Benchmark's optional allocation interposer.
         env:
+          BENCHMARK_DISABLE_MALLOC_INTERPOSER: "1"
           BENCHMARK_DISABLE_JEMALLOC: "1"
         run: swift build --package-path Benchmarks -c release --target CIDRAdmissionBenchmarkTarget
 
@@ -75,17 +91,40 @@ jobs:
       - name: Show Swift version
         run: swift --version
 
+      - name: Resolve and verify root and pipeline locks
+        run: |
+          swift package resolve
+          swift package --package-path IntegrationTests/CIDRMergePipeline resolve
+          git diff --exit-code -- \
+            Package.resolved \
+            IntegrationTests/CIDRMergePipeline/Package.resolved
+
       - name: Build root package
         run: swift build
 
       - name: Test root package
         run: swift test
 
+      - name: Checkout cidrmerge Gate 7 candidate
+        uses: actions/checkout@v4
+        with:
+          repository: RouteObjects/cidrmerge
+          # CHANGE: Pin the reviewed producer commit until cidrmerge 0.2.0 is tagged.
+          ref: f4b22b7089ea7a51abbfdfc6eefecb95f008ae3c
+          path: cidrmerge-pipeline
+
+      - name: Run cidrmerge pipeline acceptance
+        env:
+          CIDRMERGE_PACKAGE: ${{ github.workspace }}/cidrmerge-pipeline
+        run: ./scripts/check-cidrmerge-pipeline.sh
+
       - name: Build SwiftNIO echo example
         run: swift build --package-path Examples/NIOTCPEchoAdmissionServer
 
       - name: Build benchmark target
-        # CHANGE: Swift 6.1 selects Benchmark's compatibility manifest, where jemalloc is optional.
+        # CHANGE: Swift 6.1 selects Benchmark's compatibility manifest; the current opt-out is
+        # paired with that manifest's legacy jemalloc opt-out.
         env:
+          BENCHMARK_DISABLE_MALLOC_INTERPOSER: "1"
           BENCHMARK_DISABLE_JEMALLOC: "1"
         run: swift build --package-path Benchmarks -c release --target CIDRAdmissionBenchmarkTarget

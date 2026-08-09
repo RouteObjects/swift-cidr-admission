@@ -225,6 +225,7 @@ package so `CIDRAdmission` users do not resolve benchmark-only dependencies.
 ./scripts/benchmarks.sh run --filter '^policy\.lookup\..*\.500$' --no-progress --time-units nanoseconds
 ```
 
-The benchmark matrix covers policy sizes from `0` to `500` source rules. The
-checked-in chart records the 0.1 linear-scan baseline; Gate 7 will record the
-file-policy and indexed-lookup measurements after cross-package acceptance.
+The benchmark matrix covers policy sizes from `0` to `10,000` source rules.
+The checked-in chart records the 0.1 linear-scan baseline; the benchmark
+package README separately records the dated Gate 7 candidate measurements for
+indexed lookup, detailed decisions, file loading, and checksum verification.

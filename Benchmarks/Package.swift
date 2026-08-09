@@ -29,6 +29,10 @@ let package = Package(
             url: "https://github.com/RouteObjects/swift-cidr.git",
             .upToNextMinor(from: "0.5.0")
         ),
+        .package(
+            url: "https://github.com/apple/swift-crypto.git",
+            .upToNextMajor(from: "4.5.1")
+        ),
         .package(url: "https://github.com/ordo-one/benchmark", from: "1.35.0"),
     ],
     targets: [
@@ -37,6 +41,8 @@ let package = Package(
             dependencies: [
                 .product(name: "CIDRAdmission", package: "swift-cidr-admission"),
                 .product(name: "CIDR", package: "swift-cidr"),
+                // CHANGE: Benchmark-only fixture generation writes valid detached checksums.
+                .product(name: "Crypto", package: "swift-crypto"),
                 .product(name: "Benchmark", package: "benchmark"),
             ],
             path: "CIDRAdmissionBenchmarkTarget",

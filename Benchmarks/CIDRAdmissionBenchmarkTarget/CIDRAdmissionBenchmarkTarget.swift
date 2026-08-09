@@ -26,7 +26,8 @@ private struct PolicyFamilyFixture {
     let denyAddresses: [AnyIPAddress]
 }
 
-private let policySizes = [0, 1, 10, 50, 100, 250, 500]
+private let policySizes = [0, 1, 10, 50, 100, 250, 500, 1_000, 10_000]
+private let gate7PolicySizes = [500, 1_000, 10_000]
 private let maximumPolicySize = policySizes.max() ?? 0
 
 @MainActor
@@ -47,16 +48,40 @@ let benchmarks = {
         .init(
             metrics: metrics,
             warmupIterations: 3,
-            scalingFactor: .mega,
+            // CHANGE: Gapped 10k-rule indexes make a million-call batch exceed the complete
+            // sampling window; one thousand calls retains amortization and yields many samples.
+            scalingFactor: .kilo,
             maxDuration: .seconds(2)
         )
     }
 
-    func compileConfiguration() -> Benchmark.Configuration {
+    func decisionConfiguration() -> Benchmark.Configuration {
+        .init(
+            metrics: metrics,
+            warmupIterations: 3,
+            // CHANGE: Detailed scans scale with rule count; one million calls makes a 10k-rule
+            // sample indivisible for tens of seconds and defeats maxDuration.
+            scalingFactor: .kilo,
+            maxDuration: .seconds(2)
+        )
+    }
+
+    func compileConfiguration(size: Int) -> Benchmark.Configuration {
         .init(
             metrics: metrics,
             warmupIterations: 2,
-            scalingFactor: .kilo,
+            // CHANGE: Let maxDuration control large construction cases between single-policy
+            // samples instead of forcing one thousand 10k-rule policies per sample.
+            scalingFactor: size >= 1_000 ? .one : .kilo,
+            maxDuration: .seconds(2)
+        )
+    }
+
+    func fileLoadConfiguration() -> Benchmark.Configuration {
+        .init(
+            metrics: metrics,
+            warmupIterations: 1,
+            scalingFactor: .one,
             maxDuration: .seconds(2)
         )
     }
@@ -159,6 +184,15 @@ let benchmarks = {
                     blackHole(combinedPolicy.allows(lastAllowAddress))
                 }
             }
+
+            Benchmark(
+                "policy.decision.\(fixture.name).combined.denyMissAllowLast.\(size)",
+                configuration: decisionConfiguration()
+            ) { benchmark in
+                for _ in benchmark.scaledIterations {
+                    blackHole(combinedPolicy.decision(for: lastAllowAddress).isAllowed)
+                }
+            }
         }
     }
 
@@ -174,7 +208,7 @@ let benchmarks = {
 
             Benchmark(
                 "policy.compile.\(fixture.name).allowOnly.\(size)",
-                configuration: compileConfiguration()
+                configuration: compileConfiguration(size: size)
             ) { benchmark in
                 for _ in benchmark.scaledIterations {
                     let policy = try! IPAdmissionPolicy(configuration: allowOnlyConfiguration)
@@ -184,7 +218,7 @@ let benchmarks = {
 
             Benchmark(
                 "policy.compile.\(fixture.name).combined.\(size)",
-                configuration: compileConfiguration()
+                configuration: compileConfiguration(size: size)
             ) { benchmark in
                 for _ in benchmark.scaledIterations {
                     let policy = try! IPAdmissionPolicy(configuration: combinedConfiguration)
@@ -198,6 +232,31 @@ let benchmarks = {
         registerLookupBenchmarks(for: fixture)
         registerCompileBenchmarks(for: fixture)
     }
+
+    // CHANGE: File-backed measurements use stable generated artifacts so Gate 7 can compare
+    // parsing/index construction with and without required checksum verification.
+    let fileFixtureStore = try! FilePolicyBenchmarkFixtureStore(
+        sizes: gate7PolicySizes
+    )
+    for fixture in fileFixtureStore.fixtures {
+        Benchmark(
+            "policy.load.\(fixture.family).\(fixture.representation).verifyIfPresent.\(fixture.ruleCount)",
+            configuration: fileLoadConfiguration()
+        ) { benchmark in
+            for _ in benchmark.scaledIterations {
+                blackHole(try! fixture.load(checksumPolicy: .verifyIfPresent).allow.count)
+            }
+        }
+
+        Benchmark(
+            "policy.load.\(fixture.family).\(fixture.representation).required.\(fixture.ruleCount)",
+            configuration: fileLoadConfiguration()
+        ) { benchmark in
+            for _ in benchmark.scaledIterations {
+                blackHole(try! fixture.load(checksumPolicy: .required).allow.count)
+            }
+        }
+    }
 }
 
 private func makeFixtures(maximumCount: Int) -> [PolicyFamilyFixture] {
@@ -209,16 +268,20 @@ private func makeFixtures(maximumCount: Int) -> [PolicyFamilyFixture] {
 
 private func makeIPv4Fixture(maximumCount: Int) -> PolicyFamilyFixture {
     let allowNetworkStrings = (0..<maximumCount).map { index in
-        "10.\(index / 256).\(index % 256).0/24"
+        let slot = index * 2
+        return "10.\(slot / 256).\(slot % 256).0/24"
     }
     let denyNetworkStrings = (0..<maximumCount).map { index in
-        "172.\(16 + index / 256).\(index % 256).0/24"
+        let slot = index * 2
+        return "172.\(16 + slot / 256).\(slot % 256).0/24"
     }
     let allowAddresses = (0..<maximumCount).map { index in
-        AnyIPAddress("10.\(index / 256).\(index % 256).1")!
+        let slot = index * 2
+        return AnyIPAddress("10.\(slot / 256).\(slot % 256).1")!
     }
     let denyAddresses = (0..<maximumCount).map { index in
-        AnyIPAddress("172.\(16 + index / 256).\(index % 256).1")!
+        let slot = index * 2
+        return AnyIPAddress("172.\(16 + slot / 256).\(slot % 256).1")!
     }
 
     return PolicyFamilyFixture(
@@ -235,16 +298,16 @@ private func makeIPv4Fixture(maximumCount: Int) -> PolicyFamilyFixture {
 
 private func makeIPv6Fixture(maximumCount: Int) -> PolicyFamilyFixture {
     let allowNetworkStrings = (0..<maximumCount).map { index in
-        "2001:db8:\(String(index, radix: 16))::/48"
+        "2001:db8:\(String(index * 2, radix: 16))::/48"
     }
     let denyNetworkStrings = (0..<maximumCount).map { index in
-        "2001:db8:\(String(0x8000 + index, radix: 16))::/48"
+        "2001:db8:\(String(0x8000 + index * 2, radix: 16))::/48"
     }
     let allowAddresses = (0..<maximumCount).map { index in
-        AnyIPAddress("2001:db8:\(String(index, radix: 16))::1")!
+        AnyIPAddress("2001:db8:\(String(index * 2, radix: 16))::1")!
     }
     let denyAddresses = (0..<maximumCount).map { index in
-        AnyIPAddress("2001:db8:\(String(0x8000 + index, radix: 16))::1")!
+        AnyIPAddress("2001:db8:\(String(0x8000 + index * 2, radix: 16))::1")!
     }
 
     return PolicyFamilyFixture(
