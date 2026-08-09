@@ -33,11 +33,14 @@ sha256_file() {
 }
 
 repository_revision() {
-    local repository="$1"
+    local repository
     local revision
     local status
-    revision="$(git -C "${repository}" rev-parse HEAD)" || return 1
-    status="$(git -C "${repository}" status --porcelain --untracked-files=normal -- \
+    # CHANGE: Canonicalize and trust only the repository inspected across container ownership.
+    repository="$(CDPATH= cd -- "$1" && pwd -P)" || return 1
+    revision="$(git -c safe.directory="${repository}" -C "${repository}" rev-parse HEAD)" || return 1
+    status="$(git -c safe.directory="${repository}" -C "${repository}" \
+        status --porcelain --untracked-files=normal -- \
         . ':(exclude)cidrmerge-pipeline')" || return 1
     if [[ -n "${status}" ]]; then
         revision="${revision}-dirty"
