@@ -33,11 +33,16 @@ jobs:
 
       - name: Resolve and verify root and pipeline locks
         run: |
+          # CHANGE: Container jobs may not expose checkout Git metadata; compare exact bytes.
+          root_lock_snapshot="$(mktemp)"
+          pipeline_lock_snapshot="$(mktemp)"
+          trap 'rm -f "$root_lock_snapshot" "$pipeline_lock_snapshot"' 0
+          cp Package.resolved "$root_lock_snapshot"
+          cp IntegrationTests/CIDRMergePipeline/Package.resolved "$pipeline_lock_snapshot"
           swift package resolve
           swift package --package-path IntegrationTests/CIDRMergePipeline resolve
-          # CHANGE: Verify independently so Git cannot pair distinct lock files as a rename.
-          git diff --exit-code -- Package.resolved
-          git diff --exit-code -- IntegrationTests/CIDRMergePipeline/Package.resolved
+          cmp "$root_lock_snapshot" Package.resolved
+          cmp "$pipeline_lock_snapshot" IntegrationTests/CIDRMergePipeline/Package.resolved
 
       - name: Build and test root package
         run: |
@@ -93,11 +98,16 @@ jobs:
 
       - name: Resolve and verify root and pipeline locks
         run: |
+          # CHANGE: Container jobs may not expose checkout Git metadata; compare exact bytes.
+          root_lock_snapshot="$(mktemp)"
+          pipeline_lock_snapshot="$(mktemp)"
+          trap 'rm -f "$root_lock_snapshot" "$pipeline_lock_snapshot"' 0
+          cp Package.resolved "$root_lock_snapshot"
+          cp IntegrationTests/CIDRMergePipeline/Package.resolved "$pipeline_lock_snapshot"
           swift package resolve
           swift package --package-path IntegrationTests/CIDRMergePipeline resolve
-          # CHANGE: Verify independently so Git cannot pair distinct lock files as a rename.
-          git diff --exit-code -- Package.resolved
-          git diff --exit-code -- IntegrationTests/CIDRMergePipeline/Package.resolved
+          cmp "$root_lock_snapshot" Package.resolved
+          cmp "$pipeline_lock_snapshot" IntegrationTests/CIDRMergePipeline/Package.resolved
 
       - name: Build root package
         run: swift build
