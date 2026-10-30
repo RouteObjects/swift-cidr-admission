@@ -55,13 +55,13 @@ let benchmarks = {
         )
     }
 
-    func decisionConfiguration() -> Benchmark.Configuration {
+    func decisionConfiguration(size: Int) -> Benchmark.Configuration {
         .init(
             metrics: metrics,
             warmupIterations: 3,
-            // CHANGE: Detailed scans scale with rule count; one million calls makes a 10k-rule
-            // sample indivisible for tens of seconds and defeats maxDuration.
-            scalingFactor: .kilo,
+            // CHANGE: A kilo batch of instrumented 10k-rule scans exceeds the sampling window.
+            // Measure those scans individually to retain throughput and multiple samples.
+            scalingFactor: size >= 10_000 ? .one : .kilo,
             maxDuration: .seconds(2)
         )
     }
@@ -187,7 +187,7 @@ let benchmarks = {
 
             Benchmark(
                 "policy.decision.\(fixture.name).combined.denyMissAllowLast.\(size)",
-                configuration: decisionConfiguration()
+                configuration: decisionConfiguration(size: size)
             ) { benchmark in
                 for _ in benchmark.scaledIterations {
                     blackHole(combinedPolicy.decision(for: lastAllowAddress).isAllowed)

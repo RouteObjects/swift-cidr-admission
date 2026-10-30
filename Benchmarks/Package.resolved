@@ -1,13 +1,13 @@
 {
-  "originHash" : "daea06db2e36cdf31d4f9db5e5f85f78ee5c6de4984c24b811f1801bd0401ec4",
+  "originHash" : "407f4617593ef2a77498a9faf0ac892ee140bbf3b0a3b8a49d20f76e7b631ed7",
   "pins" : [
     {
       "identity" : "benchmark",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ordo-one/benchmark",
       "state" : {
-        "revision" : "4b9ef5663e9c270419351a20392bf77b007f37f6",
-        "version" : "1.35.0"
+        "revision" : "ca4a9d300fc15d38132853c2e30462337b33c43f",
+        "version" : "1.38.1"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ordo-one/malloc-interposer.git",
       "state" : {
-        "revision" : "8ce418ba70e494577fdc046be8c8ddb5216f16e5",
-        "version" : "1.3.1"
+        "revision" : "977dc0639b742ecd05ac03fecc53664095821a5d",
+        "version" : "1.6.1"
       }
     },
     {
