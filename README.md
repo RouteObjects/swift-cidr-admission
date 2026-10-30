@@ -16,23 +16,19 @@ evaluated against `AnyIPAddress` values.
 
 ## Package Dependency
 
-The current development branch requires Swift 6.2 or later, `swift-cidr`
-`0.8.x` (from `0.8.0`), and Swift Crypto `5.x` (from `5.0.3`). The Apple
-deployment targets remain iOS 18 and macOS 15. The optional benchmark package
-requires Swift 6.3 or later.
-
-The installation example below targets the published `0.2.0` release, which
-uses `swift-cidr` `0.5.x` and Swift Crypto `4.x`. Do not combine that release
-with a `swift-cidr` `0.8.x` requirement; its dependency range excludes it.
+`0.3.0` requires Swift 6.2 or later, `swift-cidr` `0.8.x` (from `0.8.0`),
+and Swift Crypto `5.x` (from `5.0.3`). The Apple deployment targets remain
+iOS 18 and macOS 15. The optional [benchmark package](Benchmarks/README.md)
+requires Swift 6.3 or later; library consumers do not need Swift 6.3.
 
 ```swift
 .package(
     url: "https://github.com/RouteObjects/swift-cidr.git",
-    .upToNextMinor(from: "0.5.0")
+    .upToNextMinor(from: "0.8.0")
 ),
 .package(
     url: "https://github.com/RouteObjects/swift-cidr-admission.git",
-    .upToNextMinor(from: "0.2.0")
+    .upToNextMinor(from: "0.3.0")
 )
 ```
 
@@ -44,6 +40,29 @@ with a `swift-cidr` `0.8.x` requirement; its dependency range excludes it.
 `CIDRAdmission` uses `swift-cidr` as its IP/range authority and Swift Crypto for
 detached SHA-256 verification. For SwiftNIO `SocketAddress` conversion, also
 import `CIDRNIO` from `swift-cidr`.
+
+## Migrating from 0.2
+
+`0.3.0` preserves the 0.2 admission APIs, policy formats, and deny-first
+behavior. It changes build and dependency requirements rather than adding
+admission features:
+
+- Upgrade the Swift toolchain to 6.2 or later.
+- Update the admission requirement to `.upToNextMinor(from: "0.3.0")`.
+- If the application also depends directly on `swift-cidr`, update that
+  requirement to `.upToNextMinor(from: "0.8.0")`.
+- Review any explicit Swift Crypto `4.x` constraint; it must permit Swift
+  Crypto `5.x` from `5.0.3` for the new dependency graph to resolve.
+
+The minimum deployment targets remain iOS 18 and macOS 15. Benchmark tooling
+requires Swift 6.3, independently of the library's Swift 6.2 minimum.
+
+Consumers that still require Swift 6.1 should retain
+`.upToNextMinor(from: "0.2.0")`, which excludes `0.3.0` and retains the
+`swift-cidr` `0.5.x` / Swift Crypto `4.x` dependency graph.
+
+See the [0.3.0 release notes](Documentation/ReleaseNotes/0.3.0.md) for the
+compatibility and validation scope.
 
 ## Migrating from 0.1
 
