@@ -30,7 +30,7 @@ not download vendor data or assign allow/deny roles inside `cidrmerge`.
 This nested package keeps its own resolved dependency graph as an independent
 external-consumer check. Its compatible transitive versions may differ from
 the root and benchmark packages; CI resolves and diff-checks the root and
-pipeline locks independently. The benchmark lock records the Swift 6.3
-full-metrics manifest and is verified under that canonical toolchain because
-Benchmark 1.35 deliberately selects a different dependency graph on Swift 6.1
-and 6.2.
+pipeline locks independently. The benchmark lock records the macOS Swift 6.3
+full-metrics graph. The benchmark package requires Swift 6.3 or later because
+Benchmark's Swift 6.2 compatibility manifest conflicts with the ArgumentParser
+requirement in `swift-cidr` 0.8.x.

@@ -8,7 +8,11 @@ that draft only after Craig's explicit approval.
 ## Prepare and validate main
 
 Start from a clean `main` that matches its remote. Versions do not use a leading
-`v`, and every version has a reviewed release-notes file:
+`v`, and every version has a reviewed release-notes file.
+
+Use Swift 6.3 or later for the complete release gate, including benchmarks.
+The library's Swift 6.2 minimum is validated separately by Linux CI in both
+debug and release configurations.
 
 ```sh
 version=0.2.0

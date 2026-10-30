@@ -57,6 +57,7 @@ public enum AdmissionRule: Sendable, Hashable, LosslessStringConvertible {
     }
 
     /// Returns whether the supplied address is covered by this rule.
+    /// Candidate prefix-length context does not affect admission membership.
     public func contains(_ address: AnyIPAddress) -> Bool {
         switch (self, address) {
         case (.address(.v4(let ruleAddress)), .v4(let candidate)):
@@ -65,8 +66,13 @@ public enum AdmissionRule: Sendable, Hashable, LosslessStringConvertible {
             return ruleAddress.address == candidate.address
         case (.address, _):
             return false
-        case (.network(let network), _):
-            return network.contains(address)
+        case (.network(.v4(let network)), .v4(let candidate)):
+            // CHANGE: Admission checks one peer, not its possibly broader prefix context.
+            return network.contains(address: IPv4Address(address: candidate.address))
+        case (.network(.v6(let network)), .v6(let candidate)):
+            return network.contains(address: IPv6Address(address: candidate.address))
+        case (.network, _):
+            return false
         case (.range(let range), _):
             return range.contains(address)
         }

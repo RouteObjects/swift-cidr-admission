@@ -1,4 +1,4 @@
-// swift-tools-version: 6.1
+// swift-tools-version: 6.2
 
 //===----------------------------------------------------------------------===//
 //
@@ -25,13 +25,14 @@ let package = Package(
         .library(name: "CIDRAdmission", targets: ["CIDRAdmission"])
     ],
     dependencies: [
+        // CHANGE: CIDR 0.8 and Crypto 5 both require Swift 6.2 or newer.
         .package(
             url: "https://github.com/RouteObjects/swift-cidr.git",
-            .upToNextMinor(from: "0.5.0")
+            .upToNextMinor(from: "0.8.0")
         ),
         .package(
             url: "https://github.com/apple/swift-crypto.git",
-            .upToNextMajor(from: "4.5.1")
+            .upToNextMajor(from: "5.0.3")
         ),
     ],
     targets: [

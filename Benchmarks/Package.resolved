@@ -1,5 +1,5 @@
 {
-  "originHash" : "29e1e4416edcad438a6544038fa966719392800a83497ce7c626aea0dc61e13c",
+  "originHash" : "daea06db2e36cdf31d4f9db5e5f85f78ee5c6de4984c24b811f1801bd0401ec4",
   "pins" : [
     {
       "identity" : "benchmark",
@@ -60,8 +60,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/RouteObjects/swift-cidr.git",
       "state" : {
-        "revision" : "fd5116cef64544dc1f2bab9e93de4e1a7bb57dbb",
-        "version" : "0.5.0"
+        "revision" : "cdc2e592beb9095875bc42fc4c269396b20d99e3",
+        "version" : "0.8.0"
       }
     },
     {
@@ -78,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-crypto.git",
       "state" : {
-        "revision" : "47d3869a7291f085c1fb9fb1e6d3b97a793f45c6",
-        "version" : "4.5.1"
+        "revision" : "c2cbadd7263439d8015189668f96ff5b5be565ce",
+        "version" : "5.0.3"
       }
     },
     {
