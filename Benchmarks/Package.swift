@@ -34,7 +34,7 @@ let package = Package(
             url: "https://github.com/apple/swift-crypto.git",
             .upToNextMajor(from: "5.0.3")
         ),
-        .package(url: "https://github.com/ordo-one/benchmark", from: "1.35.0"),
+        .package(url: "https://github.com/ordo-one/benchmark", from: "1.38.1"),
     ],
     targets: [
         .executableTarget(
