@@ -156,6 +156,43 @@ struct AdmissionRuleTests {
         #expect(!ipv6Range.contains(try #require(AnyIPAddress("2001:db8:1::8"))))
     }
 
+    @Test(
+        "Network admission ignores candidate prefix context and agrees with indexed lookup",
+        arguments: [
+            ("192.0.2.0/24", "192.0.2.44/0", true),
+            ("192.0.2.0/24", "192.0.2.255/16", true),
+            ("192.0.2.0/24", "192.0.2.44/24", true),
+            ("192.0.2.0/24", "192.0.2.44/32", true),
+            ("192.0.2.0/24", "192.0.3.0/16", false),
+            ("192.0.2.0/24", "2001:db8:1::1/0", false),
+            ("2001:db8:1::/48", "2001:db8:1::1/0", true),
+            ("2001:db8:1::/48", "2001:db8:1:ffff::ffff/32", true),
+            ("2001:db8:1::/48", "2001:db8:1::1/48", true),
+            ("2001:db8:1::/48", "2001:db8:1::1/128", true),
+            ("2001:db8:1::/48", "2001:db8:2::1/32", false),
+            ("2001:db8:1::/48", "192.0.2.44/0", false),
+        ])
+    func networkContainmentIgnoresCandidatePrefix(
+        network: String,
+        candidate: String,
+        expected: Bool
+    ) throws {
+        let rule = try #require(AdmissionRule(network))
+        let address = try #require(AnyIPAddress(candidate))
+        let allowPolicy = IPAdmissionPolicy(allowRules: [rule], denyRules: [])
+        let denyPolicy = IPAdmissionPolicy(
+            allowRules: [],
+            denyRules: [rule],
+            defaultAction: .allow
+        )
+
+        #expect(rule.contains(address) == expected)
+        #expect(allowPolicy.allows(address) == expected)
+        #expect(allowPolicy.decision(for: address).isAllowed == expected)
+        #expect(denyPolicy.allows(address) == !expected)
+        #expect(denyPolicy.decision(for: address).isAllowed == !expected)
+    }
+
     @Test("Coverage index partitions and coalesces both address families")
     func coverageIndex() throws {
         let index = IPAdmissionCoverageIndex(rules: [

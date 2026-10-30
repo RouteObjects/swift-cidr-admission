@@ -9,6 +9,13 @@ The benchmark package is intentionally separate from the public
 `swift-cidr-admission` package so library users do not resolve benchmark-only
 dependencies.
 
+## Requirements
+
+Benchmarks require Swift 6.3 or later; the library itself requires Swift 6.2.
+Benchmark's Swift 6.2 compatibility manifest requires ArgumentParser below
+`1.6.0`, which conflicts with `swift-cidr` 0.8.x's requirement of `1.7.0` or
+later. Swift 6.3 selects Benchmark's compatible manifest.
+
 ## Standard Commands
 
 From the repository root:

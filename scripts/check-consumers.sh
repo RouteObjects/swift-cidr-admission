@@ -47,7 +47,7 @@ mkdir -p "${CONSUMER_ROOT}/Sources/AdmissionConsumer" "${CONSUMER_ROOT}/Fixtures
 # Build an actual external package so release validation catches accidental changes to
 # product names, public access levels, initializer labels, and transitive package resolution.
 cat >"${CONSUMER_ROOT}/Package.swift" <<EOF
-// swift-tools-version: 6.1
+// swift-tools-version: 6.2
 
 import PackageDescription
 
@@ -58,7 +58,7 @@ let package = Package(
         .package(name: "swift-cidr-admission", path: "${PACKAGE_ROOT}"),
         .package(
             url: "https://github.com/RouteObjects/swift-cidr.git",
-            .upToNextMinor(from: "0.5.0")
+            .upToNextMinor(from: "0.8.0")
         ),
     ],
     targets: [

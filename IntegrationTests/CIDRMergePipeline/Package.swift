@@ -1,4 +1,4 @@
-// swift-tools-version: 6.1
+// swift-tools-version: 6.2
 
 //===----------------------------------------------------------------------===//
 //
@@ -32,7 +32,7 @@ let package = Package(
         .package(name: "swift-cidr-admission", path: "../.."),
         .package(
             url: "https://github.com/RouteObjects/swift-cidr.git",
-            .upToNextMinor(from: "0.5.0")
+            .upToNextMinor(from: "0.8.0")
         ),
     ],
     targets: [

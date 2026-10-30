@@ -16,6 +16,15 @@ evaluated against `AnyIPAddress` values.
 
 ## Package Dependency
 
+The current development branch requires Swift 6.2 or later, `swift-cidr`
+`0.8.x` (from `0.8.0`), and Swift Crypto `5.x` (from `5.0.3`). The Apple
+deployment targets remain iOS 18 and macOS 15. The optional benchmark package
+requires Swift 6.3 or later.
+
+The installation example below targets the published `0.2.0` release, which
+uses `swift-cidr` `0.5.x` and Swift Crypto `4.x`. Do not combine that release
+with a `swift-cidr` `0.8.x` requirement; its dependency range excludes it.
+
 ```swift
 .package(
     url: "https://github.com/RouteObjects/swift-cidr.git",
@@ -52,7 +61,7 @@ accepts `[AnyIPNetwork]`, and the JSON wire shape remains the same CIDR-only
 through those interfaces may not need source changes; code that reads the
 public rule arrays or pattern-matches detailed decisions must migrate.
 
-The 0.2 package also requires `swift-cidr` 0.5.x and adds Swift Crypto 4.x for
+The published 0.2.0 release requires `swift-cidr` 0.5.x and adds Swift Crypto 4.x for
 detached SHA-256 validation. Consumers pinned to older `swift-cidr` releases
 must update their dependency requirements during migration.
 

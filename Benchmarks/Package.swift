@@ -1,4 +1,4 @@
-// swift-tools-version: 6.1
+// swift-tools-version: 6.3
 
 //===----------------------------------------------------------------------===//
 //
@@ -24,14 +24,15 @@ let package = Package(
         .macOS(.v15),
     ],
     dependencies: [
+        // CHANGE: Swift 6.3 selects Benchmark's manifest with a compatible ArgumentParser range.
         .package(name: "swift-cidr-admission", path: ".."),
         .package(
             url: "https://github.com/RouteObjects/swift-cidr.git",
-            .upToNextMinor(from: "0.5.0")
+            .upToNextMinor(from: "0.8.0")
         ),
         .package(
             url: "https://github.com/apple/swift-crypto.git",
-            .upToNextMajor(from: "4.5.1")
+            .upToNextMajor(from: "5.0.3")
         ),
         .package(url: "https://github.com/ordo-one/benchmark", from: "1.35.0"),
     ],
