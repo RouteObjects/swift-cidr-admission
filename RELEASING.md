@@ -12,7 +12,7 @@ Start from a clean `main` that matches its remote. Versions do not use a leading
 branch, not a worktree:
 
 ```sh
-version=0.3.0
+version=0.3.1
 candidate_ref="release/${version}"
 git switch main
 git pull --ff-only origin main
