@@ -16,15 +16,18 @@ evaluated against `AnyIPAddress` values.
 
 ## Package Dependency
 
-`0.3.0` requires Swift 6.2 or later, `swift-cidr` `0.8.x` (from `0.8.0`),
+Published `0.3.0` requires Swift 6.2 or later, `swift-cidr` `0.8.x` (from `0.8.0`),
 and Swift Crypto `5.x` (from `5.0.3`). The Apple deployment targets remain
 iOS 18 and macOS 15. The optional [benchmark package](Benchmarks/README.md)
 requires Swift 6.3 or later; library consumers do not need Swift 6.3.
 
+The current development version raises the `swift-cidr` minimum to `0.8.1`
+within `0.8.x` to include the typed-containment performance fix.
+
 ```swift
 .package(
     url: "https://github.com/RouteObjects/swift-cidr.git",
-    .upToNextMinor(from: "0.8.0")
+    .upToNextMinor(from: "0.8.1")
 ),
 .package(
     url: "https://github.com/RouteObjects/swift-cidr-admission.git",
@@ -50,7 +53,7 @@ admission features:
 - Upgrade the Swift toolchain to 6.2 or later.
 - Update the admission requirement to `.upToNextMinor(from: "0.3.0")`.
 - If the application also depends directly on `swift-cidr`, update that
-  requirement to `.upToNextMinor(from: "0.8.0")`.
+  requirement to `.upToNextMinor(from: "0.8.1")` to include the containment fix.
 - Review any explicit Swift Crypto `4.x` constraint; it must permit Swift
   Crypto `5.x` from `5.0.3` for the new dependency graph to resolve.
 
