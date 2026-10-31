@@ -58,7 +58,7 @@ let package = Package(
         .package(name: "swift-cidr-admission", path: "${PACKAGE_ROOT}"),
         .package(
             url: "https://github.com/RouteObjects/swift-cidr.git",
-            .upToNextMinor(from: "0.8.0")
+            .upToNextMinor(from: "0.8.1")
         ),
     ],
     targets: [
