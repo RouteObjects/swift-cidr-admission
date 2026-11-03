@@ -245,12 +245,14 @@ public struct IPAdmissionPolicy: Sendable, Hashable {
 
     /// Evaluates an address and returns the admission action plus reason.
     public func decision(for address: AnyIPAddress) -> AdmissionDecision {
-        if let rule = deny.first(where: { $0.contains(address) }) {
+        // Strip peer prefix context once, without rewriting the source rules or their order.
+        let peer = DecisionPeer(address)
+        if let rule = deny.first(where: { peer.matches($0) }) {
             // deny rules win on overlap so admission policy fails closed.
             return .deny(reason: .matched(ruleSet: .deny, rule: rule))
         }
 
-        if let rule = allow.first(where: { $0.contains(address) }) {
+        if let rule = allow.first(where: { peer.matches($0) }) {
             return .allow(reason: .matched(ruleSet: .allow, rule: rule))
         }
 
@@ -287,6 +289,31 @@ public struct IPAdmissionPolicy: Sendable, Hashable {
             }
 
             return .network(network)
+        }
+    }
+
+    // Keep the host-only invariant private to detailed evaluation; public rule membership is unchanged.
+    private struct DecisionPeer {
+        private let host: AnyIPAddress
+
+        init(_ address: AnyIPAddress) {
+            switch address {
+            case .v4(let peer): host = .v4(IPv4Address(address: peer.address))
+            case .v6(let peer): host = .v6(IPv6Address(address: peer.address))
+            }
+        }
+
+        func matches(_ rule: AdmissionRule) -> Bool {
+            switch (rule, host) {
+            case (.network(.v4(let network)), .v4(let candidate)):
+                return network.contains(address: candidate)
+            case (.network(.v6(let network)), .v6(let candidate)):
+                return network.contains(address: candidate)
+            case (.network, _):
+                return false
+            default:
+                return rule.contains(host)
+            }
         }
     }
 }
