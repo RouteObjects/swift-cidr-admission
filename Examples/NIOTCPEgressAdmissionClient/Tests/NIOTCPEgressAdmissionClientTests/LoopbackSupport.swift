@@ -61,13 +61,15 @@ final class LocalServer: Sendable {
 
     static func start(_ mode: Mode, host: String = "127.0.0.1") async throws -> LocalServer {
         let state = State()
+        // Loopback literals must not depend on the host resolver's address-family filtering.
+        let address = try SocketAddress(ipAddress: host, port: 0)
         let listener = try await ServerBootstrap(group: MultiThreadedEventLoopGroup.singleton)
             .childChannelInitializer { channel in
                 channel.eventLoop.makeCompletedFuture {
                     try channel.pipeline.syncOperations.addHandler(Peer(mode: mode, state: state))
                 }
             }
-            .bind(host: host, port: 0).get()
+            .bind(to: address).get()
         let port = try #require(listener.localAddress?.port)
         return LocalServer(listener: listener, state: state, port: port)
     }
