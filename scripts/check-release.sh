@@ -122,8 +122,10 @@ git diff --check
 
 root_lock_snapshot="${release_temporary_directory}/Package.resolved"
 pipeline_lock_snapshot="${release_temporary_directory}/CIDRMergePipeline.Package.resolved"
+egress_lock_snapshot="${release_temporary_directory}/NIOTCPEgressAdmissionClient.Package.resolved"
 cp Package.resolved "${root_lock_snapshot}"
 cp IntegrationTests/CIDRMergePipeline/Package.resolved "${pipeline_lock_snapshot}"
+cp Examples/NIOTCPEgressAdmissionClient/Package.resolved "${egress_lock_snapshot}"
 swift package resolve
 swift package --package-path IntegrationTests/CIDRMergePipeline resolve
 cmp "${root_lock_snapshot}" Package.resolved || fail "Root dependency lock changed."
@@ -137,6 +139,13 @@ swift test -c release
 
 CIDRMERGE_PACKAGE="${CIDRMERGE_PACKAGE}" "${SCRIPT_DIR}/check-cidrmerge-pipeline.sh"
 swift build --package-path Examples/NIOTCPEchoAdmissionServer
+
+# CHANGE: Verify destination admission, scoped async cleanup, and the example's pinned graph.
+swift build --package-path Examples/NIOTCPEgressAdmissionClient
+swift test --package-path Examples/NIOTCPEgressAdmissionClient
+swift test --package-path Examples/NIOTCPEgressAdmissionClient -c release
+cmp "${egress_lock_snapshot}" Examples/NIOTCPEgressAdmissionClient/Package.resolved ||
+    fail "Egress client dependency lock changed."
 
 # CHANGE: Benchmark's Linux and compile-only graphs differ from the macOS full-metrics lock.
 # Build a tracked snapshot so platform-specific resolution cannot change the reviewed lock.
