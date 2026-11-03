@@ -7,6 +7,10 @@ accepted-channel boundary before the echo pipeline is installed.
 The server source includes numbered `Integration point` comments that show the
 admission flow step by step for readers learning how to adapt the pattern.
 
+The companion [NIOTCPEgressAdmissionClient](../NIOTCPEgressAdmissionClient/README.md)
+demonstrates independent destination admission before connecting to this server,
+using async/await and checksum-verified allow/deny list files.
+
 The bundled policy defaults to `defaultAction: "deny"` and allows only
 `127.0.0.1/32`, so local `nc` experiments work immediately when the server binds
 to its default `127.0.0.1` address.

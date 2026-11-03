@@ -71,11 +71,31 @@ jobs:
       - name: Build SwiftNIO echo example
         run: swift build --package-path Examples/NIOTCPEchoAdmissionServer
 
+      - name: Test SwiftNIO egress example
+        run: |
+          # CHANGE: Exercise pre-connect admission and preserve the nested package lock.
+          lock_snapshot="$(mktemp)"
+          trap 'rm -f "$lock_snapshot"' 0
+          cp Examples/NIOTCPEgressAdmissionClient/Package.resolved "$lock_snapshot"
+          swift test --package-path Examples/NIOTCPEgressAdmissionClient
+          swift test --package-path Examples/NIOTCPEgressAdmissionClient -c release
+          cmp "$lock_snapshot" Examples/NIOTCPEgressAdmissionClient/Package.resolved
+
       - name: Build CIDRAdmission for the iOS 18 simulator
         run: |
           sdk_path="$(xcrun --sdk iphonesimulator --show-sdk-path)"
           swift build \
             --target CIDRAdmission \
+            --triple arm64-apple-ios18.0-simulator \
+            --sdk "${sdk_path}"
+
+      - name: Compile egress client for the iOS 18 simulator
+        run: |
+          # CHANGE: Compile, but do not run, the command-line example at its declared Apple floor.
+          sdk_path="$(xcrun --sdk iphonesimulator --show-sdk-path)"
+          swift build \
+            --package-path Examples/NIOTCPEgressAdmissionClient \
+            --target NIOTCPEgressAdmissionClient \
             --triple arm64-apple-ios18.0-simulator \
             --sdk "${sdk_path}"
 
@@ -131,6 +151,16 @@ jobs:
 
       - name: Build SwiftNIO echo example
         run: swift build --package-path Examples/NIOTCPEchoAdmissionServer
+
+      - name: Test SwiftNIO egress example
+        run: |
+          # CHANGE: The tests use local listeners and injected DNS, never public destinations.
+          lock_snapshot="$(mktemp)"
+          trap 'rm -f "$lock_snapshot"' 0
+          cp Examples/NIOTCPEgressAdmissionClient/Package.resolved "$lock_snapshot"
+          swift test --package-path Examples/NIOTCPEgressAdmissionClient
+          swift test --package-path Examples/NIOTCPEgressAdmissionClient -c release
+          cmp "$lock_snapshot" Examples/NIOTCPEgressAdmissionClient/Package.resolved
 
   benchmarks:
     name: Benchmarks Swift 6.3.3

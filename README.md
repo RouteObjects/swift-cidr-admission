@@ -307,18 +307,33 @@ resulting address.
 - [Vapor](Documentation/Vapor.md)
 - [Hummingbird](Documentation/Hummingbird.md)
 
-## Runnable SwiftNIO Example
+## Runnable SwiftNIO Examples
 
 A runnable SwiftNIO echo server example lives in
 [Examples/NIOTCPEchoAdmissionServer](Examples/NIOTCPEchoAdmissionServer/README.md).
-It is nested so SwiftNIO stays out of the root package dependency graph while
-still giving users an immediate way to try connection admission locally.
+It is nested to keep the executable and NIO-specific code separate from the
+`CIDRAdmission` library while giving users an immediate way to try connection
+admission locally.
 
 From the repository root:
 
 ```bash
 swift run --package-path Examples/NIOTCPEchoAdmissionServer NIOTCPEchoAdmissionServer
 ```
+
+The companion [NIOTCPEgressAdmissionClient](Examples/NIOTCPEgressAdmissionClient/README.md)
+demonstrates destination admission through NIO's connect hook before opening a
+connection. It uses async/await for connection setup and echo I/O, with
+checksum-verified allow/deny list files. While the server is running, use another
+terminal from the repository root:
+
+```bash
+swift run --package-path Examples/NIOTCPEgressAdmissionClient NIOTCPEgressAdmissionClient
+```
+
+The server checks incoming peers; the client independently checks outgoing
+destinations. Neither example adds a direct SwiftNIO dependency to the root
+package manifest; SwiftPM may still resolve NIO transitively through `swift-cidr`.
 
 ## Benchmarking
 
