@@ -12,7 +12,7 @@ Start from a clean `main` that matches its remote. Versions do not use a leading
 branch, not a worktree:
 
 ```sh
-version=0.3.1
+version=0.3.2
 candidate_ref="release/${version}"
 git switch main
 git pull --ff-only origin main
@@ -44,10 +44,11 @@ git status --short --branch
 CIDRMERGE_PACKAGE="${cidrmerge_checkout}" ./scripts/check-release.sh "${version}"
 ```
 
-The release gate checks the root and cidrmerge-pipeline locks, debug and release
-builds and tests, the pinned offline cidrmerge pipeline, the SwiftNIO example,
-the benchmark target, the public symbol graph, and a temporary external
-consumer. The consumer preserves representative legacy initializer and JSON
+The release gate checks the root, cidrmerge-pipeline, and egress-client locks,
+debug and release builds and tests, the pinned offline cidrmerge pipeline,
+both SwiftNIO examples (including egress-client Debug/Release tests), the
+benchmark target, the public symbol graph, and a temporary external consumer.
+The consumer preserves representative legacy initializer and JSON
 behavior while exercising both checksum policies; it is intentionally not a
 claim that every 0.1 source expression remains compatible.
 
@@ -76,7 +77,7 @@ gh run list --repo RouteObjects/swift-cidr-admission --limit 10
 ```
 
 Review the hosted logs and confirm the source checkout, cidrmerge `0.2.0`
-pipeline, dependency locks, consumer check, example, benchmark compile, public
+pipeline, dependency locks, consumer check, examples, benchmark compile, public
 symbols, macOS build, iOS build, and Linux tests all passed. Check each run's
 head SHA against the candidate commit. The manually dispatched macOS/iOS job
 must succeed, not be skipped; the Release workflow's draft-publication job
