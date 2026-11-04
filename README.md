@@ -16,14 +16,15 @@ evaluated against `AnyIPAddress` values.
 
 ## Package Dependency
 
-`0.3.2` requires Swift 6.2 or later, `swift-cidr` `0.8.x` (from `0.8.1`),
+`0.3.3` requires Swift 6.2 or later, `swift-cidr` `0.8.x` (from `0.8.1`),
 and Swift Crypto `5.x` (from `5.0.3`). The Apple deployment targets remain
 iOS 18 and macOS 15. The optional [benchmark package](Benchmarks/README.md)
 requires Swift 6.3 or later; library consumers do not need Swift 6.3.
 
-This patch release adds a runnable SwiftNIO egress admission client without
-changing admission APIs, policy semantics, or dependency requirements. See the
-[0.3.2 release notes](Documentation/ReleaseNotes/0.3.2.md).
+This patch release normalizes the peer once per `decision(for:)` evaluation,
+reducing repeated work in detailed network-rule scans without changing
+admission APIs, policy semantics, or dependency requirements. See the
+[0.3.3 release notes](Documentation/ReleaseNotes/0.3.3.md) for scope and tradeoffs.
 
 ```swift
 .package(
@@ -32,7 +33,7 @@ changing admission APIs, policy semantics, or dependency requirements. See the
 ),
 .package(
     url: "https://github.com/RouteObjects/swift-cidr-admission.git",
-    .upToNextMinor(from: "0.3.2")
+    .upToNextMinor(from: "0.3.3")
 )
 ```
 
@@ -52,7 +53,7 @@ behavior. It changes build and dependency requirements rather than adding
 admission features:
 
 - Upgrade the Swift toolchain to 6.2 or later.
-- Update the admission requirement to `.upToNextMinor(from: "0.3.2")`.
+- Update the admission requirement to `.upToNextMinor(from: "0.3.3")`.
 - If the application also depends directly on `swift-cidr`, update that
   requirement to `.upToNextMinor(from: "0.8.1")` to include the containment fix.
 - Review any explicit Swift Crypto `4.x` constraint; it must permit Swift
