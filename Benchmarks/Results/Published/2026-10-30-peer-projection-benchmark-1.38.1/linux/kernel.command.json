@@ -1,0 +1,10 @@
+{
+  "command": [
+    "uname",
+    "-a"
+  ],
+  "exit": 0,
+  "started_unix": 1793399268.4144592,
+  "elapsed_seconds": 0.002317667007446289,
+  "path": null
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "swift",
+    "test",
+    "-c",
+    "release"
+  ],
+  "cwd": "/private/tmp/admission-lazy-projection.vfTHye/deferred/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793411731.853527,
+  "elapsed_seconds": 29.34767484664917
+}

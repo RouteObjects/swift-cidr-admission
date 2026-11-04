@@ -1,0 +1,3 @@
+benchmark,batch_size,wall_sample_unit,wall_samples,throughput_samples,minimum_metric_samples,metrics_recorded,low_sample_count,wall_p50_sample_mean_ns_per_operation,wall_p99_sample_mean_ns_per_operation,throughput_p50_operations_per_second,malloc_small_p50_per_operation,malloc_large_p50_per_operation,malloc_total_p50_per_operation,object_allocations_p50_per_operation,retains_p50_per_operation,releases_p50_per_operation,retain_release_delta_p50_per_operation
+policy.decision.v4.combined.denyMissAllowLast.10000,1,single_operation,599,599,599,9,False,3192831,5799935,313,0,0,0,0,0,0,0
+policy.decision.v6.combined.denyMissAllowLast.10000,1,single_operation,606,606,606,9,False,3184639,5038079,314,0,0,0,0,0,0,0

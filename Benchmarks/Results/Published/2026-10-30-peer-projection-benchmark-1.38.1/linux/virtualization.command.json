@@ -1,0 +1,9 @@
+{
+  "command": [
+    "systemd-detect-virt"
+  ],
+  "exit": 0,
+  "started_unix": 1793399268.8541582,
+  "elapsed_seconds": 0.011243581771850586,
+  "path": null
+}

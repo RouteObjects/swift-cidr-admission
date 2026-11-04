@@ -1,0 +1,11 @@
+{
+  "status": "blocked_before_remote_upload",
+  "host": "linux-validation-host",
+  "attempts_this_experiment": 1,
+  "ssh_exit_code": 255,
+  "diagnostic": "sign_and_send_pubkey: signing failed for ED25519 REDACTED_HOME/.ssh/linux97-codex.pub from agent: communication with agent failed; Permission denied (publickey,password).",
+  "attempted_variant": "phased",
+  "remote_tests_run": false,
+  "remote_source_uploaded": false,
+  "note": "Earlier eager-candidate Linux results do not validate this two-phase implementation."
+}

@@ -1,0 +1,85 @@
+{
+  "baseline_name": "patched-cidr-patched-diagnostic-timing",
+  "cases": 8,
+  "cases_below_30_samples": [],
+  "categories": {
+    "decision": 8
+  },
+  "metric_records": 16,
+  "metrics_expected_per_case": 2,
+  "minimum_samples": 10000,
+  "unrecorded_metrics": {
+    "diagnostic.decision.v4.addressBits.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v4.erasedHost.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v4.projectOnce.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v4.projectPerRule.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v6.addressBits.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v6.erasedHost.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v6.projectOnce.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v6.projectPerRule.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ]
+  }
+}

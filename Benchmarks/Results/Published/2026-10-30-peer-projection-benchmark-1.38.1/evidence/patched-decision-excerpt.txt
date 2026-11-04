@@ -1,0 +1,243 @@
+0000000000001ed0 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF>:
+    1ed0:      	sub	sp, sp, #0x100
+    1ed4:      	stp	x28, x27, [sp, #0xa0]
+    1ed8:      	stp	x26, x25, [sp, #0xb0]
+    1edc:      	stp	x24, x23, [sp, #0xc0]
+    1ee0:      	stp	x22, x21, [sp, #0xd0]
+    1ee4:      	stp	x20, x19, [sp, #0xe0]
+    1ee8:      	stp	x29, x30, [sp, #0xf0]
+    1eec:      	add	x29, sp, #0xf0
+    1ef0:      	mov	x21, x2
+    1ef4:      	mov	x22, x0
+    1ef8:      	mov	x19, x8
+    1efc:      	and	w8, w2, #0xff00
+    1f00:      	cmp	w8, #0x100
+    1f04:      	b.eq	0x1f38 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x68>
+    1f08:      	bl	0x1f08 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x38>
+		0000000000001f08:  ARM64_RELOC_BRANCH26	_$s4CIDR2AFO2V4OAeA15IPAddressFamilyAAWl
+    1f0c:      	mov	x1, x0
+    1f10:      	adrp	x0, 0x1000 <_$s13CIDRAdmission30IPAdmissionPolicyConfigurationV10CodingKeys33_8ECBE0C1010849D501D8FF4E8B6E7177LLOs0E3KeyAAsAGP11stringValueSSvgTW+0x38>
+		0000000000001f10:  ARM64_RELOC_GOT_LOAD_PAGE21	_$s4CIDR2AFO2V4ON
+    1f14:      	ldr	x0, [x0]
+		0000000000001f14:  ARM64_RELOC_GOT_LOAD_PAGEOFF12	_$s4CIDR2AFO2V4ON
+    1f18:      	bl	0x1f18 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x48>
+		0000000000001f18:  ARM64_RELOC_BRANCH26	_$s4CIDR12PrefixLengthV7maximumACyxGvgZ
+    1f1c:      	mov	x23, #0x0               ; =0
+    1f20:      	mov	w24, #0x0               ; =0
+    1f24:      	str	wzr, [sp, #0x4]
+    1f28:      	mov	w8, w22
+    1f2c:      	and	w9, w0, #0xff
+    1f30:      	orr	x22, x8, x9, lsl #32
+    1f34:      	b	0x1f5c <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x8c>
+    1f38:      	mov	x23, x1
+    1f3c:      	bl	0x1f3c <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x6c>
+		0000000000001f3c:  ARM64_RELOC_BRANCH26	_$s4CIDR2AFO2V6OAeA15IPAddressFamilyAAWl
+    1f40:      	mov	x1, x0
+    1f44:      	adrp	x0, 0x1000 <_$s13CIDRAdmission30IPAdmissionPolicyConfigurationV10CodingKeys33_8ECBE0C1010849D501D8FF4E8B6E7177LLOs0E3KeyAAsAGP11stringValueSSvgTW+0x38>
+		0000000000001f44:  ARM64_RELOC_GOT_LOAD_PAGE21	_$s4CIDR2AFO2V6ON
+    1f48:      	ldr	x0, [x0]
+		0000000000001f48:  ARM64_RELOC_GOT_LOAD_PAGEOFF12	_$s4CIDR2AFO2V6ON
+    1f4c:      	bl	0x1f4c <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x7c>
+		0000000000001f4c:  ARM64_RELOC_BRANCH26	_$s4CIDR12PrefixLengthV7maximumACyxGvgZ
+    1f50:      	mov	x24, x0
+    1f54:      	mov	w8, #0x1                ; =1
+    1f58:      	str	w8, [sp, #0x4]
+    1f5c:      	and	w26, w21, #0xffffff00
+    1f60:      	mov	x9, #-0x1               ; =-1
+    1f64:      	ldr	x8, [x20, #0x10]
+    1f68:      	ldr	x28, [x8, #0x10]
+    1f6c:      	ubfx	x10, x22, #32, #8
+    1f70:      	str	x10, [sp, #0x18]
+    1f74:      	lsr	x9, x9, #1
+    1f78:      	stp	x20, x9, [sp, #0x8]
+    1f7c:      	cbz	x28, 0x20c0 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x1f0>
+    1f80:      	add	x21, x8, #0x20
+    1f84:      	and	w8, w24, #0xff
+    1f88:      	ldr	w9, [sp, #0x4]
+    1f8c:      	orr	w25, w8, w9, lsl #8
+    1f90:      	b	0x1fc0 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xf0>
+    1f94:      	add	x20, sp, #0x70
+    1f98:      	mov	x0, x22
+    1f9c:      	mov	x1, x23
+    1fa0:      	mov	x2, x25
+    1fa4:      	stp	q0, q2, [sp, #0x20]
+    1fa8:      	bl	0x1fa8 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xd8>
+		0000000000001fa8:  ARM64_RELOC_BRANCH26	_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF
+    1fac:      	ldp	q0, q2, [sp, #0x20]
+    1fb0:      	tbnz	w0, #0x0, 0x20b4 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x1e4>
+    1fb4:      	add	x21, x21, #0x30
+    1fb8:      	subs	x28, x28, #0x1
+    1fbc:      	b.eq	0x20c0 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x1f0>
+    1fc0:      	ldp	q0, q1, [x21]
+    1fc4:      	stp	q0, q1, [sp, #0x70]
+    1fc8:      	ldrb	w27, [x21, #0x20]
+    1fcc:      	strb	w27, [sp, #0x90]
+    1fd0:      	ldp	q2, q0, [x21]
+    1fd4:      	and	w8, w27, #0xc0
+    1fd8:      	cmp	w8, #0x40
+    1fdc:      	b.ne	0x1f94 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xc4>
+    1fe0:      	ldr	x8, [sp, #0x70]
+    1fe4:      	ldr	x9, [sp, #0x80]
+    1fe8:      	and	x10, x9, #0xff00
+    1fec:      	cmp	x10, #0x100
+    1ff0:      	b.ne	0x206c <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x19c>
+    1ff4:      	and	w10, w26, #0xffff
+    1ff8:      	cmp	w10, #0x100
+    1ffc:      	b.ne	0x1fb4 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xe4>
+    2000:      	and	w10, w24, #0xff
+    2004:      	cmp	w10, w9, uxtb
+    2008:      	b.lo	0x1fb4 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xe4>
+    200c:      	and	x9, x9, #0xff
+    2010:      	cmp	x9, #0x80
+    2014:      	b.hi	0x2260 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x390>
+    2018:      	ldr	x10, [sp, #0x78]
+    201c:      	mov	w11, #0x80              ; =128
+    2020:      	sub	x11, x11, x9
+    2024:      	mvn	w12, w11
+    2028:      	mov	x13, #-0x1              ; =-1
+    202c:      	lsl	x13, x13, x11
+    2030:      	tst	x11, #0x40
+    2034:      	csel	x11, xzr, x13, ne
+    2038:      	ldr	x14, [sp, #0x10]
+    203c:      	lsr	x12, x14, x12
+    2040:      	orr	x12, x13, x12
+    2044:      	csel	x12, x13, x12, ne
+    2048:      	cmp	x9, #0x0
+    204c:      	csel	x9, xzr, x12, eq
+    2050:      	csel	x11, xzr, x11, eq
+    2054:      	and	x11, x11, x22
+    2058:      	and	x9, x9, x23
+    205c:      	cmp	x9, x10
+    2060:      	ccmp	x11, x8, #0x0, eq
+    2064:      	b.ne	0x1fb4 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xe4>
+    2068:      	b	0x20b4 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x1e4>
+    206c:      	and	w9, w26, #0xffff
+    2070:      	cmp	w9, #0x100
+    2074:      	b.eq	0x1fb4 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xe4>
+    2078:      	lsr	x9, x8, #32
+    207c:      	ldr	x10, [sp, #0x18]
+    2080:      	cmp	w10, w9, uxtb
+    2084:      	b.lo	0x1fb4 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xe4>
+    2088:      	ubfx	x9, x8, #32, #8
+    208c:      	cmp	x9, #0x20
+    2090:      	b.hi	0x2268 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x398>
+    2094:      	neg	w10, w9
+    2098:      	mov	w11, #-0x1              ; =-1
+    209c:      	lsl	w10, w11, w10
+    20a0:      	cmp	x9, #0x0
+    20a4:      	csel	w9, wzr, w10, eq
+    20a8:      	and	w9, w9, w22
+    20ac:      	cmp	w9, w8
+    20b0:      	b.ne	0x1fb4 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xe4>
+    20b4:      	mov	w8, #0x1                ; =1
+    20b8:      	mov	w9, #0x1                ; =1
+    20bc:      	b	0x2230 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x360>
+    20c0:      	ldr	x8, [sp, #0x8]
+    20c4:      	ldr	x8, [x8, #0x8]
+    20c8:      	ldr	x28, [x8, #0x10]
+    20cc:      	cbz	x28, 0x2210 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x340>
+    20d0:      	add	x21, x8, #0x20
+    20d4:      	and	w8, w24, #0xff
+    20d8:      	ldr	w9, [sp, #0x4]
+    20dc:      	orr	w25, w8, w9, lsl #8
+    20e0:      	b	0x2110 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x240>
+    20e4:      	add	x20, sp, #0x40
+    20e8:      	mov	x0, x22
+    20ec:      	mov	x1, x23
+    20f0:      	mov	x2, x25
+    20f4:      	stp	q0, q2, [sp, #0x20]
+    20f8:      	bl	0x20f8 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x228>
+		00000000000020f8:  ARM64_RELOC_BRANCH26	_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF
+    20fc:      	ldp	q0, q2, [sp, #0x20]
+    2100:      	tbnz	w0, #0x0, 0x2204 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x334>
+    2104:      	add	x21, x21, #0x30
+    2108:      	subs	x28, x28, #0x1
+    210c:      	b.eq	0x2210 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x340>
+    2110:      	ldp	q0, q1, [x21]
+    2114:      	stp	q0, q1, [sp, #0x40]
+    2118:      	ldrb	w27, [x21, #0x20]
+    211c:      	strb	w27, [sp, #0x60]
+    2120:      	ldp	q2, q0, [x21]
+    2124:      	and	w8, w27, #0xc0
+    2128:      	cmp	w8, #0x40
+    212c:      	b.ne	0x20e4 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x214>
+    2130:      	ldr	x8, [sp, #0x40]
+    2134:      	ldr	x9, [sp, #0x50]
+    2138:      	and	x10, x9, #0xff00
+    213c:      	cmp	x10, #0x100
+    2140:      	b.ne	0x21bc <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x2ec>
+    2144:      	and	w10, w26, #0xffff
+    2148:      	cmp	w10, #0x100
+    214c:      	b.ne	0x2104 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x234>
+    2150:      	and	w10, w24, #0xff
+    2154:      	cmp	w10, w9, uxtb
+    2158:      	b.lo	0x2104 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x234>
+    215c:      	and	x9, x9, #0xff
+    2160:      	cmp	x9, #0x80
+    2164:      	b.hi	0x2264 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x394>
+    2168:      	ldr	x10, [sp, #0x48]
+    216c:      	mov	w11, #0x80              ; =128
+    2170:      	sub	x11, x11, x9
+    2174:      	mvn	w12, w11
+    2178:      	mov	x13, #-0x1              ; =-1
+    217c:      	lsl	x13, x13, x11
+    2180:      	tst	x11, #0x40
+    2184:      	csel	x11, xzr, x13, ne
+    2188:      	ldr	x14, [sp, #0x10]
+    218c:      	lsr	x12, x14, x12
+    2190:      	orr	x12, x13, x12
+    2194:      	csel	x12, x13, x12, ne
+    2198:      	cmp	x9, #0x0
+    219c:      	csel	x9, xzr, x12, eq
+    21a0:      	csel	x11, xzr, x11, eq
+    21a4:      	and	x11, x11, x22
+    21a8:      	and	x9, x9, x23
+    21ac:      	cmp	x9, x10
+    21b0:      	ccmp	x11, x8, #0x0, eq
+    21b4:      	b.ne	0x2104 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x234>
+    21b8:      	b	0x2204 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x334>
+    21bc:      	and	w9, w26, #0xffff
+    21c0:      	cmp	w9, #0x100
+    21c4:      	b.eq	0x2104 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x234>
+    21c8:      	lsr	x9, x8, #32
+    21cc:      	ldr	x10, [sp, #0x18]
+    21d0:      	cmp	w10, w9, uxtb
+    21d4:      	b.lo	0x2104 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x234>
+    21d8:      	ubfx	x9, x8, #32, #8
+    21dc:      	cmp	x9, #0x20
+    21e0:      	b.hi	0x226c <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x39c>
+    21e4:      	neg	w10, w9
+    21e8:      	mov	w11, #-0x1              ; =-1
+    21ec:      	lsl	w10, w11, w10
+    21f0:      	cmp	x9, #0x0
+    21f4:      	csel	w9, wzr, w10, eq
+    21f8:      	and	w9, w9, w22
+    21fc:      	cmp	w9, w8
+    2200:      	b.ne	0x2104 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x234>
+    2204:      	mov	x8, #0x0                ; =0
+    2208:      	mov	w9, #0x0                ; =0
+    220c:      	b	0x2230 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x360>
+    2210:      	mov	w27, #0x0               ; =0
+    2214:      	ldr	x8, [sp, #0x8]
+    2218:      	ldrb	w8, [x8]
+    221c:      	cmp	w8, #0x1
+    2220:      	cset	w9, eq
+    2224:      	movi.2d	v2, #0000000000000000
+    2228:      	mov	w8, #0x2                ; =2
+    222c:      	movi.2d	v0, #0000000000000000
+    2230:      	stp	x8, xzr, [x19]
+    2234:      	stp	q2, q0, [x19, #0x10]
+    2238:      	strb	w27, [x19, #0x30]
+    223c:      	strb	w9, [x19, #0x31]
+    2240:      	ldp	x29, x30, [sp, #0xf0]
+    2244:      	ldp	x20, x19, [sp, #0xe0]
+    2248:      	ldp	x22, x21, [sp, #0xd0]
+    224c:      	ldp	x24, x23, [sp, #0xc0]
+    2250:      	ldp	x26, x25, [sp, #0xb0]
+    2254:      	ldp	x28, x27, [sp, #0xa0]
+    2258:      	add	sp, sp, #0x100
+    225c:      	ret
+    2260:      	brk	#0x1
+    2264:      	brk	#0x1
+    2268:      	brk	#0x1
+    226c:      	brk	#0x1

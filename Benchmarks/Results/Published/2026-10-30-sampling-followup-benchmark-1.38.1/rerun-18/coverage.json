@@ -1,0 +1,14 @@
+{
+  "baseline_name": "sampling-rerun-18-20261030T180653Z",
+  "cases": 18,
+  "cases_below_30_samples": [],
+  "categories": {
+    "compile": 10,
+    "decision": 6,
+    "load": 2
+  },
+  "metric_records": 162,
+  "metrics_expected_per_case": 9,
+  "minimum_samples": 1124,
+  "unrecorded_metrics": {}
+}

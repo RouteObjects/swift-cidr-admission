@@ -1,0 +1,11 @@
+{
+  "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/BenchmarkTool": "2e43a55279fd2969aefaae6b28dd22589da5a13255dd9c6a4f11e2791cf41303",
+  "/private/tmp/admission-peer-projection.3SFHIj/baseline/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/CIDRAdmissionBenchmarkTarget": "730ffc1c36b464beb4b77c92f2ce9fdf41c4889a3e5d88b1d60a85b651288efb",
+  "/private/tmp/admission-peer-projection.3SFHIj/baseline/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/libMallocInterposerSwift.dylib": "02580636ff3b630fc0ae5d6fff68a6674075f4adaa5675fc4fa03c2bc1d9856d",
+  "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/CIDRAdmissionBenchmarkTarget": "4b9264576b2db90cc867342250bcb3f1cb301a9ba5df5570205f3e4f82d9aab0",
+  "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/libMallocInterposerSwift.dylib": "8285d60de2c88f5135b2b668e3b963a145206d8b49d84904c6789c7558bddc8f",
+  "/private/tmp/admission-lazy-projection.vfTHye/deferred/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/CIDRAdmissionBenchmarkTarget": "df584f0c1ed2676bad86a0f36ea4dfcb14d12351fce5132304d2330996a34938",
+  "/private/tmp/admission-lazy-projection.vfTHye/deferred/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/libMallocInterposerSwift.dylib": "98193274752831ecec653ea1a839bfa92a054b3015e2d31270462e9a7959346c",
+  "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/CIDRAdmissionBenchmarkTarget": "aa4d142cf5a36952a03b7f38e9e96f6d1fd090d22a039f7e885c758c2b13d234",
+  "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/libMallocInterposerSwift.dylib": "84d6fceb94b020f0c012a603e6aeefd49fb807c8193c4ae1591ae5406ed146ad"
+}

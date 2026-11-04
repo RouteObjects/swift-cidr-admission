@@ -1,0 +1,31 @@
+{
+  "baseline_name": "sampling-decision-timing-2-20261030T181851Z",
+  "cases": 2,
+  "cases_below_30_samples": [],
+  "categories": {
+    "decision": 2
+  },
+  "metric_records": 4,
+  "metrics_expected_per_case": 2,
+  "minimum_samples": 568,
+  "unrecorded_metrics": {
+    "policy.decision.v4.combined.denyMissAllowLast.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "policy.decision.v6.combined.denyMissAllowLast.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ]
+  }
+}

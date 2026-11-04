@@ -1,0 +1,13 @@
+{
+  "command": [
+    "xcrun",
+    "llvm-objdump",
+    "-dr",
+    "--no-show-raw-insn",
+    "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/CIDRAdmission.build/AdmissionRule.swift.o"
+  ],
+  "cwd": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793399314.391797,
+  "elapsed_seconds": 0.052800893783569336
+}

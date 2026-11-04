@@ -1,0 +1,143 @@
+{
+  "verified_at_utc": "2026-10-30T18:33:52+00:00",
+  "base_commit_unchanged": true,
+  "index_unchanged_and_empty": true,
+  "production_sources_and_dependency_locks_unchanged": true,
+  "original_snapshot_unchanged": true,
+  "original_sha256sums_sha256": "593532a8d543c8e99c0b051a6c743ab3a0c2b3e2761be3f3b4184b51e35f0d11",
+  "historical_files_unchanged": {
+    "Benchmarks/README.md": "859701849f12bcf4a46000cfd1f149655a215c99088ba84af65ebf1dedd311ac",
+    "Benchmarks/Results/lookup-time-p50.png": "c03af67433f26eeb89b185352b03d00438f6a4f4121d35ee5ddcf0543a490384"
+  },
+  "original_summary_relabel_is_numerically_identical": true,
+  "source_patch_reproduction": [
+    {
+      "patch": "sampling-source.patch",
+      "applies_to_base": true,
+      "reproduces_all_captured_source_hashes": true
+    },
+    {
+      "patch": "diagnostics-source.patch",
+      "applies_to_base": true,
+      "reproduces_all_captured_source_hashes": true
+    },
+    {
+      "patch": "erased-host-source.patch",
+      "applies_to_base": true,
+      "reproduces_all_captured_source_hashes": true
+    }
+  ],
+  "captures": [
+    {
+      "capture": "decision-full-1",
+      "cases": 2,
+      "metric_records": 18,
+      "metrics_per_case": 9,
+      "minimum_samples": 599,
+      "native_archive_byte_exact": true,
+      "percentiles_validated": true
+    },
+    {
+      "capture": "decision-full-2",
+      "cases": 2,
+      "metric_records": 18,
+      "metrics_per_case": 9,
+      "minimum_samples": 505,
+      "native_archive_byte_exact": true,
+      "percentiles_validated": true
+    },
+    {
+      "capture": "decision-timing-1",
+      "cases": 2,
+      "metric_records": 4,
+      "metrics_per_case": 2,
+      "minimum_samples": 485,
+      "native_archive_byte_exact": true,
+      "percentiles_validated": true
+    },
+    {
+      "capture": "decision-timing-2",
+      "cases": 2,
+      "metric_records": 4,
+      "metrics_per_case": 2,
+      "minimum_samples": 568,
+      "native_archive_byte_exact": true,
+      "percentiles_validated": true
+    },
+    {
+      "capture": "diagnostic-full",
+      "cases": 6,
+      "metric_records": 54,
+      "metrics_per_case": 9,
+      "minimum_samples": 2677,
+      "native_archive_byte_exact": true,
+      "percentiles_validated": true
+    },
+    {
+      "capture": "diagnostic-timing",
+      "cases": 6,
+      "metric_records": 12,
+      "metrics_per_case": 2,
+      "minimum_samples": 2726,
+      "native_archive_byte_exact": true,
+      "percentiles_validated": true
+    },
+    {
+      "capture": "erased-host-full",
+      "cases": 4,
+      "metric_records": 36,
+      "metrics_per_case": 9,
+      "minimum_samples": 2854,
+      "native_archive_byte_exact": true,
+      "percentiles_validated": true
+    },
+    {
+      "capture": "erased-host-timing",
+      "cases": 4,
+      "metric_records": 8,
+      "metrics_per_case": 2,
+      "minimum_samples": 2706,
+      "native_archive_byte_exact": true,
+      "percentiles_validated": true
+    },
+    {
+      "capture": "rerun-18",
+      "cases": 18,
+      "metric_records": 162,
+      "metrics_per_case": 9,
+      "minimum_samples": 1124,
+      "native_archive_byte_exact": true,
+      "percentiles_validated": true
+    }
+  ],
+  "capture_count": 9,
+  "case_observations": 46,
+  "metric_observations": 316,
+  "root_test": {
+    "command": "swift test --disable-automatic-resolution",
+    "exit_code": 0,
+    "tests": 57,
+    "suites": 7,
+    "log": "root-test.log.gz"
+  },
+  "discovery": [
+    {
+      "profile": "quick",
+      "count": 174,
+      "exit_code": 0,
+      "command": "swift package --package-path Benchmarks benchmark list --target CIDRAdmissionBenchmarkTarget --benchmark-build-configuration release"
+    },
+    {
+      "profile": "reference",
+      "count": 174,
+      "exit_code": 0,
+      "command": "swift package --package-path Benchmarks benchmark list --target CIDRAdmissionBenchmarkTarget --benchmark-build-configuration release"
+    },
+    {
+      "profile": "reference-diagnostics",
+      "count": 182,
+      "exit_code": 0,
+      "command": "swift package --package-path Benchmarks benchmark list --target CIDRAdmissionBenchmarkTarget --benchmark-build-configuration release"
+    }
+  ]
+}

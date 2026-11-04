@@ -1,0 +1,12 @@
+{
+  "command": [
+    "llvm-objdump",
+    "-dr",
+    "--no-show-raw-insn",
+    "/tmp/admission-two-phase.UQxVZ1/6.3.3/swift-cidr-admission/.build/x86_64-unknown-linux-gnu/release/CIDRAdmission.build/IPAdmissionPolicy.swift.o"
+  ],
+  "exit": 0,
+  "started_unix": 1793415293.1163518,
+  "elapsed_seconds": 0.07912731170654297,
+  "path": "REDACTED_HOME/.local/share/swiftly/toolchains/6.3.3/usr/bin:/usr/bin:/bin"
+}

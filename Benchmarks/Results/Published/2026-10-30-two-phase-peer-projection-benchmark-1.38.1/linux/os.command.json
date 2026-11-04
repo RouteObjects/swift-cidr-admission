@@ -1,0 +1,10 @@
+{
+  "command": [
+    "cat",
+    "/etc/os-release"
+  ],
+  "exit": 0,
+  "started_unix": 1793414597.4480042,
+  "elapsed_seconds": 0.002357959747314453,
+  "path": null
+}

@@ -1,0 +1,293 @@
+{
+  "identity": "benchmarks",
+  "name": "swift-cidr-admission-benchmarks",
+  "url": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks",
+  "version": "unspecified",
+  "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks",
+  "traits": [
+    "default"
+  ],
+  "dependencies": [
+    {
+      "identity": "swift-cidr-admission",
+      "name": "swift-cidr-admission",
+      "url": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission",
+      "version": "unspecified",
+      "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission",
+      "traits": [
+        "default"
+      ],
+      "dependencies": [
+        {
+          "identity": "swift-cidr",
+          "name": "swift-cidr",
+          "url": "https://github.com/RouteObjects/swift-cidr.git",
+          "version": "unspecified",
+          "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr",
+          "traits": [
+            "default"
+          ],
+          "dependencies": [
+            {
+              "identity": "swift-argument-parser",
+              "name": "swift-argument-parser",
+              "url": "https://github.com/apple/swift-argument-parser.git",
+              "version": "1.8.2",
+              "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-argument-parser",
+              "traits": [
+                "default"
+              ],
+              "dependencies": []
+            },
+            {
+              "identity": "swift-nio",
+              "name": "swift-nio",
+              "url": "https://github.com/apple/swift-nio.git",
+              "version": "2.101.0",
+              "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-nio",
+              "traits": [
+                "default"
+              ],
+              "dependencies": [
+                {
+                  "identity": "swift-atomics",
+                  "name": "swift-atomics",
+                  "url": "https://github.com/apple/swift-atomics.git",
+                  "version": "1.3.0",
+                  "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-atomics",
+                  "traits": [
+                    "default"
+                  ],
+                  "dependencies": []
+                },
+                {
+                  "identity": "swift-collections",
+                  "name": "swift-collections",
+                  "url": "https://github.com/apple/swift-collections.git",
+                  "version": "1.6.0",
+                  "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-collections",
+                  "traits": [],
+                  "dependencies": []
+                },
+                {
+                  "identity": "swift-system",
+                  "name": "swift-system",
+                  "url": "https://github.com/apple/swift-system.git",
+                  "version": "1.7.2",
+                  "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-system",
+                  "traits": [
+                    "default"
+                  ],
+                  "dependencies": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "identity": "swift-crypto",
+          "name": "swift-crypto",
+          "url": "https://github.com/apple/swift-crypto.git",
+          "version": "5.0.3",
+          "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-crypto",
+          "traits": [
+            "default"
+          ],
+          "dependencies": [
+            {
+              "identity": "swift-asn1",
+              "name": "swift-asn1",
+              "url": "https://github.com/apple/swift-asn1.git",
+              "version": "1.7.1",
+              "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-asn1",
+              "traits": [
+                "default"
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": "swift-cidr",
+      "name": "swift-cidr",
+      "url": "https://github.com/RouteObjects/swift-cidr.git",
+      "version": "unspecified",
+      "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr",
+      "traits": [
+        "default"
+      ],
+      "dependencies": [
+        {
+          "identity": "swift-argument-parser",
+          "name": "swift-argument-parser",
+          "url": "https://github.com/apple/swift-argument-parser.git",
+          "version": "1.8.2",
+          "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-argument-parser",
+          "traits": [
+            "default"
+          ],
+          "dependencies": []
+        },
+        {
+          "identity": "swift-nio",
+          "name": "swift-nio",
+          "url": "https://github.com/apple/swift-nio.git",
+          "version": "2.101.0",
+          "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-nio",
+          "traits": [
+            "default"
+          ],
+          "dependencies": [
+            {
+              "identity": "swift-atomics",
+              "name": "swift-atomics",
+              "url": "https://github.com/apple/swift-atomics.git",
+              "version": "1.3.0",
+              "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-atomics",
+              "traits": [
+                "default"
+              ],
+              "dependencies": []
+            },
+            {
+              "identity": "swift-collections",
+              "name": "swift-collections",
+              "url": "https://github.com/apple/swift-collections.git",
+              "version": "1.6.0",
+              "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-collections",
+              "traits": [],
+              "dependencies": []
+            },
+            {
+              "identity": "swift-system",
+              "name": "swift-system",
+              "url": "https://github.com/apple/swift-system.git",
+              "version": "1.7.2",
+              "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-system",
+              "traits": [
+                "default"
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": "swift-crypto",
+      "name": "swift-crypto",
+      "url": "https://github.com/apple/swift-crypto.git",
+      "version": "5.0.3",
+      "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-crypto",
+      "traits": [
+        "default"
+      ],
+      "dependencies": [
+        {
+          "identity": "swift-asn1",
+          "name": "swift-asn1",
+          "url": "https://github.com/apple/swift-asn1.git",
+          "version": "1.7.1",
+          "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-asn1",
+          "traits": [
+            "default"
+          ],
+          "dependencies": []
+        }
+      ]
+    },
+    {
+      "identity": "benchmark",
+      "name": "Benchmark",
+      "url": "https://github.com/ordo-one/benchmark",
+      "version": "1.38.1",
+      "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/benchmark",
+      "traits": [
+        "RuntimeInterposer",
+        "MallocInterposer"
+      ],
+      "dependencies": [
+        {
+          "identity": "swift-system",
+          "name": "swift-system",
+          "url": "https://github.com/apple/swift-system.git",
+          "version": "1.7.2",
+          "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-system",
+          "traits": [
+            "default"
+          ],
+          "dependencies": []
+        },
+        {
+          "identity": "swift-argument-parser",
+          "name": "swift-argument-parser",
+          "url": "https://github.com/apple/swift-argument-parser.git",
+          "version": "1.8.2",
+          "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-argument-parser",
+          "traits": [
+            "default"
+          ],
+          "dependencies": []
+        },
+        {
+          "identity": "texttable",
+          "name": "TextTable",
+          "url": "https://github.com/ordo-one/TextTable.git",
+          "version": "0.0.2",
+          "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/TextTable",
+          "traits": [
+            "default"
+          ],
+          "dependencies": []
+        },
+        {
+          "identity": "hdrhistogram-swift",
+          "name": "package-histogram",
+          "url": "https://github.com/HdrHistogram/hdrhistogram-swift.git",
+          "version": "0.2.0",
+          "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/hdrhistogram-swift",
+          "traits": [
+            "default"
+          ],
+          "dependencies": [
+            {
+              "identity": "swift-numerics",
+              "name": "swift-numerics",
+              "url": "https://github.com/apple/swift-numerics",
+              "version": "1.1.1",
+              "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-numerics",
+              "traits": [
+                "default"
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "identity": "swift-atomics",
+          "name": "swift-atomics",
+          "url": "https://github.com/apple/swift-atomics.git",
+          "version": "1.3.0",
+          "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/swift-atomics",
+          "traits": [
+            "default"
+          ],
+          "dependencies": []
+        },
+        {
+          "identity": "malloc-interposer",
+          "name": "malloc-interposer",
+          "url": "https://github.com/ordo-one/malloc-interposer.git",
+          "version": "1.6.1",
+          "path": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/checkouts/malloc-interposer",
+          "traits": [
+            "default"
+          ],
+          "dependencies": []
+        }
+      ]
+    }
+  ]
+}

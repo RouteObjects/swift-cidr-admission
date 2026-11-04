@@ -1,0 +1,55 @@
+Benchmark 1.38.1: Sources/Benchmark/BenchmarkExecutor.swift
+SHA256: 7cf7d9dcc25918a6f239960b8ca8f5e150749c6cd53b5685c9e2cc778ebf53c9
+
+90:         var mallocStatsRequested = false
+91:         var arcStatsRequested = false
+92:         var operatingSystemMetricsRequested: Set<BenchmarkMetric> = []
+93:
+94:         // Create metric statistics as needed
+95:         benchmark.configuration.metrics.forEach { metric in
+96:             switch metric {
+97:             case .custom:
+98:                 customStatistics[metric] = Statistics(prefersLarger: metric.polarity == .prefersLarger)
+99:             case .wallClock, .cpuUser, .cpuTotal, .cpuSystem:
+100:                 let units = Statistics.Units(benchmark.configuration.timeUnits)
+101:                 statistics[metric.index] = Statistics(units: units)
+102:             default:
+103:                 if operatingSystemStatsProducer.metricSupported(metric) == true {
+104:                     statistics[metric.index] = Statistics(prefersLarger: metric.polarity == .prefersLarger)
+105:                 }
+106:             }
+107:
+108:             if mallocStatsProducerNeeded(metric) {
+109:                 mallocStatsRequested = true
+110:             }
+111:
+112:             if operatingSystemsStatsProducerNeeded(metric), operatingSystemStatsProducer.metricSupported(metric) {
+113:                 operatingSystemMetricsRequested.insert(metric)
+114:                 operatingSystemStatsRequested = true
+115:             }
+116:
+117:             if arcStatsProducerNeeded(metric) {
+118:                 arcStatsRequested = true
+119:             }
+120:
+121:             if performanceCountersNeeded(metric) {
+
+426:         if arcStatsRequested {
+427:             ARCStatsProducer.hook()
+428:         }
+429:
+430:         if mallocStatsRequested {
+431:             #if canImport(MallocInterposerSwift)
+432:             MallocInterposerSwift.hook()
+433:             #endif
+434:         }
+
+522:         if arcStatsRequested {
+523:             ARCStatsProducer.unhook()
+524:         }
+525:
+526:         if mallocStatsRequested {
+527:             #if canImport(MallocInterposerSwift)
+528:             MallocInterposerSwift.unhook()
+529:             #endif
+530:         }

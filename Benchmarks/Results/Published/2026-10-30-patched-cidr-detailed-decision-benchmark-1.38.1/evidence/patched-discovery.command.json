@@ -1,0 +1,18 @@
+{
+  "command": [
+    "swift",
+    "package",
+    "--package-path",
+    "Benchmarks",
+    "benchmark",
+    "list",
+    "--target",
+    "CIDRAdmissionBenchmarkTarget",
+    "--benchmark-build-configuration",
+    "release"
+  ],
+  "cwd": "/private/tmp/admission-patched-cidr.2924yd/patched/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793394949.639162,
+  "elapsed_seconds": 73.91721200942993
+}

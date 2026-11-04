@@ -1,0 +1,12 @@
+{
+  "baseline_name": "sampling-diagnostic-full-20261030T182158Z",
+  "cases": 6,
+  "cases_below_30_samples": [],
+  "categories": {
+    "decision": 6
+  },
+  "metric_records": 54,
+  "metrics_expected_per_case": 9,
+  "minimum_samples": 2677,
+  "unrecorded_metrics": {}
+}

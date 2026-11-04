@@ -1,0 +1,16 @@
+{
+  "command": [
+    "swift",
+    "package",
+    "--package-path",
+    "Benchmarks",
+    "edit",
+    "swift-cidr",
+    "--path",
+    "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr"
+  ],
+  "cwd": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793399192.9580212,
+  "elapsed_seconds": 0.5866477489471436
+}

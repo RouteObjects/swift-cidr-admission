@@ -1,0 +1,81 @@
+{
+  "repositories": {
+    "admission": {
+      "head": "5d01867915f257d9d2086a510efe1c20f697b69a",
+      "branch": "chore/benchmark-sampling-validation",
+      "original_files_hash_verified": 926,
+      "index_unchanged": true
+    },
+    "cidr": {
+      "head": "cdc2e592beb9095875bc42fc4c269396b20d99e3",
+      "branch": "perf/typed-prefix-containment",
+      "original_files_hash_verified": 504,
+      "index_unchanged": true
+    }
+  },
+  "macos_tests": [
+    {
+      "configuration": "debug",
+      "tests": 64,
+      "suites": 8,
+      "passed": true
+    },
+    {
+      "configuration": "release",
+      "tests": 64,
+      "suites": 8,
+      "passed": true
+    }
+  ],
+  "native_linux_validation": {
+    "status": "passed_after_ssh_agent_authorization",
+    "initial_attempt": {
+      "status": "blocked_before_remote_upload",
+      "host": "linux-validation-host",
+      "attempts_this_experiment": 1,
+      "ssh_exit_code": 255,
+      "diagnostic": "sign_and_send_pubkey: signing failed for ED25519 REDACTED_HOME/.ssh/linux97-codex.pub from agent: communication with agent failed; Permission denied (publickey,password).",
+      "attempted_variant": "phased",
+      "remote_tests_run": false,
+      "remote_source_uploaded": false,
+      "note": "Earlier eager-candidate Linux results do not validate this two-phase implementation."
+    },
+    "retry": {
+      "native_architecture": "x86_64",
+      "remote_directory": "/tmp/admission-two-phase.UQxVZ1",
+      "tests": [
+        {
+          "swift": "6.2.4",
+          "configuration": "debug",
+          "passed_tests": 64,
+          "suites": 8
+        },
+        {
+          "swift": "6.2.4",
+          "configuration": "release",
+          "passed_tests": 64,
+          "suites": 8
+        },
+        {
+          "swift": "6.3.3",
+          "configuration": "debug",
+          "passed_tests": 64,
+          "suites": 8
+        },
+        {
+          "swift": "6.3.3",
+          "configuration": "release",
+          "passed_tests": 64,
+          "suites": 8
+        }
+      ],
+      "source_hashes_match_before_after": true,
+      "other_dependency_pins_unchanged": true,
+      "source_archive_sha256": "4da4bef5fbfe0af06403eccd5a6a0dc129487c114fe4c6aafdcee8a8b31efbc4"
+    },
+    "benchmark_timings_collected_on_linux": false
+  },
+  "original_snapshots_and_dependency_pins_unchanged": true,
+  "new_production_source_change": "Sources/CIDRAdmission/IPAdmissionPolicy.swift",
+  "no_staging_commits_or_pushes": true
+}

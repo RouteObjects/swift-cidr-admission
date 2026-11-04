@@ -1,0 +1,9 @@
+{
+  "command": [
+    "lscpu"
+  ],
+  "exit": 0,
+  "started_unix": 1793414597.450606,
+  "elapsed_seconds": 0.4695727825164795,
+  "path": null
+}
