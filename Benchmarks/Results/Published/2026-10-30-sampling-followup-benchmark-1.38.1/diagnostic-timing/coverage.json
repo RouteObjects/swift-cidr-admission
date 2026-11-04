@@ -1,0 +1,67 @@
+{
+  "baseline_name": "sampling-diagnostic-timing-20261030T182446Z",
+  "cases": 6,
+  "cases_below_30_samples": [],
+  "categories": {
+    "decision": 6
+  },
+  "metric_records": 12,
+  "metrics_expected_per_case": 2,
+  "minimum_samples": 2726,
+  "unrecorded_metrics": {
+    "diagnostic.decision.v4.addressBits.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v4.projectOnce.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v4.projectPerRule.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v6.addressBits.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v6.projectOnce.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v6.projectPerRule.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ]
+  }
+}

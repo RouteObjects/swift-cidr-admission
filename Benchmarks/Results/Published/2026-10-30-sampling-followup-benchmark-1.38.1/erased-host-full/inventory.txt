@@ -1,0 +1,4 @@
+diagnostic.decision.v4.erasedHost.10000
+diagnostic.decision.v4.projectPerRule.10000
+diagnostic.decision.v6.erasedHost.10000
+diagnostic.decision.v6.projectPerRule.10000

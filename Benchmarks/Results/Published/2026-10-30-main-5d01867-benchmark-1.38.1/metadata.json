@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "captured_on": "2026-10-30",
+  "source": {
+    "repository": "https://github.com/RouteObjects/swift-cidr-admission",
+    "branch": "main",
+    "commit": "5d01867915f257d9d2086a510efe1c20f697b69a",
+    "tree": "900919e3336ab800a810571b864f638ea8c6cefe",
+    "clean_at_start": true,
+    "tracked_files_unchanged": true,
+    "sha256": {
+      "Benchmarks/README.md": "859701849f12bcf4a46000cfd1f149655a215c99088ba84af65ebf1dedd311ac",
+      "Benchmarks/Results/lookup-time-p50.png": "c03af67433f26eeb89b185352b03d00438f6a4f4121d35ee5ddcf0543a490384",
+      "Benchmarks/Package.swift": "407f4617593ef2a77498a9faf0ac892ee140bbf3b0a3b8a49d20f76e7b631ed7",
+      "Benchmarks/Package.resolved": "6397a6584e2da05652eea5fccb20dbf00369bccc15465942620898a3be5c8ca1",
+      "Benchmarks/CIDRAdmissionBenchmarkTarget/CIDRAdmissionBenchmarkTarget.swift": "eba4be5fd4f9b283a9fc3fcc6805e0a6896b15e4937c2c63e442cd5f08cc0a29",
+      "Benchmarks/CIDRAdmissionBenchmarkTarget/FilePolicyBenchmarkFixtures.swift": "48eb758f9c6623d719b20924d2b43766d3104251266058331c10a3af0d8bac02",
+      "Package.resolved": "2a9d136585c23c8040e89fc7b2f0a6e3badbb344c0aed8ddc9d82e5b366e3111"
+    }
+  },
+  "environment": {
+    "cpu": "Apple M1 Max",
+    "architecture": "arm64",
+    "logical_processors": 10,
+    "memory_bytes": 68719476736,
+    "macos_version": "26.7.1",
+    "macos_build": "25G241",
+    "kernel_release": "25.6.0",
+    "kernel_version": "Darwin Kernel Version 25.6.0: Tue Aug 18 17:49:13 PDT 2026; root:xnu-12377.161.15.700.19~2/RELEASE_ARM64_T6000",
+    "swift_version": "Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)",
+    "swift_default_target": "arm64-apple-macosx26.0",
+    "swift_command": "/usr/bin/swift",
+    "xcode_version": "26.6",
+    "xcode_build": "17F113",
+    "developer_directory": "/Applications/Xcode-26.6.0.app/Contents/Developer",
+    "power_source": "AC Power",
+    "battery_percent_before_and_after": 80,
+    "background_load_controlled": false,
+    "load_averages_preflight": [
+      7.48,
+      12.49,
+      15.2
+    ],
+    "load_averages_after_run": [
+      7.7,
+      9.23,
+      11.84
+    ]
+  },
+  "dependencies": {
+    "benchmark": {
+      "version": "1.38.1",
+      "revision": "ca4a9d300fc15d38132853c2e30462337b33c43f"
+    },
+    "malloc_interposer": {
+      "version": "1.6.1",
+      "revision": "977dc0639b742ecd05ac03fecc53664095821a5d"
+    },
+    "swift_cidr": {
+      "version": "0.8.0",
+      "revision": "cdc2e592beb9095875bc42fc4c269396b20d99e3"
+    },
+    "swift_crypto": {
+      "version": "5.0.3",
+      "revision": "c2cbadd7263439d8015189668f96ff5b5be565ce"
+    },
+    "complete_lockfile": "dependencies.json"
+  },
+  "run": {
+    "baseline_name": "snapshot-main-5d01867-benchmark-1.38.1-20261030T153743Z",
+    "invocation_started_at_utc": "2026-10-30T15:37:43Z",
+    "completion_observed_at_utc": "2026-10-30T15:46:04Z",
+    "exit_code": 0,
+    "command": "env -u CIDR_ADMISSION_BENCHMARK_TARGET -u BENCHMARK_DISABLE_MALLOC_INTERPOSER -u BENCHMARK_DISABLE_JEMALLOC -u MALLOC_INTERPOSER_LOCAL_PATH -u RUNTIME_INTERPOSER_LOCAL_PATH swift package --package-path Benchmarks --allow-writing-to-package-directory benchmark baseline update 'snapshot-main-5d01867-benchmark-1.38.1-20261030T153743Z' --target CIDRAdmissionBenchmarkTarget --benchmark-build-configuration release --no-progress --time-units nanoseconds",
+    "build_configuration": "release",
+    "case_filter": null,
+    "metrics_override": null,
+    "default_allocation_and_arc_instrumentation": true,
+    "allocation_stack_profiling": false,
+    "max_duration_seconds_per_case": 2,
+    "expected_cases": 174,
+    "completed_cases": 174,
+    "metrics_per_case": 9,
+    "metric_records": 1566,
+    "case_categories": {
+      "lookup": 98,
+      "decision": 16,
+      "compile": 36,
+      "load": 24
+    },
+    "policy_sizes": [
+      0,
+      1,
+      10,
+      50,
+      100,
+      250,
+      500,
+      1000,
+      10000
+    ],
+    "file_policy_sizes": [
+      500,
+      1000,
+      10000
+    ]
+  },
+  "data": {
+    "native_baseline": "baseline.json.gz",
+    "native_baseline_uncompressed_bytes": 68262921,
+    "native_baseline_uncompressed_sha256": "76d4c11efc7a29ac30ce9b24cd8e3fb48d9a7544b62f94172f3e2aebf674b210",
+    "summary": "summary.csv",
+    "raw_percentile_export": "metrics-batched.csv.gz",
+    "runner_tables": "results.txt.gz",
+    "coverage": "coverage.json"
+  },
+  "normalization": {
+    "raw_wall_clock_unit": "nanoseconds per batch",
+    "raw_throughput_unit": "rounded batches per second",
+    "wall_clock_per_operation": "raw percentile / native scalingFactor",
+    "throughput_per_operation": "raw median * native scalingFactor",
+    "allocation_arc_per_operation": "raw median / native scalingFactor",
+    "sample_counts": "native histogram _totalCount for each metric",
+    "upstream_csv_test_average_used": false,
+    "upstream_csv_units_used": false,
+    "throughput_percentile_note": "The runner reverses percentile rank for prefersLarger metrics. The summary uses the symmetric median only for throughput.",
+    "raw_export_time_note": "Influx CSV timestamps record export time, not measurement time."
+  },
+  "caveats": {
+    "single_run": true,
+    "instrumentation_overhead_included": true,
+    "performance_guarantee": false,
+    "ci_regression_threshold": false,
+    "minimum_metric_samples": 4,
+    "cases_below_30_samples": 18,
+    "low_sample_flag_is_heuristic": true,
+    "historical_measurements_not_replaced": true,
+    "do_not_attribute_cross_snapshot_differences_to_benchmark_version_alone": true,
+    "local_driver_linking_warnings": "BenchmarkTool linking emitted missing .pcm module-cache warnings; discovery, execution, and exports completed successfully."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "native_architecture": "x86_64",
+  "remote_directory": "/tmp/admission-two-phase.UQxVZ1",
+  "tests": [
+    {
+      "swift": "6.2.4",
+      "configuration": "debug",
+      "passed_tests": 64,
+      "suites": 8
+    },
+    {
+      "swift": "6.2.4",
+      "configuration": "release",
+      "passed_tests": 64,
+      "suites": 8
+    },
+    {
+      "swift": "6.3.3",
+      "configuration": "debug",
+      "passed_tests": 64,
+      "suites": 8
+    },
+    {
+      "swift": "6.3.3",
+      "configuration": "release",
+      "passed_tests": 64,
+      "suites": 8
+    }
+  ],
+  "source_hashes_match_before_after": true,
+  "other_dependency_pins_unchanged": true,
+  "source_archive_sha256": "4da4bef5fbfe0af06403eccd5a6a0dc129487c114fe4c6aafdcee8a8b31efbc4"
+}

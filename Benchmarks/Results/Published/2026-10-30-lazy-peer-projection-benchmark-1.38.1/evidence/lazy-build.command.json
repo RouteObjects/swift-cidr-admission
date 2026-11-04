@@ -1,0 +1,17 @@
+{
+  "command": [
+    "swift",
+    "build",
+    "-v",
+    "-c",
+    "release",
+    "--package-path",
+    "Benchmarks",
+    "--product",
+    "CIDRAdmissionBenchmarkTarget"
+  ],
+  "cwd": "/private/tmp/admission-lazy-projection.vfTHye/lazy/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793411406.1808598,
+  "elapsed_seconds": 56.75301241874695
+}

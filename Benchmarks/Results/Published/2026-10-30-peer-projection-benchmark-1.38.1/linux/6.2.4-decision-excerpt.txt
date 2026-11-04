@@ -1,0 +1,284 @@
+0000000000000000 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF>:
+       0:      	pushq	%rbp
+       1:      	movq	%rsp, %rbp
+       4:      	pushq	%r15
+       6:      	pushq	%r14
+       8:      	pushq	%r13
+       a:      	pushq	%r12
+       c:      	pushq	%rbx
+       d:      	movq	%rax, -0x30(%rbp)
+      11:      	movq	%r13, -0x38(%rbp)
+      15:      	movq	0x10(%r13), %r14
+      19:      	movq	%rsi, %r13
+      1c:      	movq	0x10(%r14), %r15
+      20:      	testq	%r15, %r15
+      23:      	je	0x1e9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x1e9>
+      29:      	addq	$0x40, %r14
+      2d:      	jmp	0x3d <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3d>
+      2f:      	nop
+      30:      	addq	$0x30, %r14
+      34:      	decq	%r15
+      37:      	je	0x1e9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x1e9>
+      3d:      	movq	-0x20(%r14), %r8
+      41:      	movq	-0x18(%r14), %r9
+      45:      	movq	-0x10(%r14), %r10
+      49:      	movq	-0x8(%r14), %rsi
+      4d:      	movzbl	(%r14), %ebx
+      51:      	movl	%ebx, %ecx
+      53:      	shrl	$0x6, %ecx
+      56:      	je	0x90 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x90>
+      58:      	cmpl	$0x2, %ecx
+      5b:      	jne	0xb0 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xb0>
+      5d:      	testb	$0x1, %bl
+      60:      	je	0x112 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x112>
+      66:      	testl	$0x100, %edx            # imm = 0x100
+      6c:      	je	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+      6e:      	cmpq	%r8, %rdi
+      71:      	movq	%r13, %rcx
+      74:      	sbbq	%r9, %rcx
+      77:      	jb	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+      79:      	cmpq	%rdi, %r10
+      7c:      	movq	%rsi, %rcx
+      7f:      	sbbq	%r13, %rcx
+      82:      	jb	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+      84:      	jmp	0x1d9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x1d9>
+      89:      	nopl	(%rax)
+      90:      	testl	$0x100, %r10d           # imm = 0x100
+      97:      	jne	0x13f <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x13f>
+      9d:      	testl	$0x100, %edx            # imm = 0x100
+      a3:      	jne	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+      a5:      	cmpl	%edi, %r8d
+      a8:      	jne	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+      aa:      	jmp	0x1d9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x1d9>
+      af:      	nop
+      b0:      	testl	$0x100, %r10d           # imm = 0x100
+      b7:      	jne	0x162 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x162>
+      bd:      	testl	$0x100, %edx            # imm = 0x100
+      c3:      	jne	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+      c9:      	movq	%r8, %rcx
+      cc:      	shrq	$0x20, %rcx
+      d0:      	cmpb	$0x20, %cl
+      d3:      	ja	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+      d9:      	movl	%ecx, %r12d
+      dc:      	andl	$0x3f, %r12d
+      e0:      	cmpq	$0x20, %r12
+      e4:      	ja	0x428 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x428>
+      ea:      	negb	%cl
+      ec:      	movl	$0xffffffff, %r11d      # imm = 0xFFFFFFFF
+      f2:      	shll	%cl, %r11d
+      f5:      	testq	%r12, %r12
+      f8:      	movl	$0x0, %eax
+      fd:      	cmovel	%eax, %r11d
+     101:      	andl	%edi, %r11d
+     104:      	cmpl	%r8d, %r11d
+     107:      	jne	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+     10d:      	jmp	0x1d9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x1d9>
+     112:      	testl	$0x100, %edx            # imm = 0x100
+     118:      	jne	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+     11e:      	movq	%r8, %rcx
+     121:      	shrq	$0x20, %rcx
+     125:      	cmpl	%r8d, %edi
+     128:      	setae	%r12b
+     12c:      	cmpl	%edi, %ecx
+     12e:      	setae	%cl
+     131:      	testb	%cl, %r12b
+     134:      	je	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+     13a:      	jmp	0x1d9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x1d9>
+     13f:      	testl	$0x100, %edx            # imm = 0x100
+     145:      	je	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+     14b:      	movq	%r8, %rcx
+     14e:      	xorq	%rdi, %rcx
+     151:      	movq	%r9, %r12
+     154:      	xorq	%r13, %r12
+     157:      	orq	%rcx, %r12
+     15a:      	jne	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+     160:      	jmp	0x1d9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x1d9>
+     162:      	testl	$0x100, %edx            # imm = 0x100
+     168:      	je	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+     16e:      	cmpb	$-0x7f, %r10b
+     172:      	jae	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+     178:      	movzbl	%r10b, %r12d
+     17c:      	cmpq	$0x80, %r12
+     183:      	ja	0x426 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x426>
+     189:      	movl	%r10d, %ecx
+     18c:      	negb	%cl
+     18e:      	movq	$-0x1, %r11
+     195:      	shldq	%cl, %r11, %r11
+     199:      	movq	%r13, %rax
+     19c:      	movq	$-0x1, %r13
+     1a3:      	shlq	%cl, %r13
+     1a6:      	testb	$0x40, %cl
+     1a9:      	cmovneq	%r13, %r11
+     1ad:      	movl	$0x0, %ecx
+     1b2:      	cmoveq	%r13, %rcx
+     1b6:      	movq	%rax, %r13
+     1b9:      	testq	%r12, %r12
+     1bc:      	cmoveq	%r12, %r11
+     1c0:      	cmoveq	%r12, %rcx
+     1c4:      	andq	%rax, %r11
+     1c7:      	andq	%rdi, %rcx
+     1ca:      	xorq	%r9, %r11
+     1cd:      	xorq	%r8, %rcx
+     1d0:      	orq	%r11, %rcx
+     1d3:      	jne	0x30 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30>
+     1d9:      	movb	$0x1, %dl
+     1db:      	movl	$0x1, %ecx
+     1e0:      	movq	-0x30(%rbp), %rax
+     1e4:      	jmp	0x3fa <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3fa>
+     1e9:      	movq	-0x38(%rbp), %rcx
+     1ed:      	movq	0x8(%rcx), %r14
+     1f1:      	movq	0x10(%r14), %r15
+     1f5:      	testq	%r15, %r15
+     1f8:      	je	0x3c3 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3c3>
+     1fe:      	addq	$0x40, %r14
+     202:      	jmp	0x21d <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x21d>
+     204:      	nopw	%cs:(%rax,%rax)
+     210:      	addq	$0x30, %r14
+     214:      	decq	%r15
+     217:      	je	0x3c3 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3c3>
+     21d:      	movq	-0x20(%r14), %r8
+     221:      	movq	-0x18(%r14), %r9
+     225:      	movq	-0x10(%r14), %r10
+     229:      	movq	-0x8(%r14), %rsi
+     22d:      	movzbl	(%r14), %ebx
+     231:      	movl	%ebx, %ecx
+     233:      	shrl	$0x6, %ecx
+     236:      	je	0x270 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x270>
+     238:      	cmpl	$0x2, %ecx
+     23b:      	jne	0x290 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x290>
+     23d:      	testb	$0x1, %bl
+     240:      	je	0x2f2 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x2f2>
+     246:      	testl	$0x100, %edx            # imm = 0x100
+     24c:      	je	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     24e:      	cmpq	%r8, %rdi
+     251:      	movq	%r13, %rcx
+     254:      	sbbq	%r9, %rcx
+     257:      	jb	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     259:      	cmpq	%rdi, %r10
+     25c:      	movq	%rsi, %rcx
+     25f:      	sbbq	%r13, %rcx
+     262:      	jb	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     264:      	jmp	0x3b9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3b9>
+     269:      	nopl	(%rax)
+     270:      	testl	$0x100, %r10d           # imm = 0x100
+     277:      	jne	0x31f <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x31f>
+     27d:      	testl	$0x100, %edx            # imm = 0x100
+     283:      	jne	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     285:      	cmpl	%edi, %r8d
+     288:      	jne	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     28a:      	jmp	0x3b9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3b9>
+     28f:      	nop
+     290:      	testl	$0x100, %r10d           # imm = 0x100
+     297:      	jne	0x342 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x342>
+     29d:      	testl	$0x100, %edx            # imm = 0x100
+     2a3:      	jne	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     2a9:      	movq	%r8, %rcx
+     2ac:      	shrq	$0x20, %rcx
+     2b0:      	cmpb	$0x20, %cl
+     2b3:      	ja	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     2b9:      	movl	%ecx, %r12d
+     2bc:      	andl	$0x3f, %r12d
+     2c0:      	cmpq	$0x20, %r12
+     2c4:      	ja	0x42c <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x42c>
+     2ca:      	negb	%cl
+     2cc:      	movl	$0xffffffff, %r11d      # imm = 0xFFFFFFFF
+     2d2:      	shll	%cl, %r11d
+     2d5:      	testq	%r12, %r12
+     2d8:      	movl	$0x0, %eax
+     2dd:      	cmovel	%eax, %r11d
+     2e1:      	andl	%edi, %r11d
+     2e4:      	cmpl	%r8d, %r11d
+     2e7:      	jne	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     2ed:      	jmp	0x3b9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3b9>
+     2f2:      	testl	$0x100, %edx            # imm = 0x100
+     2f8:      	jne	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     2fe:      	movq	%r8, %rcx
+     301:      	shrq	$0x20, %rcx
+     305:      	cmpl	%r8d, %edi
+     308:      	setae	%r11b
+     30c:      	cmpl	%edi, %ecx
+     30e:      	setae	%cl
+     311:      	testb	%cl, %r11b
+     314:      	je	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     31a:      	jmp	0x3b9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3b9>
+     31f:      	testl	$0x100, %edx            # imm = 0x100
+     325:      	je	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     32b:      	movq	%r8, %rcx
+     32e:      	xorq	%rdi, %rcx
+     331:      	movq	%r9, %r11
+     334:      	xorq	%r13, %r11
+     337:      	orq	%rcx, %r11
+     33a:      	jne	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     340:      	jmp	0x3b9 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3b9>
+     342:      	testl	$0x100, %edx            # imm = 0x100
+     348:      	je	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     34e:      	cmpb	$-0x7f, %r10b
+     352:      	jae	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     358:      	movzbl	%r10b, %r12d
+     35c:      	cmpq	$0x80, %r12
+     363:      	ja	0x42a <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x42a>
+     369:      	movl	%r10d, %ecx
+     36c:      	negb	%cl
+     36e:      	movq	$-0x1, %r11
+     375:      	shldq	%cl, %r11, %r11
+     379:      	movq	%r13, %rax
+     37c:      	movq	$-0x1, %r13
+     383:      	shlq	%cl, %r13
+     386:      	testb	$0x40, %cl
+     389:      	cmovneq	%r13, %r11
+     38d:      	movl	$0x0, %ecx
+     392:      	cmoveq	%r13, %rcx
+     396:      	movq	%rax, %r13
+     399:      	testq	%r12, %r12
+     39c:      	cmoveq	%r12, %r11
+     3a0:      	cmoveq	%r12, %rcx
+     3a4:      	andq	%rax, %r11
+     3a7:      	andq	%rdi, %rcx
+     3aa:      	xorq	%r9, %r11
+     3ad:      	xorq	%r8, %rcx
+     3b0:      	orq	%r11, %rcx
+     3b3:      	jne	0x210 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x210>
+     3b9:      	xorl	%ecx, %ecx
+     3bb:      	xorl	%edx, %edx
+     3bd:      	movq	-0x30(%rbp), %rax
+     3c1:      	jmp	0x3fa <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3fa>
+     3c3:      	movq	-0x38(%rbp), %rcx
+     3c7:      	cmpb	$0x0, (%rcx)
+     3ca:      	movq	-0x30(%rbp), %rax
+     3ce:      	je	0x3e6 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3e6>
+     3d0:      	movb	$0x1, %dl
+     3d2:      	movl	$0x2, %ecx
+     3d7:      	xorl	%r8d, %r8d
+     3da:      	xorl	%r9d, %r9d
+     3dd:      	xorl	%r10d, %r10d
+     3e0:      	xorl	%esi, %esi
+     3e2:      	xorl	%ebx, %ebx
+     3e4:      	jmp	0x3fa <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3fa>
+     3e6:      	xorl	%r8d, %r8d
+     3e9:      	movl	$0x2, %ecx
+     3ee:      	xorl	%r9d, %r9d
+     3f1:      	xorl	%r10d, %r10d
+     3f4:      	xorl	%esi, %esi
+     3f6:      	xorl	%ebx, %ebx
+     3f8:      	xorl	%edx, %edx
+     3fa:      	movq	%rcx, (%rax)
+     3fd:      	movq	$0x0, 0x8(%rax)
+     405:      	movq	%r8, 0x10(%rax)
+     409:      	movq	%r9, 0x18(%rax)
+     40d:      	movq	%r10, 0x20(%rax)
+     411:      	movq	%rsi, 0x28(%rax)
+     415:      	movb	%bl, 0x30(%rax)
+     418:      	movb	%dl, 0x31(%rax)
+     41b:      	popq	%rbx
+     41c:      	popq	%r12
+     41e:      	popq	%r13
+     420:      	popq	%r14
+     422:      	popq	%r15
+     424:      	popq	%rbp
+     425:      	retq
+     426:      	ud2
+     428:      	ud2
+     42a:      	ud2
+     42c:      	ud2
+
+Disassembly of section .text.$s13CIDRAdmission17IPAdmissionPolicyV6allowsySb4CIDR12AnyIPAddressOF:

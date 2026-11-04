@@ -1,0 +1,17 @@
+{
+  "command": [
+    "swift",
+    "build",
+    "-v",
+    "-c",
+    "release",
+    "--package-path",
+    "Benchmarks",
+    "--product",
+    "CIDRAdmissionBenchmarkTarget"
+  ],
+  "cwd": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793413830.71906,
+  "elapsed_seconds": 58.31658697128296
+}

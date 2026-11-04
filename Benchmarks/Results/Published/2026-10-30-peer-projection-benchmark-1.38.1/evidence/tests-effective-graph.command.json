@@ -1,0 +1,13 @@
+{
+  "command": [
+    "swift",
+    "package",
+    "show-dependencies",
+    "--format",
+    "json"
+  ],
+  "cwd": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793398997.111137,
+  "elapsed_seconds": 0.4757871627807617
+}

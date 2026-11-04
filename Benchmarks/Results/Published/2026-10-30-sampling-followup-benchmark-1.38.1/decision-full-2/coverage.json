@@ -1,0 +1,12 @@
+{
+  "baseline_name": "sampling-decision-full-2-20261030T182041Z",
+  "cases": 2,
+  "cases_below_30_samples": [],
+  "categories": {
+    "decision": 2
+  },
+  "metric_records": 18,
+  "metrics_expected_per_case": 9,
+  "minimum_samples": 505,
+  "unrecorded_metrics": {}
+}

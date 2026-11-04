@@ -1,0 +1,23 @@
+{
+  "original_repositories": {
+    "admission": {
+      "head": "5d01867915f257d9d2086a510efe1c20f697b69a",
+      "branch": "chore/benchmark-sampling-validation",
+      "index_unchanged": true,
+      "original_files_verified": 161
+    },
+    "cidr": {
+      "head": "cdc2e592beb9095875bc42fc4c269396b20d99e3",
+      "branch": "perf/typed-prefix-containment",
+      "index_unchanged": true,
+      "original_files_verified": 504
+    }
+  },
+  "patched_admission_tests": {
+    "debug": "\udbc4\udc5b  Test run with 57 tests in 7 suites passed after 2.829 seconds.",
+    "release": "\udbc4\udc5b  Test run with 57 tests in 7 suites passed after 0.099 seconds."
+  },
+  "original_root_and_benchmark_lockfiles_unchanged": true,
+  "temporary_effective_locks_remove_only_the_edited_cidr_pin": true,
+  "staging_commits_pushes_performed": false
+}

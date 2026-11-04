@@ -1,0 +1,10 @@
+{
+  "command": [
+    "swift",
+    "--version"
+  ],
+  "exit": 0,
+  "started_unix": 1793414597.9595704,
+  "elapsed_seconds": 0.11417984962463379,
+  "path": "REDACTED_HOME/.local/share/swiftly/toolchains/6.2.4/usr/bin:/usr/bin:/bin"
+}

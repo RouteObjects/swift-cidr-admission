@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "source_bundle": "2026-10-30-main-5d01867-benchmark-1.38.1",
+  "scope": "Sanitized derivative; embedded historical hashes describe original artifacts.",
+  "files": [
+    {
+      "original": "README.md",
+      "published": "README.md",
+      "original_sha256": "f14a5b6252c4a7c96b5bdfe7b40024be8d8e63e5ae0f4f8757786f86432aecf1",
+      "published_sha256": "3372b5da1ddeab3a0ad71281c196050f3dd383bbf722f84b3b947174d85ed5d9",
+      "changed": true
+    },
+    {
+      "original": "SHA256SUMS",
+      "published": "ORIGINAL-SHA256SUMS",
+      "original_sha256": "593532a8d543c8e99c0b051a6c743ab3a0c2b3e2761be3f3b4184b51e35f0d11",
+      "published_sha256": "593532a8d543c8e99c0b051a6c743ab3a0c2b3e2761be3f3b4184b51e35f0d11",
+      "changed": false
+    },
+    {
+      "original": "baseline.json.gz",
+      "published": "baseline.json.gz",
+      "original_sha256": "9b57047b10a9c0d80915e5c8e85ce221d32e2b9acaab8bbf02c62ba102d3d427",
+      "published_sha256": "d97c7accd9f32574c730b036cc73266d126d361aff9366a761b569eb5daafd74",
+      "changed": true
+    },
+    {
+      "original": "coverage.json",
+      "published": "coverage.json",
+      "original_sha256": "423555bbbb691d4a2d716169fbcd97e83b6d324babcf64bfbdce5fc8b1553b77",
+      "published_sha256": "423555bbbb691d4a2d716169fbcd97e83b6d324babcf64bfbdce5fc8b1553b77",
+      "changed": false
+    },
+    {
+      "original": "dependencies.json",
+      "published": "dependencies.json",
+      "original_sha256": "6397a6584e2da05652eea5fccb20dbf00369bccc15465942620898a3be5c8ca1",
+      "published_sha256": "6397a6584e2da05652eea5fccb20dbf00369bccc15465942620898a3be5c8ca1",
+      "changed": false
+    },
+    {
+      "original": "metadata.json",
+      "published": "metadata.json",
+      "original_sha256": "ba7a436904005c9b982cf666b3af62c424e808bf079ed0e8800315c3114726ca",
+      "published_sha256": "ba7a436904005c9b982cf666b3af62c424e808bf079ed0e8800315c3114726ca",
+      "changed": false
+    },
+    {
+      "original": "metrics-batched.csv.gz",
+      "published": "metrics-batched.csv.gz",
+      "original_sha256": "d8d06d2d5b5337268e5e34903e11b9b6514eba95e659113368176b17c52300fc",
+      "published_sha256": "bf7484dde10a9f2e3824a95e0970aa948fd9690f4875481c212d7395961c7e57",
+      "changed": true
+    },
+    {
+      "original": "results.txt.gz",
+      "published": "results.txt.gz",
+      "original_sha256": "0f1d3ad97d2c6b18f65078effb98a77901db305e20d7e9fe0a2bb54bf2eb4019",
+      "published_sha256": "573a00e6f7d1377c831c6ca0aca99a9ddad07fd758fb14109992ad3f9d09d20e",
+      "changed": true
+    },
+    {
+      "original": "summary.csv",
+      "published": "summary.csv",
+      "original_sha256": "efacdc70bd5a1620731e0d8c505cf587968bea9d423d36a9a4c51bddcbedbf9e",
+      "published_sha256": "efacdc70bd5a1620731e0d8c505cf587968bea9d423d36a9a4c51bddcbedbf9e",
+      "changed": false
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "swift",
+    "package",
+    "--package-path",
+    "Benchmarks",
+    "--disable-automatic-resolution",
+    "show-dependencies",
+    "--format",
+    "json"
+  ],
+  "cwd": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793413819.904194,
+  "elapsed_seconds": 9.565162897109985
+}

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "swift",
+    "package",
+    "--package-path",
+    "/tmp/admission-two-phase.UQxVZ1/6.3.3/swift-cidr-admission",
+    "--disable-automatic-resolution",
+    "show-dependencies",
+    "--format",
+    "json"
+  ],
+  "exit": 0,
+  "started_unix": 1793414944.3769703,
+  "elapsed_seconds": 7.869423151016235,
+  "path": "REDACTED_HOME/.local/share/swiftly/toolchains/6.3.3/usr/bin:/usr/bin:/bin"
+}

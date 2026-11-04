@@ -1,0 +1,16 @@
+{
+  "command": [
+    "swift",
+    "package",
+    "--package-path",
+    "Benchmarks",
+    "--disable-automatic-resolution",
+    "show-dependencies",
+    "--format",
+    "json"
+  ],
+  "cwd": "/private/tmp/admission-peer-projection.3SFHIj/baseline/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793399049.2944481,
+  "elapsed_seconds": 10.391026973724365
+}

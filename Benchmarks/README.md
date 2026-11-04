@@ -1,7 +1,8 @@
 # CIDRAdmission Benchmarks
 
-`CIDRAdmissionBenchmarkTarget` measures `IPAdmissionPolicy` construction and
-the indexed Boolean `allows(_:)` path. The policy retains source rules for
+`CIDRAdmissionBenchmarkTarget` measures `IPAdmissionPolicy` construction,
+file loading, indexed Boolean `allows(_:)`, and detailed `decision(for:)` calls.
+The policy retains source rules for
 `decision(for:)` diagnostics while compiling private, family-partitioned exact
 coverage indexes for admission checks.
 
@@ -68,6 +69,19 @@ difference shows the integrity-check overhead within the complete load path:
 
 - `policy.load.<family>.<representation>.verifyIfPresent.<size>`
 - `policy.load.<family>.<representation>.required.<size>`
+
+## Sampling And Captures
+
+The default `quick` profile is intended for short exploratory runs. Use
+`CIDR_ADMISSION_BENCHMARK_SAMPLING=reference` for the improved sampling profile
+when recording comparison results. Read [Sampling And Percentiles](Sampling.md)
+for batching, sample-count limits, timing-only runs, and opt-in diagnostic
+controls. Batched percentiles describe batch means, not individual-call latency.
+
+[Benchmark Captures](Results/README.md) indexes the separately preserved
+October investigation, sanitized publication copies, and its shipped outcome.
+Those dated experiments are not a fresh 0.3.3 performance baseline. The older
+results below remain unchanged for historical comparison.
 
 ## Results
 

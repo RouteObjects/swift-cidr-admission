@@ -1,0 +1,16 @@
+{
+  "command": [
+    "swift",
+    "package",
+    "--package-path",
+    "Benchmarks",
+    "--disable-automatic-resolution",
+    "show-dependencies",
+    "--format",
+    "json"
+  ],
+  "cwd": "/private/tmp/admission-lazy-projection.vfTHye/deferred/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793411699.840468,
+  "elapsed_seconds": 12.01669192314148
+}

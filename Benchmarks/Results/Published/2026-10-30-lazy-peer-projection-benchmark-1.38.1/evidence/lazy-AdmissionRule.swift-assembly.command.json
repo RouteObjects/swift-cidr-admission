@@ -1,0 +1,13 @@
+{
+  "command": [
+    "xcrun",
+    "llvm-objdump",
+    "-dr",
+    "--no-show-raw-insn",
+    "/private/tmp/admission-lazy-projection.vfTHye/lazy/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/CIDRAdmission.build/AdmissionRule.swift.o"
+  ],
+  "cwd": "/private/tmp/admission-lazy-projection.vfTHye/lazy/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793411535.262989,
+  "elapsed_seconds": 0.06874489784240723
+}

@@ -1,0 +1,39 @@
+{
+  "comparison_variants": [
+    "baseline",
+    "eager",
+    "deferred",
+    "phased"
+  ],
+  "chronological_sequence": [
+    "baseline-full-1",
+    "eager-full-1",
+    "deferred-full-1",
+    "phased-full-1",
+    "phased-timing-1",
+    "deferred-timing-1",
+    "eager-timing-1",
+    "baseline-timing-1",
+    "baseline-timing-2",
+    "eager-timing-2",
+    "deferred-timing-2",
+    "phased-timing-2",
+    "phased-full-2",
+    "deferred-full-2",
+    "eager-full-2",
+    "baseline-full-2"
+  ],
+  "control_builds_reused": [
+    "baseline",
+    "eager",
+    "deferred"
+  ],
+  "driver": "Same official BenchmarkTool 1.38.1 executable for every new capture",
+  "all_measurements_are_new": true,
+  "benchmark_inputs_differ_only_in_policy_implementation": true,
+  "new_tests_are_not_benchmark_target_inputs": true,
+  "all_variants_use_same_pending_cidr_patch": true,
+  "no_agent_initiated_compilation_overlapped_measurement": true,
+  "other_compiler_activity_checked_before_and_after_not_continuously": true,
+  "background_workload_controlled": false
+}

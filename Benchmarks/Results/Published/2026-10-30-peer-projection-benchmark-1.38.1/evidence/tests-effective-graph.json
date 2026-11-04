@@ -1,0 +1,101 @@
+{
+  "identity": "swift-cidr-admission",
+  "name": "swift-cidr-admission",
+  "url": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission",
+  "version": "unspecified",
+  "path": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission",
+  "traits": [
+    "default"
+  ],
+  "dependencies": [
+    {
+      "identity": "swift-cidr",
+      "name": "swift-cidr",
+      "url": "https://github.com/RouteObjects/swift-cidr.git",
+      "version": "unspecified",
+      "path": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr",
+      "traits": [
+        "default"
+      ],
+      "dependencies": [
+        {
+          "identity": "swift-argument-parser",
+          "name": "swift-argument-parser",
+          "url": "https://github.com/apple/swift-argument-parser.git",
+          "version": "1.8.2",
+          "path": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/.build/checkouts/swift-argument-parser",
+          "traits": [
+            "default"
+          ],
+          "dependencies": []
+        },
+        {
+          "identity": "swift-nio",
+          "name": "swift-nio",
+          "url": "https://github.com/apple/swift-nio.git",
+          "version": "2.101.0",
+          "path": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/.build/checkouts/swift-nio",
+          "traits": [
+            "default"
+          ],
+          "dependencies": [
+            {
+              "identity": "swift-atomics",
+              "name": "swift-atomics",
+              "url": "https://github.com/apple/swift-atomics.git",
+              "version": "1.3.0",
+              "path": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/.build/checkouts/swift-atomics",
+              "traits": [
+                "default"
+              ],
+              "dependencies": []
+            },
+            {
+              "identity": "swift-collections",
+              "name": "swift-collections",
+              "url": "https://github.com/apple/swift-collections.git",
+              "version": "1.6.0",
+              "path": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/.build/checkouts/swift-collections",
+              "traits": [],
+              "dependencies": []
+            },
+            {
+              "identity": "swift-system",
+              "name": "swift-system",
+              "url": "https://github.com/apple/swift-system.git",
+              "version": "1.7.2",
+              "path": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/.build/checkouts/swift-system",
+              "traits": [
+                "default"
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identity": "swift-crypto",
+      "name": "swift-crypto",
+      "url": "https://github.com/apple/swift-crypto.git",
+      "version": "5.0.3",
+      "path": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/.build/checkouts/swift-crypto",
+      "traits": [
+        "default"
+      ],
+      "dependencies": [
+        {
+          "identity": "swift-asn1",
+          "name": "swift-asn1",
+          "url": "https://github.com/apple/swift-asn1.git",
+          "version": "1.7.1",
+          "path": "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/.build/checkouts/swift-asn1",
+          "traits": [
+            "default"
+          ],
+          "dependencies": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1928 @@
+{
+  "captures": 13,
+  "cases_per_capture": 32,
+  "case_observations": 416,
+  "metric_records": 2400,
+  "main_comparison_captures": 12,
+  "lazy_property_pilot_captures": 1,
+  "minimum_metric_samples": 1703,
+  "nonzero_allocation_arc_p50_values": [],
+  "coverage": {
+    "baseline-full-1": {
+      "baseline_name": "lazy-peer-projection-baseline-full-1",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 288,
+      "metrics_expected_per_case": 9,
+      "minimum_samples": 1885,
+      "unrecorded_metrics": {}
+    },
+    "eager-full-1": {
+      "baseline_name": "lazy-peer-projection-eager-full-1",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 288,
+      "metrics_expected_per_case": 9,
+      "minimum_samples": 4663,
+      "unrecorded_metrics": {}
+    },
+    "lazy-full-1": {
+      "baseline_name": "lazy-peer-projection-lazy-full-1",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 288,
+      "metrics_expected_per_case": 9,
+      "minimum_samples": 2968,
+      "unrecorded_metrics": {}
+    },
+    "deferred-full-1": {
+      "baseline_name": "lazy-peer-projection-deferred-full-1",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 288,
+      "metrics_expected_per_case": 9,
+      "minimum_samples": 4087,
+      "unrecorded_metrics": {}
+    },
+    "deferred-timing-1": {
+      "baseline_name": "lazy-peer-projection-deferred-timing-1",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 64,
+      "metrics_expected_per_case": 2,
+      "minimum_samples": 3808,
+      "unrecorded_metrics": {
+        "policy.decision.v4.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ]
+      }
+    },
+    "eager-timing-1": {
+      "baseline_name": "lazy-peer-projection-eager-timing-1",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 64,
+      "metrics_expected_per_case": 2,
+      "minimum_samples": 4734,
+      "unrecorded_metrics": {
+        "policy.decision.v4.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ]
+      }
+    },
+    "baseline-timing-1": {
+      "baseline_name": "lazy-peer-projection-baseline-timing-1",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 64,
+      "metrics_expected_per_case": 2,
+      "minimum_samples": 1781,
+      "unrecorded_metrics": {
+        "policy.decision.v4.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ]
+      }
+    },
+    "baseline-timing-2": {
+      "baseline_name": "lazy-peer-projection-baseline-timing-2",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 64,
+      "metrics_expected_per_case": 2,
+      "minimum_samples": 1773,
+      "unrecorded_metrics": {
+        "policy.decision.v4.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ]
+      }
+    },
+    "eager-timing-2": {
+      "baseline_name": "lazy-peer-projection-eager-timing-2",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 64,
+      "metrics_expected_per_case": 2,
+      "minimum_samples": 4820,
+      "unrecorded_metrics": {
+        "policy.decision.v4.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ]
+      }
+    },
+    "deferred-timing-2": {
+      "baseline_name": "lazy-peer-projection-deferred-timing-2",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 64,
+      "metrics_expected_per_case": 2,
+      "minimum_samples": 3950,
+      "unrecorded_metrics": {
+        "policy.decision.v4.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v4.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.100": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.250": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.50": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "policy.decision.v6.combined.denyMissAllowLast.500": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v4.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.address.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultAllow": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.empty.defaultDeny": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.defaultAllowMiss.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.mixed.denyMissAllowLast.1000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.allowFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.network.denyFirst.10000": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ],
+        "projection.v6.range.denyFirst.1": [
+          "mallocCountLarge",
+          "mallocCountSmall",
+          "mallocCountTotal",
+          "objectAllocCount",
+          "releaseCount",
+          "retainCount",
+          "retainReleaseDelta"
+        ]
+      }
+    },
+    "deferred-full-2": {
+      "baseline_name": "lazy-peer-projection-deferred-full-2",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 288,
+      "metrics_expected_per_case": 9,
+      "minimum_samples": 4014,
+      "unrecorded_metrics": {}
+    },
+    "eager-full-2": {
+      "baseline_name": "lazy-peer-projection-eager-full-2",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 288,
+      "metrics_expected_per_case": 9,
+      "minimum_samples": 4838,
+      "unrecorded_metrics": {}
+    },
+    "baseline-full-2": {
+      "baseline_name": "lazy-peer-projection-baseline-full-2",
+      "cases": 32,
+      "cases_below_30_samples": [],
+      "categories": {
+        "decision": 16,
+        "v4": 8,
+        "v6": 8
+      },
+      "metric_records": 288,
+      "metrics_expected_per_case": 9,
+      "minimum_samples": 1703,
+      "unrecorded_metrics": {}
+    }
+  }
+}

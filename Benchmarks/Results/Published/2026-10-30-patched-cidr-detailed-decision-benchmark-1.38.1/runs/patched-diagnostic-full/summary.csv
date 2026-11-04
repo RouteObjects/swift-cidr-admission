@@ -1,0 +1,9 @@
+benchmark,batch_size,wall_sample_unit,wall_samples,throughput_samples,minimum_metric_samples,metrics_recorded,low_sample_count,wall_p50_sample_mean_ns_per_operation,wall_p99_sample_mean_ns_per_operation,throughput_p50_operations_per_second,malloc_small_p50_per_operation,malloc_large_p50_per_operation,malloc_total_p50_per_operation,object_allocations_p50_per_operation,retains_p50_per_operation,releases_p50_per_operation,retain_release_delta_p50_per_operation
+diagnostic.decision.v4.addressBits.10000,1,single_operation,10000,10000,10000,9,False,21887,26431,45727,0,0,0,0,0,0,0
+diagnostic.decision.v4.erasedHost.10000,1,single_operation,10000,10000,10000,9,False,51519,68799,19423,0,0,0,0,0,0,0
+diagnostic.decision.v4.projectOnce.10000,1,single_operation,10000,10000,10000,9,False,25887,28047,38655,0,0,0,0,0,0,0
+diagnostic.decision.v4.projectPerRule.10000,1,single_operation,10000,10000,10000,9,False,96895,132863,10327,0,0,0,0,0,0,0
+diagnostic.decision.v6.addressBits.10000,1,single_operation,10000,10000,10000,9,False,34015,39519,29423,0,0,0,0,0,0,0
+diagnostic.decision.v6.erasedHost.10000,1,single_operation,10000,10000,10000,9,False,51647,68799,19375,0,0,0,0,0,0,0
+diagnostic.decision.v6.projectOnce.10000,1,single_operation,10000,10000,10000,9,False,38815,53343,25791,0,0,0,0,0,0,0
+diagnostic.decision.v6.projectPerRule.10000,1,single_operation,10000,10000,10000,9,False,103359,131711,9679,0,0,0,0,0,0,0

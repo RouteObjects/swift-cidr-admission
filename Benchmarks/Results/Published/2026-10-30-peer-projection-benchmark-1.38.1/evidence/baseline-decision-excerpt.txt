@@ -1,0 +1,85 @@
+0000000000001ed0 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF>:
+    1ed0:      	sub	sp, sp, #0xe0
+    1ed4:      	stp	x28, x27, [sp, #0x80]
+    1ed8:      	stp	x26, x25, [sp, #0x90]
+    1edc:      	stp	x24, x23, [sp, #0xa0]
+    1ee0:      	stp	x22, x21, [sp, #0xb0]
+    1ee4:      	stp	x20, x19, [sp, #0xc0]
+    1ee8:      	stp	x29, x30, [sp, #0xd0]
+    1eec:      	add	x29, sp, #0xd0
+    1ef0:      	mov	x21, x20
+    1ef4:      	mov	x22, x2
+    1ef8:      	mov	x23, x1
+    1efc:      	mov	x24, x0
+    1f00:      	mov	x19, x8
+    1f04:      	ldr	x8, [x20, #0x10]
+    1f08:      	ldr	x9, [x8, #0x10]
+    1f0c:      	add	x8, x8, #0x20
+    1f10:      	add	x26, x9, #0x1
+    1f14:      	subs	x26, x26, #0x1
+    1f18:      	b.eq	0x1f64 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x94>
+    1f1c:      	add	x27, x8, #0x30
+    1f20:      	ldp	q0, q1, [x8]
+    1f24:      	ldr	q2, [x8]
+    1f28:      	stp	q0, q1, [sp, #0x50]
+    1f2c:      	ldrb	w25, [x8, #0x20]
+    1f30:      	strb	w25, [sp, #0x70]
+    1f34:      	ldr	q0, [x8, #0x10]
+    1f38:      	stp	q0, q2, [sp]
+    1f3c:      	add	x20, sp, #0x50
+    1f40:      	mov	x0, x24
+    1f44:      	mov	x1, x23
+    1f48:      	mov	x2, x22
+    1f4c:      	bl	0x1f4c <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x7c>
+		0000000000001f4c:  ARM64_RELOC_BRANCH26	_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF
+    1f50:      	mov	x8, x27
+    1f54:      	tbz	w0, #0x0, 0x1f14 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x44>
+    1f58:      	mov	w9, #0x1                ; =1
+    1f5c:      	mov	w8, #0x1                ; =1
+    1f60:      	b	0x1fc4 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xf4>
+    1f64:      	ldr	x8, [x21, #0x8]
+    1f68:      	ldr	x9, [x8, #0x10]
+    1f6c:      	add	x8, x8, #0x20
+    1f70:      	add	x26, x9, #0x1
+    1f74:      	subs	x26, x26, #0x1
+    1f78:      	b.eq	0x1fcc <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xfc>
+    1f7c:      	add	x27, x8, #0x30
+    1f80:      	ldp	q0, q1, [x8]
+    1f84:      	ldr	q2, [x8]
+    1f88:      	stp	q2, q0, [sp, #0x10]
+    1f8c:      	str	q1, [sp, #0x30]
+    1f90:      	ldrb	w25, [x8, #0x20]
+    1f94:      	strb	w25, [sp, #0x40]
+    1f98:      	ldr	q0, [x8, #0x10]
+    1f9c:      	str	q0, [sp]
+    1fa0:      	add	x20, sp, #0x20
+    1fa4:      	mov	x0, x24
+    1fa8:      	mov	x1, x23
+    1fac:      	mov	x2, x22
+    1fb0:      	bl	0x1fb0 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xe0>
+		0000000000001fb0:  ARM64_RELOC_BRANCH26	_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF
+    1fb4:      	mov	x8, x27
+    1fb8:      	tbz	w0, #0x0, 0x1f74 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0xa4>
+    1fbc:      	mov	x9, #0x0                ; =0
+    1fc0:      	mov	w8, #0x0                ; =0
+    1fc4:      	ldp	q1, q0, [sp]
+    1fc8:      	b	0x1fe8 <_$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x118>
+    1fcc:      	mov	w25, #0x0               ; =0
+    1fd0:      	ldrb	w8, [x21]
+    1fd4:      	cmp	w8, #0x1
+    1fd8:      	cset	w8, eq
+    1fdc:      	movi.2d	v0, #0000000000000000
+    1fe0:      	mov	w9, #0x2                ; =2
+    1fe4:      	movi.2d	v1, #0000000000000000
+    1fe8:      	stp	x9, xzr, [x19]
+    1fec:      	stp	q0, q1, [x19, #0x10]
+    1ff0:      	strb	w25, [x19, #0x30]
+    1ff4:      	strb	w8, [x19, #0x31]
+    1ff8:      	ldp	x29, x30, [sp, #0xd0]
+    1ffc:      	ldp	x20, x19, [sp, #0xc0]
+    2000:      	ldp	x22, x21, [sp, #0xb0]
+    2004:      	ldp	x24, x23, [sp, #0xa0]
+    2008:      	ldp	x26, x25, [sp, #0x90]
+    200c:      	ldp	x28, x27, [sp, #0x80]
+    2010:      	add	sp, sp, #0xe0
+    2014:      	ret

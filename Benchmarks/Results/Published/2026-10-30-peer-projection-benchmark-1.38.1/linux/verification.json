@@ -1,0 +1,33 @@
+{
+  "native_architecture": "x86_64",
+  "remote_directory": "/tmp/admission-peer-projection.7PIArV",
+  "tests": [
+    {
+      "swift": "6.2.4",
+      "configuration": "debug",
+      "passed_tests": 61,
+      "suites": 8
+    },
+    {
+      "swift": "6.2.4",
+      "configuration": "release",
+      "passed_tests": 61,
+      "suites": 8
+    },
+    {
+      "swift": "6.3.3",
+      "configuration": "debug",
+      "passed_tests": 61,
+      "suites": 8
+    },
+    {
+      "swift": "6.3.3",
+      "configuration": "release",
+      "passed_tests": 61,
+      "suites": 8
+    }
+  ],
+  "source_hashes_match_before_after": true,
+  "other_dependency_pins_unchanged": true,
+  "source_archive_sha256": "a0e2abc9e879742cbf281464c818383c8af9265bf0a717883d46f35ea3664f4b"
+}

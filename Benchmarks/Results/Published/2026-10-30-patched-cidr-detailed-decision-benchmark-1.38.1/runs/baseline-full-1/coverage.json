@@ -1,0 +1,12 @@
+{
+  "baseline_name": "patched-cidr-baseline-full-1",
+  "cases": 16,
+  "cases_below_30_samples": [],
+  "categories": {
+    "decision": 16
+  },
+  "metric_records": 144,
+  "metrics_expected_per_case": 9,
+  "minimum_samples": 64,
+  "unrecorded_metrics": {}
+}

@@ -1,0 +1,16 @@
+{
+  "admission": {
+    "root": "REDACTED_HOME/Developer/Route Objects/swift-cidr-admission",
+    "head": "5d01867915f257d9d2086a510efe1c20f697b69a",
+    "branch": "chore/benchmark-sampling-validation",
+    "status": "## chore/benchmark-sampling-validation\n M Benchmarks/CIDRAdmissionBenchmarkTarget/CIDRAdmissionBenchmarkTarget.swift\n?? Benchmarks/CIDRAdmissionBenchmarkTarget/DecisionTimingBenchmarks.swift\n?? Benchmarks/Results/2026-10-30-main-5d01867-benchmark-1.38.1/\n?? Benchmarks/Results/2026-10-30-sampling-followup-benchmark-1.38.1/\n?? Benchmarks/Results/README.md\n?? Benchmarks/Sampling.md\n",
+    "index_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "cidr": {
+    "root": "REDACTED_HOME/Developer/Route Objects/Example Framework/Packages/swift-cidr",
+    "head": "cdc2e592beb9095875bc42fc4c269396b20d99e3",
+    "branch": "perf/typed-prefix-containment",
+    "status": "## perf/typed-prefix-containment\n M Sources/CIDR/CIDR.swift\n M Sources/CIDR/FixedWidthInteger+NetworkMask.swift\n M Sources/CIDR/IPPrefix.swift\n?? Benchmarks/ContainmentClient/\n?? Documentation/Performance/\n?? Tests/CIDRTests/ContainmentSpecializationTests.swift\n",
+    "index_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

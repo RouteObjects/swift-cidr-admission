@@ -1,0 +1,12 @@
+{
+  "command": [
+    "swift",
+    "test",
+    "-c",
+    "debug"
+  ],
+  "cwd": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793413825.488147,
+  "elapsed_seconds": 20.620509147644043
+}

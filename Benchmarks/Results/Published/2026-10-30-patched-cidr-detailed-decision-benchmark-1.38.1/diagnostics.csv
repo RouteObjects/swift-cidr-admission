@@ -1,0 +1,9 @@
+family,method,rules_per_list,batch_size,full_p50_ns_per_operation,full_p99_ns_per_operation,full_minimum_metric_samples,full_throughput_p50_operations_per_second,timing_p50_ns_per_operation,timing_p99_ns_per_operation,timing_minimum_metric_samples,timing_throughput_p50_operations_per_second
+v4,projectPerRule,10000,1,96895,132863,10000,10327,96703,121599,10000,10351
+v4,projectOnce,10000,1,25887,28047,10000,38655,25887,33471,10000,38655
+v4,addressBits,10000,1,21887,26431,10000,45727,21887,25887,10000,45727
+v4,erasedHost,10000,1,51519,68799,10000,19423,51487,66111,10000,19439
+v6,projectPerRule,10000,1,103359,131711,10000,9679,103295,132863,10000,9687
+v6,projectOnce,10000,1,38815,53343,10000,25791,38719,47647,10000,25839
+v6,addressBits,10000,1,34015,39519,10000,29423,34143,46015,10000,29311
+v6,erasedHost,10000,1,51647,68799,10000,19375,51519,65279,10000,19423

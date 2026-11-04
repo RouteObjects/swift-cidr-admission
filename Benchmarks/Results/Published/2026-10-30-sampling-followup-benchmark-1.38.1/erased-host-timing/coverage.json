@@ -1,0 +1,49 @@
+{
+  "baseline_name": "sampling-erased-host-timing-20261030T182858Z",
+  "cases": 4,
+  "cases_below_30_samples": [],
+  "categories": {
+    "decision": 4
+  },
+  "metric_records": 8,
+  "metrics_expected_per_case": 2,
+  "minimum_samples": 2706,
+  "unrecorded_metrics": {
+    "diagnostic.decision.v4.erasedHost.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v4.projectPerRule.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v6.erasedHost.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ],
+    "diagnostic.decision.v6.projectPerRule.10000": [
+      "mallocCountLarge",
+      "mallocCountSmall",
+      "mallocCountTotal",
+      "objectAllocCount",
+      "releaseCount",
+      "retainCount",
+      "retainReleaseDelta"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/private/tmp/admission-peer-projection.3SFHIj/patched/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/BenchmarkTool",
+    "--command",
+    "list",
+    "--format",
+    "text",
+    "--grouping",
+    "benchmark",
+    "--baseline-storage-path",
+    "/private/tmp/admission-two-phase.JAcuk2",
+    "--targets",
+    "CIDRAdmissionBenchmarkTarget",
+    "--benchmark-executable-paths",
+    "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission/Benchmarks/.build/arm64-apple-macosx/release/CIDRAdmissionBenchmarkTarget"
+  ],
+  "cwd": "/private/tmp/admission-two-phase.JAcuk2/phased/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793413889.0362701,
+  "elapsed_seconds": 0.5718247890472412
+}

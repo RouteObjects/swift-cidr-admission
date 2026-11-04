@@ -1,0 +1,12 @@
+{
+  "command": [
+    "swift",
+    "test",
+    "-c",
+    "debug"
+  ],
+  "cwd": "/private/tmp/admission-patched-cidr.2924yd/patched/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793396074.8944309,
+  "elapsed_seconds": 19.535877227783203
+}

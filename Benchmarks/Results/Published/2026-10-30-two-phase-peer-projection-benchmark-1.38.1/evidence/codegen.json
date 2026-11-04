@@ -1,0 +1,67 @@
+{
+  "baseline": {
+    "decision-1": {
+      "call_relocations": [
+        "_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF",
+        "_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF"
+      ],
+      "static_call_sites": 2
+    }
+  },
+  "eager": {
+    "decision-1": {
+      "call_relocations": [
+        "_$s4CIDR2AFO2V4OAeA15IPAddressFamilyAAWl",
+        "_$s4CIDR12PrefixLengthV7maximumACyxGvgZ",
+        "_$s4CIDR2AFO2V6OAeA15IPAddressFamilyAAWl",
+        "_$s4CIDR12PrefixLengthV7maximumACyxGvgZ",
+        "_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF",
+        "_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF"
+      ],
+      "static_call_sites": 6
+    }
+  },
+  "deferred": {
+    "decision-1": {
+      "call_relocations": [
+        "_$s4CIDR2AFO2V6OAeA15IPAddressFamilyAAWl",
+        "_$s4CIDR12PrefixLengthV7maximumACyxGvgZ",
+        "_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF",
+        "_$s4CIDR2AFO2V4OAeA15IPAddressFamilyAAWl",
+        "_$s4CIDR12PrefixLengthV7maximumACyxGvgZ",
+        "_$s4CIDR2AFO2V6OAeA15IPAddressFamilyAAWl",
+        "_$s4CIDR12PrefixLengthV7maximumACyxGvgZ",
+        "_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF",
+        "_$s4CIDR2AFO2V4OAeA15IPAddressFamilyAAWl",
+        "_$s4CIDR12PrefixLengthV7maximumACyxGvgZ"
+      ],
+      "static_call_sites": 10
+    }
+  },
+  "phased": {
+    "decision-1": {
+      "call_relocations": [
+        "_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF",
+        "_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF",
+        "_$s4CIDR2AFO2V6OAeA15IPAddressFamilyAAWl",
+        "_$s4CIDR12PrefixLengthV7maximumACyxGvgZ",
+        "_$s4CIDR2AFO2V4OAeA15IPAddressFamilyAAWl",
+        "_$s4CIDR12PrefixLengthV7maximumACyxGvgZ",
+        "_$s13CIDRAdmission17IPAdmissionPolicyV12DecisionPeer33_8ECBE0C1010849D501D8FF4E8B6E7177LLV10firstMatch2in10startingAtAA13AdmissionRuleOSgSayAKG_SitF",
+        "_$s13CIDRAdmission17IPAdmissionPolicyV12DecisionPeer33_8ECBE0C1010849D501D8FF4E8B6E7177LLV10firstMatch2in10startingAtAA13AdmissionRuleOSgSayAKG_SitF",
+        "_$s4CIDR2AFO2V6OAeA15IPAddressFamilyAAWl",
+        "_$s4CIDR12PrefixLengthV7maximumACyxGvgZ",
+        "_$s4CIDR2AFO2V4OAeA15IPAddressFamilyAAWl",
+        "_$s4CIDR12PrefixLengthV7maximumACyxGvgZ",
+        "_$s13CIDRAdmission17IPAdmissionPolicyV12DecisionPeer33_8ECBE0C1010849D501D8FF4E8B6E7177LLV10firstMatch2in10startingAtAA13AdmissionRuleOSgSayAKG_SitF"
+      ],
+      "static_call_sites": 13
+    },
+    "projected-peer-2": {
+      "call_relocations": [
+        "_$s13CIDRAdmission13AdmissionRuleO8containsySb4CIDR12AnyIPAddressOF"
+      ],
+      "static_call_sites": 1
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "6.2.4": [
+    {
+      "function": "0000000000000e20 <$s13CIDRAdmission17IPAdmissionPolicyV12DecisionPeer33_8ECBE0C1010849D501D8FF4E8B6E7177LLV10firstMatch2in10startingAtAA13AdmissionRuleOSgSayAKG_SitF>:",
+      "static_call_instructions": []
+    },
+    {
+      "function": "0000000000000000 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF>:",
+      "static_call_instructions": [
+        "     309:      \tcallq\t0x30e <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x30e>",
+        "     33a:      \tcallq\t0x33f <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x33f>",
+        "     3c9:      \tcallq\t0x3ce <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3ce>"
+      ]
+    }
+  ],
+  "6.3.3": [
+    {
+      "function": "0000000000000d00 <$s13CIDRAdmission17IPAdmissionPolicyV12DecisionPeer33_8ECBE0C1010849D501D8FF4E8B6E7177LLV10firstMatch2in10startingAtAA13AdmissionRuleOSgSayAKG_SitF>:",
+      "static_call_instructions": []
+    },
+    {
+      "function": "0000000000000000 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF>:",
+      "static_call_instructions": [
+        "     333:      \tcallq\t0x338 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x338>",
+        "     358:      \tcallq\t0x35d <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x35d>",
+        "     3eb:      \tcallq\t0x3f0 <$s13CIDRAdmission17IPAdmissionPolicyV8decision3forAA17AdmissionDecisionO4CIDR12AnyIPAddressO_tF+0x3f0>"
+      ]
+    }
+  ]
+}

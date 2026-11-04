@@ -1,0 +1,14 @@
+{
+  "baseline_name": "two-phase-peer-projection-deferred-full-1",
+  "cases": 32,
+  "cases_below_30_samples": [],
+  "categories": {
+    "decision": 16,
+    "v4": 8,
+    "v6": 8
+  },
+  "metric_records": 288,
+  "metrics_expected_per_case": 9,
+  "minimum_samples": 3975,
+  "unrecorded_metrics": {}
+}

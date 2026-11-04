@@ -1,0 +1,16 @@
+{
+  "command": [
+    "swift",
+    "test",
+    "-j",
+    "4",
+    "-c",
+    "release",
+    "--package-path",
+    "/tmp/admission-peer-projection.7PIArV/6.3.3/swift-cidr-admission"
+  ],
+  "exit": 0,
+  "started_unix": 1793399761.0910828,
+  "elapsed_seconds": 204.25620698928833,
+  "path": "REDACTED_HOME/.local/share/swiftly/toolchains/6.3.3/usr/bin:/usr/bin:/bin"
+}

@@ -1,0 +1,12 @@
+{
+  "status": "blocked_before_remote_upload",
+  "host": "linux-validation-host",
+  "attempts": 2,
+  "ssh_exit_code": 255,
+  "diagnostic": "sign_and_send_pubkey: signing failed for ED25519 REDACTED_HOME/.ssh/linux97-codex.pub from agent: communication with agent failed; Permission denied (publickey,password).",
+  "attempted_variant": "lazy property pilot",
+  "remote_tests_run": false,
+  "remote_source_uploaded": false,
+  "final_deferred_candidate_linux_tests_run": false,
+  "note": "Earlier eager-candidate Linux results do not validate the new lazy implementations."
+}

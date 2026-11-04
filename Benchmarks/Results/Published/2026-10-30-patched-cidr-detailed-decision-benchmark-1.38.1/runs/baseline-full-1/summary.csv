@@ -1,0 +1,17 @@
+benchmark,batch_size,wall_sample_unit,wall_samples,throughput_samples,minimum_metric_samples,metrics_recorded,low_sample_count,wall_p50_sample_mean_ns_per_operation,wall_p99_sample_mean_ns_per_operation,throughput_p50_operations_per_second,malloc_small_p50_per_operation,malloc_large_p50_per_operation,malloc_total_p50_per_operation,object_allocations_p50_per_operation,retains_p50_per_operation,releases_p50_per_operation,retain_release_delta_p50_per_operation
+policy.decision.v4.combined.denyMissAllowLast.1,1000,batch_mean,6133,6133,6133,9,False,306.943,495.359,3261000,0,0,0,0,0,0,0
+policy.decision.v4.combined.denyMissAllowLast.10,1000,batch_mean,632,632,632,9,False,3098.623,4390.911,323000,0,0,0,0,0,0,0
+policy.decision.v4.combined.denyMissAllowLast.100,1000,batch_mean,65,65,65,9,False,30949.375,34492.625,32000,0,0,0,0,0,0,0
+policy.decision.v4.combined.denyMissAllowLast.1000,1,single_operation,6394,6394,6394,9,False,303103,413183,3303,0,0,0,0,0,0,0
+policy.decision.v4.combined.denyMissAllowLast.10000,1,single_operation,639,639,639,9,False,3088383,4122623,324,0,0,0,0,0,0,0
+policy.decision.v4.combined.denyMissAllowLast.250,1,single_operation,10000,10000,10000,9,False,76543,129727,13071,0,0,0,0,0,0,0
+policy.decision.v4.combined.denyMissAllowLast.50,1000,batch_mean,129,129,129,9,False,15417.343,16990.207,65000,0,0,0,0,0,0,0
+policy.decision.v4.combined.denyMissAllowLast.500,1,single_operation,10000,10000,10000,9,False,151295,259071,6615,0,0,0,0,0,0,0
+policy.decision.v6.combined.denyMissAllowLast.1,1000,batch_mean,6137,6137,6137,9,False,315.135,438.783,3173000,0,0,0,0,0,0,0
+policy.decision.v6.combined.denyMissAllowLast.10,1000,batch_mean,635,635,635,9,False,3119.103,3717.119,321000,0,0,0,0,0,0,0
+policy.decision.v6.combined.denyMissAllowLast.100,1000,batch_mean,64,64,64,9,False,31342.591,36613.959,32000,0,0,0,0,0,0,0
+policy.decision.v6.combined.denyMissAllowLast.1000,1,single_operation,6344,6344,6344,9,False,305919,417535,3269,0,0,0,0,0,0,0
+policy.decision.v6.combined.denyMissAllowLast.10000,1,single_operation,618,618,618,9,False,3129343,4767743,320,0,0,0,0,0,0,0
+policy.decision.v6.combined.denyMissAllowLast.250,1,single_operation,10000,10000,10000,9,False,76479,132991,13087,0,0,0,0,0,0,0
+policy.decision.v6.combined.denyMissAllowLast.50,1000,batch_mean,125,125,125,9,False,15556.607,29163.519,64000,0,0,0,0,0,0,0
+policy.decision.v6.combined.denyMissAllowLast.500,1,single_operation,10000,10000,10000,9,False,152959,243839,6543,0,0,0,0,0,0,0

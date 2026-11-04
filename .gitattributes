@@ -1,0 +1,2 @@
+# Archived patch context has meaningful whitespace; preserve the checksummed evidence.
+Benchmarks/Results/Published/**/*.patch -whitespace

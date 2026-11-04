@@ -1,0 +1,17 @@
+{
+  "command": [
+    "swift",
+    "build",
+    "-v",
+    "-c",
+    "release",
+    "--package-path",
+    "Benchmarks",
+    "--product",
+    "CIDRAdmissionBenchmarkTarget"
+  ],
+  "cwd": "/private/tmp/admission-peer-projection.3SFHIj/baseline/swift-cidr-admission",
+  "exit": 0,
+  "started_unix": 1793399061.049372,
+  "elapsed_seconds": 53.53599405288696
+}

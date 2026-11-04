@@ -1,0 +1,14 @@
+[
+  {
+    "swift": "6.2.4",
+    "function": "IPAdmissionPolicy.decision(for:)",
+    "call_instructions": 0,
+    "candidate_only": true
+  },
+  {
+    "swift": "6.3.3",
+    "function": "IPAdmissionPolicy.decision(for:)",
+    "call_instructions": 0,
+    "candidate_only": true
+  }
+]

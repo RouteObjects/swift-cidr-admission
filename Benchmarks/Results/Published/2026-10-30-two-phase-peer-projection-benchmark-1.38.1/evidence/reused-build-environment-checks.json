@@ -1,0 +1,23 @@
+{
+  "baseline": {
+    "swift_version": true,
+    "xcode": true,
+    "developer_directory": true,
+    "macos": true,
+    "hardware": true
+  },
+  "eager": {
+    "swift_version": true,
+    "xcode": true,
+    "developer_directory": true,
+    "macos": true,
+    "hardware": true
+  },
+  "deferred": {
+    "swift_version": true,
+    "xcode": true,
+    "developer_directory": true,
+    "macos": true,
+    "hardware": true
+  }
+}

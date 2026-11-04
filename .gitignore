@@ -1,3 +1,11 @@
 .build/
 .swiftpm/
 .DS_Store
+
+# Preserve private original captures locally; publish sanitized derivatives only.
+/Benchmarks/Results/2026-10-30-main-5d01867-benchmark-1.38.1/
+/Benchmarks/Results/2026-10-30-sampling-followup-benchmark-1.38.1/
+/Benchmarks/Results/2026-10-30-patched-cidr-detailed-decision-benchmark-1.38.1/
+/Benchmarks/Results/2026-10-30-peer-projection-benchmark-1.38.1/
+/Benchmarks/Results/2026-10-30-lazy-peer-projection-benchmark-1.38.1/
+/Benchmarks/Results/2026-10-30-two-phase-peer-projection-benchmark-1.38.1/

@@ -1,0 +1,34 @@
+{
+  "baseline_name": "snapshot-main-5d01867-benchmark-1.38.1-20261030T153743Z",
+  "cases": 174,
+  "cases_below_30_samples": [
+    "policy.compile.v4.allowOnly.250",
+    "policy.compile.v4.allowOnly.500",
+    "policy.compile.v4.combined.100",
+    "policy.compile.v4.combined.250",
+    "policy.compile.v4.combined.500",
+    "policy.compile.v6.allowOnly.250",
+    "policy.compile.v6.allowOnly.500",
+    "policy.compile.v6.combined.100",
+    "policy.compile.v6.combined.250",
+    "policy.compile.v6.combined.500",
+    "policy.decision.v4.combined.denyMissAllowLast.1000",
+    "policy.decision.v4.combined.denyMissAllowLast.250",
+    "policy.decision.v4.combined.denyMissAllowLast.500",
+    "policy.decision.v6.combined.denyMissAllowLast.1000",
+    "policy.decision.v6.combined.denyMissAllowLast.250",
+    "policy.decision.v6.combined.denyMissAllowLast.500",
+    "policy.load.v6.ranges.required.10000",
+    "policy.load.v6.ranges.verifyIfPresent.10000"
+  ],
+  "categories": {
+    "compile": 36,
+    "decision": 16,
+    "load": 24,
+    "lookup": 98
+  },
+  "metric_records": 1566,
+  "metrics_expected_per_case": 9,
+  "minimum_samples": 4,
+  "missing_metrics": {}
+}
