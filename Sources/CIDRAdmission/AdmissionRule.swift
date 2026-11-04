@@ -67,7 +67,7 @@ public enum AdmissionRule: Sendable, Hashable, LosslessStringConvertible {
         case (.address, _):
             return false
         case (.network(.v4(let network)), .v4(let candidate)):
-            // CHANGE: Admission checks one peer, not its possibly broader prefix context.
+            // Admission checks one peer, not its possibly broader prefix context.
             return network.contains(address: IPv4Address(address: candidate.address))
         case (.network(.v6(let network)), .v6(let candidate)):
             return network.contains(address: IPv6Address(address: candidate.address))

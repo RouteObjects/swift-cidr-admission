@@ -25,7 +25,7 @@ let package = Package(
         .library(name: "CIDRAdmission", targets: ["CIDRAdmission"])
     ],
     dependencies: [
-        // CHANGE: Require CIDR's typed-containment fix; CIDR 0.8 and Crypto 5 need Swift 6.2.
+        // Require CIDR's typed-containment fix; CIDR 0.8 and Crypto 5 need Swift 6.2.
         .package(
             url: "https://github.com/RouteObjects/swift-cidr.git",
             .upToNextMinor(from: "0.8.1")
