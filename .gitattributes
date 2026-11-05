@@ -1,2 +1,5 @@
 # Archived patch context has meaningful whitespace; preserve the checksummed evidence.
 Benchmarks/Results/Published/**/*.patch -whitespace
+
+# Benchmark evidence is documentation, not package implementation.
+Benchmarks/Results/** linguist-documentation
